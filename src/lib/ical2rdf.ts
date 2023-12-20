@@ -2,7 +2,13 @@ import * as RDF from 'rdflib';
 
 const ical = RDF.Namespace('http://www.w3.org/2002/12/cal/ical#');
 const XSD = RDF.Namespace('http://www.w3.org/2001/XMLSchema#');
-
+const parseKeys = {
+  location: { key: 'LOCATION', uri: ical('location') },
+  summary: { key: 'SUMMARY', uri: ical('summary') },
+  status: { key: 'STATUS', uri: ical('status') },
+  description: { key: 'DESCRIPTION', uri: ical('description') },
+  lastModified: { key: 'LAST-MODIFIED', uri: ical('lastModified') }
+};
 class IcalConverter {
   private static rdfGraph: RDF.Store | null = null;
 
@@ -15,16 +21,21 @@ class IcalConverter {
   }
 
   private static parseICalDateTime(value: string): string {
-    if (value.includes('T'))
-      return value.replace(
-        /(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})Z/,
+    let res = '';
+    if (value.includes('T')) {
+      res = value.replace(
+        /(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2,3})Z/,
         '$1-$2-$3T$4:$5:$6Z'
       );
+    } else {
+      res = value.replace(/(\d{4})(\d{2})(\d{2})/, '$1-$2-$3');
+    }
 
-    return value.replace(
-      /(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})Z/,
-      '$1-$2-$3T$4:$5:$6Z'
-    );
+    const dateTest = new Date(res);
+    if (dateTest instanceof Date && !isNaN(dateTest.valueOf())) {
+      return res;
+    }
+    throw Error(`Failed to parse value '${value}'`);
   }
 
   private static isDatetimeKey(key: string): boolean {
@@ -63,33 +74,31 @@ class IcalConverter {
             }
           } catch (error) {
             console.error(`Failed to parse ${key} value '${value}': ${error}`);
+            this.rdfGraph.add(
+              eventUri,
+              ical(key.toLowerCase()),
+              RDF.literal('')
+            );
           }
-        } else if (upperKey === 'LAST-MODIFIED') {
+        } else if (upperKey === parseKeys.lastModified.key) {
           this.rdfGraph.add(
             eventUri,
-            ical('lastModified'),
+            parseKeys.lastModified.uri,
             RDF.literal(IcalConverter.parseICalDateTime(value), XSD('dateTime'))
           );
-        } else if (upperKey === 'DESCRIPTION') {
-          const encodedDescription = escape(value);
-          this.rdfGraph.add(
-            eventUri,
-            ical('description'),
-            RDF.literal(encodedDescription)
-          );
-        } else if (upperKey === 'LOCATION') {
-          this.rdfGraph.add(eventUri, ical('location'), RDF.literal(value));
-        } else if (upperKey === 'SUMMARY') {
-          this.rdfGraph.add(eventUri, ical('summary'), RDF.literal(value));
-        } else if (upperKey === 'STATUS') {
-          this.rdfGraph.add(eventUri, ical('status'), RDF.literal(value));
+        } else {
+          Object.entries(parseKeys).forEach(([_, el]) => {
+            if (upperKey === el.key) {
+              this.rdfGraph?.add(eventUri, el.uri, RDF.literal(value));
+            }
+          });
         }
       }
     }
   }
 
   private static convertToRdf(icalData: string): void {
-    const lines = icalData.split('\n');
+    const lines = icalData.split(/\n/);
     let currentEvent: Record<string, string> | null = null;
     let inValarm = false;
     let isMultiline = false;
@@ -124,10 +133,9 @@ class IcalConverter {
       } else if (line.startsWith('END:VEVENT')) {
         if (currentEvent) {
           this.addEventToGraph(currentEvent);
-
           currentEvent = null;
         }
-      } else if (currentEvent !== null && line.includes(':')) {
+      } else if (currentEvent && line.includes(':')) {
         const [key, value] = line.split(':', 2);
         currentEvent[key] = value?.trim() ?? '';
         prevKey = key;
@@ -151,11 +159,12 @@ class IcalConverter {
     let res = '?';
     if (this.rdfGraph) {
       IcalConverter.convertToRdf(icalData);
-
-      res = RDF.serialize(null, this.rdfGraph, undefined, format) || '';
+      res = RDF.serialize(null, this.rdfGraph, null, format) || '';
     }
 
-    return res;
+    return res.replace(/\\u([\d\w]{4})/gi, (_, grp) =>
+      String.fromCharCode(parseInt(grp, 16))
+    );
   }
 }
 
