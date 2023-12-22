@@ -1,13 +1,15 @@
 import * as RDF from 'rdflib';
+import { ContentType } from 'rdflib/lib/types';
+import { ConvertError } from './error';
+import { ical, XSD } from './namespace.const';
 
-const ical = RDF.Namespace('http://www.w3.org/2002/12/cal/ical#');
-const XSD = RDF.Namespace('http://www.w3.org/2001/XMLSchema#');
+
 const parseKeys = {
-  location: { key: 'LOCATION', uri: ical('location') },
-  summary: { key: 'SUMMARY', uri: ical('summary') },
-  status: { key: 'STATUS', uri: ical('status') },
-  description: { key: 'DESCRIPTION', uri: ical('description') },
-  lastModified: { key: 'LAST-MODIFIED', uri: ical('lastModified') }
+  location: { key: 'LOCATION', uri: ical.ns('location') },
+  summary: { key: 'SUMMARY', uri: ical.ns('summary') },
+  status: { key: 'STATUS', uri: ical.ns('status') },
+  description: { key: 'DESCRIPTION', uri: ical.ns('description') },
+  lastModified: { key: 'LAST-MODIFIED', uri: ical.ns('lastModified') }
 };
 class IcalConverter {
   private static rdfGraph: RDF.Store | null = null;
@@ -17,16 +19,14 @@ class IcalConverter {
    */
   private static init(): void {
     this.rdfGraph = new RDF.IndexedFormula();
-    this.rdfGraph.setPrefixForURI('ical', ical.toString());
+    ical.setPrefix(this.rdfGraph);
+    XSD.setPrefix(this.rdfGraph);
   }
 
   private static parseICalDateTime(value: string): string {
     let res = '';
     if (value.includes('T')) {
-      res = value.replace(
-        /(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2,3})Z/,
-        '$1-$2-$3T$4:$5:$6Z'
-      );
+      res = value.replace(/(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2,3})Z/, '$1-$2-$3T$4:$5:$6Z');
     } else {
       res = value.replace(/(\d{4})(\d{2})(\d{2})/, '$1-$2-$3');
     }
@@ -56,35 +56,23 @@ class IcalConverter {
             this.rdfGraph.add(
               eventUri,
               RDF.namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
-              ical('Event')
+              ical.ns('Event')
             );
 
             if (upperKey.includes('DATE')) {
-              this.rdfGraph.add(
-                eventUri,
-                ical(key.toLowerCase()),
-                RDF.literal(dtParsed, XSD('date'))
-              );
+              this.rdfGraph.add(eventUri, ical.ns(key.toLowerCase()), RDF.literal(dtParsed, XSD.ns('date')));
             } else {
-              this.rdfGraph.add(
-                eventUri,
-                ical(key.toLowerCase()),
-                RDF.literal(dtParsed, XSD('dateTime'))
-              );
+              this.rdfGraph.add(eventUri, ical.ns(key.toLowerCase()), RDF.literal(dtParsed, XSD.ns('dateTime')));
             }
           } catch (error) {
             console.error(`Failed to parse ${key} value '${value}': ${error}`);
-            this.rdfGraph.add(
-              eventUri,
-              ical(key.toLowerCase()),
-              RDF.literal('')
-            );
+            this.rdfGraph.add(eventUri, ical.ns(key.toLowerCase()), RDF.literal(''));
           }
         } else if (upperKey === parseKeys.lastModified.key) {
           this.rdfGraph.add(
             eventUri,
             parseKeys.lastModified.uri,
-            RDF.literal(IcalConverter.parseICalDateTime(value), XSD('dateTime'))
+            RDF.literal(IcalConverter.parseICalDateTime(value), XSD.ns('dateTime'))
           );
         } else {
           Object.entries(parseKeys).forEach(([_, el]) => {
@@ -113,7 +101,7 @@ class IcalConverter {
       }
 
       if (isMultiline && currentEvent !== null) {
-        currentEvent[prevKey] += '\n' + (line?.trim() ?? '');
+        currentEvent[prevKey] += '\n' + line?.trim();
         continue;
       }
 
@@ -137,7 +125,7 @@ class IcalConverter {
         }
       } else if (currentEvent && line.includes(':')) {
         const [key, value] = line.split(':', 2);
-        currentEvent[key] = value?.trim() ?? '';
+        currentEvent[key] = value.trim();
         prevKey = key;
       }
     }
@@ -148,23 +136,24 @@ class IcalConverter {
    * convert ical data to RDF
    *
    * @param icalData - icalData string.
-   * @param format - return format. default 'text/turtle'
+   * @param format - return format. default 'application/ld+json'
    * @returns rdf string
    *
    */
-  static convert(icalData: string, format = 'text/turtle'): string {
-    if (this.rdfGraph === null) {
-      IcalConverter.init();
-    }
-    let res = '?';
-    if (this.rdfGraph) {
-      IcalConverter.convertToRdf(icalData);
-      res = RDF.serialize(null, this.rdfGraph, null, format) || '';
-    }
+  static async convert(icalData: string, format: ContentType = 'application/ld+json'): Promise<string> {
+    if (icalData) {
+      this.init();
+      let res: string | undefined = '?';
+      if (this.rdfGraph) {
+        this.convertToRdf(icalData);
+        res = RDF.serialize(null, this.rdfGraph, null, format);
+      }
 
-    return res.replace(/\\u([\d\w]{4})/gi, (_, grp) =>
-      String.fromCharCode(parseInt(grp, 16))
-    );
+      if (res) {
+        return res?.replace(/\\u([\d\w]{4})/gi, (_, grp) => String.fromCharCode(parseInt(grp, 16)));
+      }
+    }
+    throw new ConvertError();
   }
 }
 
