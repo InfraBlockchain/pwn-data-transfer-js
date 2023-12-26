@@ -1,18 +1,20 @@
 import * as RDF from 'rdflib';
 import { JSDOM } from 'jsdom';
 import { ContentType } from 'rdflib/lib/types';
-import { ConvertError } from './error';
-import { schema, wd, XSD } from './namespace.const';
+import { ConvertError } from '../error';
+import { schema, wd, xsd, rdf, getUrn } from '../namespace.const';
 
 
-class YoutubeWatchHistoryConverter {
+class YoutubeWatchConverter {
   private static rdfGraph: RDF.Store | null = null;
 
   private static init(): void {
     this.rdfGraph = new RDF.IndexedFormula();
     wd.setPrefix(this.rdfGraph);
     schema.setPrefix(this.rdfGraph);
-    XSD.setPrefix(this.rdfGraph);
+    xsd.setPrefix(this.rdfGraph);
+    rdf.setPrefix(this.rdfGraph);
+
   }
 
   private static cleanUpText(text?: string | null): string {
@@ -55,11 +57,11 @@ class YoutubeWatchHistoryConverter {
     return null;
   }
 
-  private static addElementToGraph(outerCell: Element, index: number): void {
-    if (this.rdfGraph) {
-      const eventUri = RDF.namedNode(`urn:newnal.com:event:videowatch-${index + 1}`);
+  private static addElementToGraph(outerCell: Element): void {
 
-      this.rdfGraph.add(eventUri, RDF.namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'), wd.ns('Q63412991'));
+    if (this.rdfGraph) {
+      const eventUri = getUrn('google', 'youtube:watch');
+      this.rdfGraph.add(eventUri, rdf.ns('type'), wd.ns('Q63412991'));
 
       const videoLink = outerCell.querySelector('a[href^="https://www.youtube.com/watch"]');
       const channelLink = outerCell.querySelector('a[href^="https://www.youtube.com/channel"]');
@@ -81,14 +83,14 @@ class YoutubeWatchHistoryConverter {
 
       if (dateElement) {
         const date = this.formatDateToRDF(dateElement.trim());
-        this.rdfGraph.add(eventUri, schema.ns('endTime'), RDF.literal(date, XSD.ns('dateTime')));
+        this.rdfGraph.add(eventUri, schema.ns('endTime'), RDF.literal(date, xsd.ns('dateTime')));
       }
     }
   }
 
   private static convertToRdf(htmlData: string): void {
-    new JSDOM(htmlData).window.document.querySelectorAll('.outer-cell').forEach((outerCell, index) => {
-      this.addElementToGraph(outerCell, index);
+    new JSDOM(htmlData).window.document.querySelectorAll('.outer-cell').forEach((outerCell) => {
+      this.addElementToGraph(outerCell);
     });
   }
 
@@ -118,4 +120,4 @@ class YoutubeWatchHistoryConverter {
   }
 }
 
-export default YoutubeWatchHistoryConverter;
+export default YoutubeWatchConverter;

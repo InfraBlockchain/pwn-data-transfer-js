@@ -1,7 +1,7 @@
 import * as RDF from 'rdflib';
 import { ContentType } from 'rdflib/lib/types';
-import { ConvertError } from './error';
-import { ical, XSD } from './namespace.const';
+import { ConvertError } from '../error';
+import { ical, xsd, rdf, getUrn } from '../namespace.const';
 
 
 const parseKeys = {
@@ -20,7 +20,9 @@ class IcalConverter {
   private static init(): void {
     this.rdfGraph = new RDF.IndexedFormula();
     ical.setPrefix(this.rdfGraph);
-    XSD.setPrefix(this.rdfGraph);
+    xsd.setPrefix(this.rdfGraph);
+    rdf.setPrefix(this.rdfGraph);
+
   }
 
   private static parseICalDateTime(value: string): string {
@@ -46,23 +48,21 @@ class IcalConverter {
     if (this.rdfGraph) {
       for (const [key, value] of Object.entries(event)) {
         const upperKey = key.toUpperCase();
-        const eventUri = RDF.namedNode(
-          `urn:event:${event['UID']}#status=${event['STATUS']}&sequence=${event['SEQUENCE']}`
-        );
+        const eventUri = getUrn('google', 'calendar');
         if (this.isDatetimeKey(upperKey)) {
           try {
             const dtParsed = IcalConverter.parseICalDateTime(value);
 
             this.rdfGraph.add(
               eventUri,
-              RDF.namedNode('http://www.w3.org/1999/02/22-rdf-syntax-ns#type'),
+              rdf.ns('type'),
               ical.ns('Event')
             );
 
             if (upperKey.includes('DATE')) {
-              this.rdfGraph.add(eventUri, ical.ns(key.toLowerCase()), RDF.literal(dtParsed, XSD.ns('date')));
+              this.rdfGraph.add(eventUri, ical.ns(key.toLowerCase()), RDF.literal(dtParsed, xsd.ns('date')));
             } else {
-              this.rdfGraph.add(eventUri, ical.ns(key.toLowerCase()), RDF.literal(dtParsed, XSD.ns('dateTime')));
+              this.rdfGraph.add(eventUri, ical.ns(key.toLowerCase()), RDF.literal(dtParsed, xsd.ns('dateTime')));
             }
           } catch (error) {
             console.error(`Failed to parse ${key} value '${value}': ${error}`);
@@ -72,7 +72,7 @@ class IcalConverter {
           this.rdfGraph.add(
             eventUri,
             parseKeys.lastModified.uri,
-            RDF.literal(IcalConverter.parseICalDateTime(value), XSD.ns('dateTime'))
+            RDF.literal(IcalConverter.parseICalDateTime(value), xsd.ns('dateTime'))
           );
         } else {
           Object.entries(parseKeys).forEach(([_, el]) => {

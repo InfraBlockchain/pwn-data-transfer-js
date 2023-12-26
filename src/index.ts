@@ -1,5 +1,5 @@
-import IcalConverter from './lib/ical2rdf';
-import YoutubeWatchHistoryConverter from './lib/ytwatch2rdf';
+import IcalConverter from './lib/rdf_converter/ical2rdf';
+import YoutubeWatchConverter from './lib/rdf_converter/ytwatch2rdf';
 
 class PwnDataInput {
   test(): string {
@@ -12,7 +12,7 @@ class PwnDataInput {
     return await IcalConverter.convert(data);
   }
   static async convertYtWatched(data: string): Promise<string> {
-    return await YoutubeWatchHistoryConverter.convert(data);
+    return await YoutubeWatchConverter.convert(data);
   }
 }
 
