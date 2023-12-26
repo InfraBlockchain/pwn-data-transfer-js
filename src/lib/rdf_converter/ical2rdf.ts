@@ -1,7 +1,8 @@
 import * as RDF from 'rdflib';
 import { ContentType } from 'rdflib/lib/types';
 import { ConvertError } from '../error';
-import { ical, xsd, rdf, getUrn } from '../namespace.const';
+import { ical, xsd, rdf } from './namespace.const';
+import Util from '../util';
 
 
 const parseKeys = {
@@ -48,7 +49,7 @@ class IcalConverter {
     if (this.rdfGraph) {
       for (const [key, value] of Object.entries(event)) {
         const upperKey = key.toUpperCase();
-        const eventUri = getUrn('google', 'calendar');
+        const eventUri = Util.getUrn('google', 'calendar');
         if (this.isDatetimeKey(upperKey)) {
           try {
             const dtParsed = IcalConverter.parseICalDateTime(value);

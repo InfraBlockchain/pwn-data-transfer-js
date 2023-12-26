@@ -1,6 +1,5 @@
 import * as RDF from 'rdflib';
 import { NamedNode } from 'rdflib/lib/tf-types';
-import * as uuid from 'uuid';
 
 export interface NamespaceItem {
 
@@ -84,4 +83,3 @@ export const newnal: NamespaceItem = {
 };
 
 
-export const getUrn = (service: string, event: string): RDF.NamedNode => RDF.sym(`urn:newnal.com:${service.toLowerCase()}:${event.toLowerCase()}:${uuid.v4()}`);

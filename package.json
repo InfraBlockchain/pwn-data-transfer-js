@@ -72,6 +72,7 @@
     "csv-parser": "^3.0.0",
     "isodate": "^0.1.4",
     "jsdom": "^23.0.1",
+    "jsonld-signatures": "^11.2.1",
     "rdflib": "^2.2.33",
     "uuid": "^9.0.1"
   }

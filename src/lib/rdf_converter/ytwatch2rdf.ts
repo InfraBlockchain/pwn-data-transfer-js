@@ -2,7 +2,8 @@ import * as RDF from 'rdflib';
 import { JSDOM } from 'jsdom';
 import { ContentType } from 'rdflib/lib/types';
 import { ConvertError } from '../error';
-import { schema, wd, xsd, rdf, getUrn } from '../namespace.const';
+import { schema, wd, xsd, rdf } from './namespace.const';
+import Util from '../util';
 
 
 class YoutubeWatchConverter {
@@ -60,7 +61,7 @@ class YoutubeWatchConverter {
   private static addElementToGraph(outerCell: Element): void {
 
     if (this.rdfGraph) {
-      const eventUri = getUrn('google', 'youtube:watch');
+      const eventUri = Util.getUrn('google', 'youtube:watch');
       this.rdfGraph.add(eventUri, rdf.ns('type'), wd.ns('Q63412991'));
 
       const videoLink = outerCell.querySelector('a[href^="https://www.youtube.com/watch"]');

@@ -2,9 +2,10 @@ import * as RDF from 'rdflib';
 import csv from 'csv-parser';
 import { ContentType } from 'rdflib/lib/types';
 import { ConvertError } from '../error';
-import { schema, wd, xsd, newnal, rdf, getUrn } from '../namespace.const';
+import { schema, wd, xsd, newnal, rdf } from './namespace.const';
 
 import { Readable } from 'stream';
+import Util from '../util';
 
 
 class UberTripConverter {
@@ -22,7 +23,7 @@ class UberTripConverter {
   private static convertToRDF(csvData: any[]) {
     csvData.forEach((row) => {
       if (this.rdfGraph) {
-        const tripleId = getUrn('uber', 'trip');
+        const tripleId = Util.getUrn('uber', 'trip');
 
         const ns = newnal.ns;
         this.rdfGraph.add(tripleId, rdf.ns('type'), ns('Trip'));

@@ -14,6 +14,9 @@ dependencies:
   jsdom:
     specifier: ^23.0.1
     version: 23.0.1
+  jsonld-signatures:
+    specifier: ^11.2.1
+    version: 11.2.1
   rdflib:
     specifier: ^2.2.33
     version: 2.2.33(@typescript-eslint/parser@6.15.0)
@@ -1453,6 +1456,10 @@ packages:
       undici: 5.28.2
     transitivePeerDependencies:
       - web-streams-polyfill
+    dev: false
+
+  /@digitalbazaar/security-context@1.0.1:
+    resolution: {integrity: sha512-0WZa6tPiTZZF8leBtQgYAfXQePFQp2z5ivpCEN/iZguYYZ0TB9qRmWtan5XH6mNFuusHtMcyIzAcReyE6rZPhA==, tarball: https://registry.npmjs.org/@digitalbazaar/security-context/-/security-context-1.0.1.tgz}
     dev: false
 
   /@eslint-community/eslint-utils@4.4.0(eslint@8.56.0):
@@ -5116,6 +5123,17 @@ packages:
       graceful-fs: 4.2.11
     dev: true
 
+  /jsonld-signatures@11.2.1:
+    resolution: {integrity: sha512-RNaHTEeRrX0jWeidPCwxMq/E/Ze94zFyEZz/v267ObbCHQlXhPO7GtkY6N5PSHQfQhZPXa8NlMBg5LiDF4dNbA==, tarball: https://registry.npmjs.org/jsonld-signatures/-/jsonld-signatures-11.2.1.tgz}
+    engines: {node: '>=14'}
+    dependencies:
+      '@digitalbazaar/security-context': 1.0.1
+      jsonld: 8.3.2
+      serialize-error: 8.1.0
+    transitivePeerDependencies:
+      - web-streams-polyfill
+    dev: false
+
   /jsonld@8.3.2:
     resolution: {integrity: sha512-MwBbq95szLwt8eVQ1Bcfwmgju/Y5P2GdtlHE2ncyfuYjIdEhluUVyj1eudacf1mOkWIoS9GpDBTECqhmq7EOaA==, tarball: https://registry.npmjs.org/jsonld/-/jsonld-8.3.2.tgz}
     engines: {node: '>=14'}
@@ -6609,6 +6627,13 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: 6.0.0
+
+  /serialize-error@8.1.0:
+    resolution: {integrity: sha512-3NnuWfM6vBYoy5gZFvHiYsVbafvI9vZv/+jlIigFn4oP4zjNPK3LhcY0xSCgeb1a5L8jO71Mit9LlNoi2UfDDQ==, tarball: https://registry.npmjs.org/serialize-error/-/serialize-error-8.1.0.tgz}
+    engines: {node: '>=10'}
+    dependencies:
+      type-fest: 0.20.2
+    dev: false
 
   /serialize-javascript@4.0.0:
     resolution: {integrity: sha512-GaNA54380uFefWghODBWEGisLZFj00nS5ACs6yHa9nLqlLpVLO8ChDGeKRjZnV4Nh4n0Qi7nhYZD/9fCPzEqkw==, tarball: https://registry.npmjs.org/serialize-javascript/-/serialize-javascript-4.0.0.tgz}
