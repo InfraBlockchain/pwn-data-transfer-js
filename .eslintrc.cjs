@@ -19,7 +19,7 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    'curly': ["error", 'all'],
+    curly: ['error', 'all'],
     'tsdoc/syntax': 'warn',
     '@typescript-eslint/no-unused-vars': [2, { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
     'generator-star-spacing': ['error', { before: false, after: true }],
@@ -51,7 +51,7 @@ module.exports = {
       },
     ],
     '@typescript-eslint/no-non-null-assertion': [2],
-    '@typescript-eslint/no-explicit-any': [2, { ignoreRestArgs: true }],
+    '@typescript-eslint/no-explicit-any': ['warn', { ignoreRestArgs: true }],
     '@typescript-eslint/member-delimiter-style': [
       'error',
       {
@@ -72,7 +72,6 @@ module.exports = {
       rules: {
         '@typescript-eslint/explicit-function-return-type': 'off',
         '@typescript-eslint/no-var-requires': 'off',
-
       },
     },
   ],

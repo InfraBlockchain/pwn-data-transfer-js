@@ -4,10 +4,11 @@
   "editor.formatOnType": true,
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "editor.codeActionsOnSave": {
-    "source.fixAll": true
+    "source.fixAll": "explicit"
   },
   "prettier.printWidth": 120,
   "yaml.format.printWidth": 129,
   "prettier.enableDebugLogs": true,
-  "typescript.format.semicolons": "insert"
+  "typescript.format.semicolons": "insert",
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

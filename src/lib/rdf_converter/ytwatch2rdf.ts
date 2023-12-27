@@ -1,10 +1,9 @@
 import * as RDF from 'rdflib';
 import { JSDOM } from 'jsdom';
 import { ContentType } from 'rdflib/lib/types';
-import { ConvertError } from '../error';
+import { ConvertError } from './error';
 import { schema, wd, xsd, rdf } from './namespace.const';
-import Util from '../util';
-
+import Util from './util';
 
 class YoutubeWatchConverter {
   private static rdfGraph: RDF.Store | null = null;
@@ -15,15 +14,14 @@ class YoutubeWatchConverter {
     schema.setPrefix(this.rdfGraph);
     xsd.setPrefix(this.rdfGraph);
     rdf.setPrefix(this.rdfGraph);
-
   }
 
   private static cleanUpText(text?: string | null): string {
     if (!text) {
       return '';
     }
-    return text.replace(/[\n\r\s]+/g, ' ').trim();
 
+    return text.replace(/[\n\r\s]+/g, ' ').trim();
   }
 
   private static formatDateToRDF(dateString: string): string {
@@ -35,7 +33,7 @@ class YoutubeWatchConverter {
           : parseInt(time.split(':')[0], 10);
 
         return `${year}-${month}-${day} ${hours}:${time.split(':')[1]}:${time.split(':')[2]}`;
-      }
+      },
     );
 
     const date = new Date(formattedDate);
@@ -59,7 +57,6 @@ class YoutubeWatchConverter {
   }
 
   private static addElementToGraph(outerCell: Element): void {
-
     if (this.rdfGraph) {
       const eventUri = Util.getUrn('google', 'youtube:watch');
       this.rdfGraph.add(eventUri, rdf.ns('type'), wd.ns('Q63412991'));

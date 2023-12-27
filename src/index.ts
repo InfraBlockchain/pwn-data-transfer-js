@@ -1,18 +1,74 @@
-import IcalConverter from './lib/rdf_converter/ical2rdf';
-import YoutubeWatchConverter from './lib/rdf_converter/ytwatch2rdf';
+import { IcalConverter, UberTripConverter, YoutubeWatchConverter } from '@src/lib/rdf_converter';
+import { InfraSS58, DIDSet, CRYPTO_INFO, HexString, VerifiableCredential } from 'infra-did-js';
+import { ContentType } from 'rdflib/lib/types';
 
+type convertType = 'ical' | 'youtube-watch' | 'uber-trip';
 class PwnDataInput {
-  test(): string {
+  static didSet: DIDSet;
+
+  static test(): string {
     console.log('test');
 
     return 'test';
   }
 
-  static async convertIcal(data: string): Promise<string> {
-    return await IcalConverter.convert(data);
+  static async convertRDF(
+    data: string,
+    type: convertType,
+    format: ContentType = 'application/ld+json',
+  ): Promise<string> {
+    switch (type) {
+      case 'ical':
+        return await IcalConverter.convert(data, format);
+      case 'uber-trip':
+        return await UberTripConverter.convert(data, format);
+      case 'youtube-watch':
+        return await YoutubeWatchConverter.convert(data, format);
+      default:
+        return '';
+    }
   }
-  static async convertYtWatched(data: string): Promise<string> {
-    return await YoutubeWatchConverter.convert(data);
+
+  static async getDIDSet(seed: HexString): Promise<any> {
+    if (!this.didSet) {
+      this.didSet = await InfraSS58.createNewSS58DIDSet('space', CRYPTO_INFO.ED25519_2018, seed);
+    }
+
+    return this.didSet;
+  }
+
+  static async IssueCredential(
+    id: string,
+    type: convertType,
+    jsonld: Record<string, any>,
+  ): Promise<Record<string, any>> {
+    let vcType = '';
+    switch (type) {
+      case 'ical':
+        vcType = 'icalEvent';
+        break;
+      case 'uber-trip':
+        vcType = 'uberTripData';
+        break;
+      case 'youtube-watch':
+        vcType = 'youtubeWatchHistory';
+        break;
+    }
+    const vc = new VerifiableCredential(id);
+    vc.addContext('https://www.w3.org/2018/credentials/v1');
+    vc.addType('VerifiableCredential');
+    vc.addContext(jsonld['@context']);
+    vc.addType(vcType);
+    vc.addSubject(jsonld['@graph']);
+
+    const signed = await vc.sign({
+      id: `${this.didSet.did}#keys-1`,
+      controller: this.didSet.did,
+      type: this.didSet.cryptoInfo.KEY_NAME,
+      keypair: this.didSet.keyPair,
+    });
+
+    return signed;
   }
 }
 

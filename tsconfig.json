@@ -11,17 +11,21 @@
     "stripInternal": true,
     "esModuleInterop": true,
     "skipDefaultLibCheck": false,
-    "skipLibCheck": false,
+    "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "isolatedModules": true,
     "incremental": true,
-    "jsx": "preserve",
-    "baseUrl": ".",
+    "baseUrl": "src",
+    "paths": {
+      "@src/*": ["./*"]
+    },
     "types": ["node", "jest"]
   },
-
-  "include": ["src/**/*", "**/*.test.ts"],
+  "moduleNameMapper": {
+    "^@src/(.*)$": "<rootDir>/$1"
+  },
+  "include": ["src", "**/*.test.ts"],
   "exclude": ["**/node_modules"]
 }

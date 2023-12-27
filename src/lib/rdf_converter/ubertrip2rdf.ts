@@ -1,11 +1,11 @@
 import * as RDF from 'rdflib';
 import csv from 'csv-parser';
 import { ContentType } from 'rdflib/lib/types';
-import { ConvertError } from '../error';
+import { ConvertError } from './error';
 import { schema, wd, xsd, newnal, rdf } from './namespace.const';
 
 import { Readable } from 'stream';
-import Util from '../util';
+import Util from './util';
 
 
 class UberTripConverter {

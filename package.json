@@ -21,13 +21,13 @@
     "dev": "microbundle watch",
     "lint": "eslint --fix \"src/**/\"",
     "lint:check": "eslint \"src/**/\"",
-    "lint:ci": "pnpm lint:check",
+    "lint:ci": "yarn lint:check",
     "test": "jest --verbose --coverage",
     "test:watch": "jest --watch",
     "test:ci": "jest --runInBand --ci --coverage --coverageDirectory=coverage",
     "build:prod": "NODE_ENV=production microbundle --tsconfig ./tsconfig.json  --format modern,cjs,umd  --output dist/prod/index.js",
     "build:dev": "NODE_ENV=development microbundle --define process.env.NODE_ENV=development --tsconfig ./tsconfig.json --generateTypes false --format modern --output dist/dev/index.js",
-    "build": "rm -rf ./dist && pnpm build:dev && pnpm build:prod",
+    "build": "rm -rf ./dist && yarn build:dev && yarn build:prod",
     "gen:docs": "rm -rf ./docs/api && typedoc --options typedoc.cjs"
   },
   "repository": {
@@ -44,6 +44,7 @@
     "@babel/core": "^7.23.6",
     "@babel/preset-env": "^7.23.6",
     "@babel/preset-typescript": "^7.23.3",
+    "@jest/types": "^29.6.3",
     "@types/jest": "^29.5.11",
     "@types/jsdom": "^21.1.6",
     "@types/node": "^20.10.5",
@@ -69,7 +70,9 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "buffer": "6.0.3",
     "csv-parser": "^3.0.0",
+    "infra-did-js": "1.0.0",
     "isodate": "^0.1.4",
     "jsdom": "^23.0.1",
     "jsonld-signatures": "^11.2.1",
