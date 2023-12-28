@@ -3,10 +3,21 @@
 
 ## Feature
 - Convert data to RDF 
-  - Google takeout(calendar(ical), youtube watch histroy)
-  - Uber trip data
+  - Google takeout
+    - calendar(.ics) -- * .ics is a standard format, so it seems to be irrelevant to the provider
+    - youtube watch histroy(.html)
+  - Uber trip data(.csv)
 - create infra ss58 DID Set
 - RDF(JSON-LD) to signed VC 
+
+## Support Formats(23.12.28)
+
+|Provider|Data|File extension|
+|-|-|-|
+|google|calendar|.ics|
+|google|youtube watch histroy|.html|
+|uber|trip data|.csv|
+
 
 
 ## Working in progress
