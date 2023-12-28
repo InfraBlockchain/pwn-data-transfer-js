@@ -2,19 +2,21 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
+    "moduleResolution": "node",
     "strict": true,
+    "lib": ["DOM", "ES6", "ES2015.Promise", "ESNext"],
     "noImplicitOverride": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "stripInternal": true,
+    "allowJs": true,
     "esModuleInterop": true,
     "skipDefaultLibCheck": false,
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
     "isolatedModules": true,
     "incremental": true,
     "baseUrl": "src",
@@ -23,9 +25,13 @@
     },
     "types": ["node", "jest"]
   },
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  },
   "moduleNameMapper": {
     "^@src/(.*)$": "<rootDir>/$1"
   },
   "include": ["src", "**/*.test.ts"],
-  "exclude": ["**/node_modules"]
+  "exclude": ["**/node_modules", "./dist/**/*"]
 }

@@ -4,13 +4,12 @@ import { ConvertError } from './error';
 import { ical, xsd, rdf } from './namespace.const';
 import Util from './util';
 
-
 const parseKeys = {
   location: { key: 'LOCATION', uri: ical.ns('location') },
   summary: { key: 'SUMMARY', uri: ical.ns('summary') },
   status: { key: 'STATUS', uri: ical.ns('status') },
   description: { key: 'DESCRIPTION', uri: ical.ns('description') },
-  lastModified: { key: 'LAST-MODIFIED', uri: ical.ns('lastModified') }
+  lastModified: { key: 'LAST-MODIFIED', uri: ical.ns('lastModified') },
 };
 class IcalConverter {
   private static rdfGraph: RDF.Store | null = null;
@@ -23,7 +22,6 @@ class IcalConverter {
     ical.setPrefix(this.rdfGraph);
     xsd.setPrefix(this.rdfGraph);
     rdf.setPrefix(this.rdfGraph);
-
   }
 
   private static parseICalDateTime(value: string): string {
@@ -54,11 +52,7 @@ class IcalConverter {
           try {
             const dtParsed = IcalConverter.parseICalDateTime(value);
 
-            this.rdfGraph.add(
-              eventUri,
-              rdf.ns('type'),
-              ical.ns('Event')
-            );
+            this.rdfGraph.add(eventUri, rdf.ns('type'), ical.ns('Event'));
 
             if (upperKey.includes('DATE')) {
               this.rdfGraph.add(eventUri, ical.ns(key.toLowerCase()), RDF.literal(dtParsed, xsd.ns('date')));
@@ -73,7 +67,7 @@ class IcalConverter {
           this.rdfGraph.add(
             eventUri,
             parseKeys.lastModified.uri,
-            RDF.literal(IcalConverter.parseICalDateTime(value), xsd.ns('dateTime'))
+            RDF.literal(IcalConverter.parseICalDateTime(value), xsd.ns('dateTime')),
           );
         } else {
           Object.entries(parseKeys).forEach(([_, el]) => {

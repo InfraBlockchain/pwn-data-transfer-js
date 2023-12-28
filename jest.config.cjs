@@ -12,7 +12,7 @@ module.exports = {
   moduleDirectories: ['node_modules'],
   moduleNameMapper: {
     '^@src/(.*)$': '<rootDir>/$1',
-    '^infra-did-js/(.*)$': '<rootDir>/node_modules/$1',
+    // '^infra-did-js/(.*)$': '<rootDir>/node_modules/$1',
   },
   setupFilesAfterEnv: ['../jestSetup.ts'],
   watchPlugins: ['jest-watch-typeahead/filename', 'jest-watch-typeahead/testname'],
@@ -24,7 +24,6 @@ module.exports = {
   },
   collectCoverageFrom: [
     '<rootDir>/**',
-    '!<rootDir>/index.ts',
     '!<rootDir>/types.ts',
     '!<rootDir>/**.d.ts',
     '!<rootDir>/__tests__/**',

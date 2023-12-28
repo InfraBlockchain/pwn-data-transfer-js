@@ -7,7 +7,6 @@ import { schema, wd, xsd, newnal, rdf } from './namespace.const';
 import { Readable } from 'stream';
 import Util from './util';
 
-
 class UberTripConverter {
   private static rdfGraph: RDF.Store | null = null;
 
@@ -20,7 +19,7 @@ class UberTripConverter {
     rdf.setPrefix(this.rdfGraph);
   }
 
-  private static convertToRDF(csvData: any[]) {
+  private static convertToRDF(csvData: Record<string, unknown>[]): void {
     csvData.forEach((row) => {
       if (this.rdfGraph) {
         const tripleId = Util.getUrn('uber', 'trip');
@@ -30,7 +29,7 @@ class UberTripConverter {
 
         const classes = {
           'Uber Green': ns('UberGreen'),
-          'UberX': ns('UberX'),
+          UberX: ns('UberX'),
           'Standard Taxi': ns('StandardTaxi'),
         };
         const properties = {
@@ -49,14 +48,18 @@ class UberTripConverter {
           'Fare Currency': ns('fareCurrency'),
         };
 
-        if (row['Product Type'] in classes) {
+        if ((row['Product Type'] as string) in classes) {
           const cls = row['Product Type'] as keyof typeof classes;
           this.rdfGraph.add(tripleId, rdf.ns('type'), classes[cls]);
         }
 
         Object.keys(properties).forEach((property) => {
           if (row[property] && this.rdfGraph) {
-            this.rdfGraph.add(tripleId, properties[property as keyof typeof properties], RDF.literal(row[property]));
+            this.rdfGraph.add(
+              tripleId,
+              properties[property as keyof typeof properties],
+              RDF.literal(row[property] as string),
+            );
           }
         });
       }
@@ -73,21 +76,24 @@ class UberTripConverter {
    *
    */
   static async convert(csvData: string, format: ContentType = 'application/ld+json'): Promise<string> {
-    return new Promise(async (resolve, rejects) => {
+    return new Promise((resolve, rejects) => {
       if (csvData) {
         this.init();
 
         const stream = new Readable();
         stream.push(csvData, 'utf-8');
         stream.push(null);
-        stream.pipe(csv())
+        stream
+          .pipe(csv())
           .on('data', (row) => {
             this.convertToRDF([row]);
           })
           .on('end', () => {
             if (this.rdfGraph) {
               const res = RDF.serialize(null, this.rdfGraph, null, format);
-              if (res) resolve(res.replace(/\\u([\d\w]{4})/gi, (_, grp) => String.fromCharCode(parseInt(grp, 16))));
+              if (res) {
+                resolve(res.replace(/\\u([\d\w]{4})/gi, (_, grp) => String.fromCharCode(parseInt(grp, 16))));
+              }
               rejects(new ConvertError());
             }
           });

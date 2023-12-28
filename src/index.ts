@@ -1,5 +1,5 @@
 import { IcalConverter, UberTripConverter, YoutubeWatchConverter } from '@src/lib/rdf_converter';
-import { InfraSS58, DIDSet, CRYPTO_INFO, HexString, VerifiableCredential } from 'infra-did-js';
+import { InfraSS58, DIDSet, VerifiableCredential, CRYPTO_INFO, HexString } from 'infra-did-js';
 import { ContentType } from 'rdflib/lib/types';
 
 type convertType = 'ical' | 'youtube-watch' | 'uber-trip';
@@ -29,7 +29,7 @@ class PwnDataInput {
     }
   }
 
-  static async getDIDSet(seed: HexString): Promise<any> {
+  static async getDIDSet(seed?: HexString): Promise<any> {
     if (!this.didSet) {
       this.didSet = await InfraSS58.createNewSS58DIDSet('space', CRYPTO_INFO.ED25519_2018, seed);
     }

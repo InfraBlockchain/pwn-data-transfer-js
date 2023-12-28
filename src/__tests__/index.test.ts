@@ -4,8 +4,6 @@ import fs from 'fs';
 import { IcalConverter, UberTripConverter, YoutubeWatchConverter, Util, ConvertError } from '@src/lib/rdf_converter';
 import PwnDataInput from '@src/index';
 
-jest.setTimeout(1000 * 60 * 10);
-
 const outputFolder = 'src/__tests__/output';
 const sampleFolder = 'src/__tests__/sample';
 

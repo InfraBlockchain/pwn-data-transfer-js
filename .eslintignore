@@ -1,4 +1,7 @@
-/dist
+dist/**/*
 web_modules
 .prettierrc.js
-*.ics
+
+src/__tests__/sample/**/*
+src/__tests__/output/**/*
+src/coverage/**/*

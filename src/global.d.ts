@@ -1,1 +1,1 @@
-declare module 'jsonld-signatures';
+const tmp = '';
