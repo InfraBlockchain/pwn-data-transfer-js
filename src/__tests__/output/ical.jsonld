@@ -1,0 +1,239 @@
+{
+  "@context": {
+    "cal": "http://www.w3.org/2002/12/cal/ical#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "urn:newnal.com:google:calendar:040503f0-3f52-4e2d-83cc-a02d9fa11178",
+      "cal:lastModified": {
+        "@value": "2022-03-12T00:37:04Z",
+        "@type": "xsd:dateTime"
+      }
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:0e21657e-0d9b-44d8-bfcd-86a0f06d42cb",
+      "cal:status": "CONFIRMED"
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:24be186d-4405-4535-93e5-031b693be8cb",
+      "cal:description": ""
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:28eaa39f-36f8-4189-9b1a-3e9e164e4ac3",
+      "cal:location": ""
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:2e0c491a-fd0e-408e-80f3-83df3775151a",
+      "cal:summary": "node스터디 발표(v8)"
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:324cdb90-dee4-466b-9397-fcd6544b00e3",
+      "cal:status": "CONFIRMED"
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:383dcc2b-c533-4425-8cbe-fc436c534baa",
+      "cal:status": "CONFIRMED"
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:39a59661-2b0d-47fd-819b-71883aeaa244",
+      "cal:location": ""
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:400fb7d8-c227-4545-aaa0-b8953ed5987d",
+      "cal:summary": "신사스퀘어 결과발표"
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:46ec8b6b-718f-4a7d-b8b0-85c34840c2a4",
+      "cal:summary": "YT 저녁식사"
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:4ee55c82-8499-48e7-ba39-65840190d2a6",
+      "cal:lastModified": {
+        "@value": "2022-04-11T00:18:54Z",
+        "@type": "xsd:dateTime"
+      }
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:5025d49c-97f1-4dbf-af7e-3f687914d3d5",
+      "cal:lastModified": {
+        "@value": "2022-05-18T00:00:03Z",
+        "@type": "xsd:dateTime"
+      }
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:58754c29-cd88-43ae-8fb6-5cdc2ceede61",
+      "@type": "cal:Event",
+      "cal:dtstamp": {
+        "@value": "2023-12-13T01:21:14Z",
+        "@type": "xsd:dateTime"
+      }
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:670211f3-3976-4443-9fca-7da4be930769",
+      "cal:lastModified": {
+        "@value": "2023-11-28T05:03:57Z",
+        "@type": "xsd:dateTime"
+      }
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:7b281d12-cf58-4cdb-a0e9-12d88968e3c3",
+      "@type": "cal:Event",
+      "cal:dtstart": {
+        "@value": "2022-03-30T01:30:00Z",
+        "@type": "xsd:dateTime"
+      }
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:7bb08667-60f6-41c1-9637-6063caaeed96",
+      "@type": "cal:Event",
+      "http://www.w3.org/2002/12/cal/ical#dtstart;value=date": {
+        "@value": "2022-05-19",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:8235cac4-447a-40f4-a332-4376d88d188b",
+      "cal:status": "CONFIRMED"
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:85be9b0e-1441-4119-bc28-9ed0f45fe502",
+      "@type": "cal:Event",
+      "cal:dtstamp": {
+        "@value": "2023-12-13T01:21:14Z",
+        "@type": "xsd:dateTime"
+      }
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:8aff911c-a6f3-4378-bec0-f227267eb269",
+      "cal:description": "-\n:~:~:~:~:~:~:~:~::~:~::-\\nJoin with Google Meet: https://meet.google.com/pp\np-ffqg-sxt\\nOr dial: (US) +1 413-338-4533 PIN: 802331784#\\nMore phone numbe\nrs: https://tel.meet/ppp-ffqg-sxt?pin=5006000140015&hs=7\\n\\nLearn more abou\nt Meet at: https://support.google.com/a/users/answer/9282720\\n\\nPlease do n\not edit this section.\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\n~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-"
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:8dce3d54-db30-419f-9ccf-75de1c44768b",
+      "@type": "cal:Event",
+      "cal:dtend": {
+        "@value": "2022-03-30T02:30:00Z",
+        "@type": "xsd:dateTime"
+      }
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:8f20020d-942d-466a-ba9f-386de2ae46f4",
+      "cal:location": ""
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:928a0213-1abe-4e30-92d1-436d4d3e460c",
+      "@type": "cal:Event",
+      "cal:dtstamp": {
+        "@value": "2023-12-13T01:21:14Z",
+        "@type": "xsd:dateTime"
+      }
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:9f2612c5-7bbc-432d-91e8-d91c83c434d7",
+      "cal:summary": "펫아이 메인컨셉 공유회의"
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:a7374aba-9515-40b2-91ad-afea01907df3",
+      "cal:description": ""
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:aff0b42a-f2a1-447e-a82a-83a139f56cfd",
+      "cal:location": "9A"
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:ba5fb611-97ee-4faa-9c4c-d779266484a8",
+      "cal:dtend": ""
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:c4f7e650-208a-4cc2-a3e0-eddc8e2e6d75",
+      "cal:status": "CONFIRMED"
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:c852f720-3f18-431d-9a5e-bfa0211029d0",
+      "@type": "cal:Event",
+      "http://www.w3.org/2002/12/cal/ical#dtend;value=date": {
+        "@value": "2022-05-20",
+        "@type": "xsd:date"
+      }
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:c89119fb-0b80-4042-9f2f-bab2c0ff4c4f",
+      "@type": "cal:Event",
+      "cal:dtend": {
+        "@value": "2023-11-28T06:30:00Z",
+        "@type": "xsd:dateTime"
+      }
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:cf69a8f8-3ac7-4879-b960-f68acae495e7",
+      "cal:description": ""
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:d088e6ca-b8a5-4e2a-989a-072b8fd83c17",
+      "@type": "cal:Event",
+      "cal:dtstart": {
+        "@value": "2022-03-17T09:30:00Z",
+        "@type": "xsd:dateTime"
+      }
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:d3c8e808-adc2-4a21-913c-c5ef40a9bd54",
+      "@type": "cal:Event",
+      "cal:dtstart": {
+        "@value": "2022-04-11T00:00:00Z",
+        "@type": "xsd:dateTime"
+      }
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:d9e36f09-8a63-4264-8f51-f7e2be867be3",
+      "@type": "cal:Event",
+      "cal:dtstart": {
+        "@value": "2023-11-28T05:30:00Z",
+        "@type": "xsd:dateTime"
+      }
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:db39e409-fddd-4d7c-a320-e764ffbb5b8c",
+      "cal:lastModified": {
+        "@value": "2022-03-30T01:22:42Z",
+        "@type": "xsd:dateTime"
+      }
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:de797c6d-ef44-41f0-b90f-0b945d5a6081",
+      "cal:description": ""
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:ec786b25-3a1b-40e3-bc09-206f6e8826e9",
+      "cal:location": ""
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:f336bdf4-7127-44eb-a719-e0834bd772af",
+      "cal:summary": "Newnal Demo 방향성 논의"
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:f5459ba9-14e5-477f-8063-8f6a6fe4f1c3",
+      "@type": "cal:Event",
+      "cal:dtstamp": {
+        "@value": "2023-12-13T01:21:14Z",
+        "@type": "xsd:dateTime"
+      }
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:f66b6b6e-3866-41bd-8c0c-f5c4d9ffbff4",
+      "@type": "cal:Event",
+      "cal:dtend": {
+        "@value": "2022-04-11T01:00:00Z",
+        "@type": "xsd:dateTime"
+      }
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:fafe90d3-2071-47d5-829c-f1f36dbbe594",
+      "@type": "cal:Event",
+      "cal:dtstamp": {
+        "@value": "2023-12-13T01:21:14Z",
+        "@type": "xsd:dateTime"
+      }
+    }
+  ]
+}

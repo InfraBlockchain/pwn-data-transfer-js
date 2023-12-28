@@ -110,7 +110,7 @@ describe('Module Test', () => {
       test('to ttl', async () => {
         const res = await YoutubeWatchConverter.convert(sampleYtWatchData, 'text/turtle');
         expect(res).toBeDefined();
-        expect(res.includes('@prefix wd: <http://www.wikidata.org/entity/>.')).toBeTruthy();
+        expect(res.includes('@prefix schema: <http://schema.org/>.')).toBeTruthy();
         fs.writeFileSync(path.join(outputFolderPath, 'ytwatch.ttl'), res, {
           encoding: 'utf-8',
         });

@@ -56,10 +56,11 @@ class YoutubeWatchConverter {
     return null;
   }
 
-  private static addElementToGraph(outerCell: Element): void {
+  private static addElementToGraph(outerCell: Element, index: number): void {
     if (this.rdfGraph) {
       const eventUri = Util.getUrn('google', 'youtube:watch');
-      this.rdfGraph.add(eventUri, rdf.ns('type'), wd.ns('Q63412991'));
+      // this.rdfGraph.add(eventUri, rdf.ns('type'), wd.ns('Q63412991'));
+      this.rdfGraph.add(eventUri, rdf.ns('type'), schema.ns('VideoObject'));
 
       const videoLink = outerCell.querySelector('a[href^="https://www.youtube.com/watch"]');
       const channelLink = outerCell.querySelector('a[href^="https://www.youtube.com/channel"]');
@@ -68,15 +69,29 @@ class YoutubeWatchConverter {
       if (videoLink) {
         const videoTitle = videoLink.textContent?.trim();
         const videoURL = videoLink.getAttribute('href');
-        this.rdfGraph.add(eventUri, wd.ns('P1476'), RDF.literal(this.cleanUpText(videoTitle)));
-        this.rdfGraph.add(eventUri, wd.ns('Q110874299'), RDF.literal(this.cleanUpText(videoURL)));
+        // this.rdfGraph.add(eventUri, wd.ns('P1476'), RDF.literal(this.cleanUpText(videoTitle)));
+        // this.rdfGraph.add(eventUri, wd.ns('Q110874299'), RDF.literal(this.cleanUpText(videoURL)));
+        this.rdfGraph.add(eventUri, schema.ns('name'), RDF.literal(this.cleanUpText(videoTitle)));
+        this.rdfGraph.add(eventUri, schema.ns('embedUrl'), RDF.literal(this.cleanUpText(videoURL)));
       }
 
       if (channelLink) {
         const channelName = channelLink.textContent?.trim();
         const channelURL = channelLink.getAttribute('href');
-        this.rdfGraph.add(eventUri, wd.ns('Q17558136'), RDF.literal(this.cleanUpText(channelName)));
-        this.rdfGraph.add(eventUri, wd.ns('Q35907496'), RDF.literal(this.cleanUpText(channelURL)));
+        this.rdfGraph.add(eventUri, schema.ns('creator'), RDF.blankNode(`Channel_${index}`));
+
+        // this.rdfGraph.add(eventUri, wd.ns('Q17558136'), RDF.literal(this.cleanUpText(channelName)));
+        // this.rdfGraph.add(eventUri, wd.ns('Q35907496'), RDF.literal(this.cleanUpText(channelURL)));
+        this.rdfGraph.add(
+          RDF.blankNode(`Channel_${index}`),
+          schema.ns('name'),
+          RDF.literal(this.cleanUpText(channelName)),
+        );
+        this.rdfGraph.add(
+          RDF.blankNode(`Channel_${index}`),
+          schema.ns('url'),
+          RDF.literal(this.cleanUpText(channelURL)),
+        );
       }
 
       if (dateElement) {
@@ -87,8 +102,8 @@ class YoutubeWatchConverter {
   }
 
   private static convertToRdf(htmlData: string): void {
-    new JSDOM(htmlData).window.document.querySelectorAll('.outer-cell').forEach((outerCell) => {
-      this.addElementToGraph(outerCell);
+    new JSDOM(htmlData).window.document.querySelectorAll('.outer-cell').forEach((outerCell, index) => {
+      this.addElementToGraph(outerCell, index);
     });
   }
 

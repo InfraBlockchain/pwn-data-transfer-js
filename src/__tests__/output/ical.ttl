@@ -1,0 +1,95 @@
+@prefix cal: <http://www.w3.org/2002/12/cal/ical#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<urn:newnal.com:google:calendar:02ab80db-3247-44a6-8acd-68a52e5f7484>
+a cal:Event; cal:dtstamp "2023-12-13T01:21:14Z"^^xsd:dateTime.
+<urn:newnal.com:google:calendar:04ddc77f-b270-413d-a922-e6f31f94745e>
+cal:lastModified "2022-03-12T00:37:04Z"^^xsd:dateTime.
+<urn:newnal.com:google:calendar:09d21c6a-b823-4903-85a9-695b8dcafdb6>
+cal:lastModified "2022-05-18T00:00:03Z"^^xsd:dateTime.
+<urn:newnal.com:google:calendar:1283fbb9-2d7d-41f3-9c08-900b48bc1a43>
+a cal:Event; cal:dtstart "2023-11-28T05:30:00Z"^^xsd:dateTime.
+<urn:newnal.com:google:calendar:16806548-b44c-4c09-8e56-c0d574210991>
+a cal:Event; cal:dtend "2022-03-30T02:30:00Z"^^xsd:dateTime.
+<urn:newnal.com:google:calendar:1d81d4d0-809e-4789-aba8-962d04a2f0e3>
+a cal:Event; cal:dtstart "2022-04-11T00:00:00Z"^^xsd:dateTime.
+<urn:newnal.com:google:calendar:3d62c971-0960-4870-9a25-6d6213e3b907>
+    cal:description
+        """-
+:~:~:~:~:~:~:~:~::~:~::-\\nJoin with Google Meet: https://meet.google.com/pp
+p-ffqg-sxt\\nOr dial: (US) +1 413-338-4533 PIN: 802331784#\\nMore phone numbe
+rs: https://tel.meet/ppp-ffqg-sxt?pin=5006000140015&hs=7\\n\\nLearn more abou
+t Meet at: https://support.google.com/a/users/answer/9282720\\n\\nPlease do n
+ot edit this section.\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:
+~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-""".
+<urn:newnal.com:google:calendar:3e5c22f5-0eca-4ded-9c5b-5f270d4ac313>
+cal:summary "YT 저녁식사".
+<urn:newnal.com:google:calendar:4d7add7f-0531-46be-b3a7-c0f290cd9b84>
+a cal:Event; cal:dtstamp "2023-12-13T01:21:14Z"^^xsd:dateTime.
+<urn:newnal.com:google:calendar:50f0b354-9466-4065-913a-f49562aa6546>
+cal:description "".
+<urn:newnal.com:google:calendar:5a3197a5-dff1-4f92-a9f2-0476bd70a4bc>
+a cal:Event; cal:dtend "2022-04-11T01:00:00Z"^^xsd:dateTime.
+<urn:newnal.com:google:calendar:69194cab-6e86-4a67-b93a-bbd5d648a8b6>
+cal:description "".
+<urn:newnal.com:google:calendar:70f89f13-d6c5-447d-9600-6b43a0fb1535>
+cal:status "CONFIRMED".
+<urn:newnal.com:google:calendar:825da778-8289-47da-a1eb-a12abca37ce3>
+cal:status "CONFIRMED".
+<urn:newnal.com:google:calendar:901de930-749f-4012-8db5-8e2d1ab2bbe1>
+cal:location "".
+<urn:newnal.com:google:calendar:9190a0b8-c8c1-4ddb-82f1-99ec62ec0d68>
+cal:lastModified "2022-03-30T01:22:42Z"^^xsd:dateTime.
+<urn:newnal.com:google:calendar:957c0c76-2174-46a3-8d17-9223f350e6e4>
+cal:lastModified "2023-11-28T05:03:57Z"^^xsd:dateTime.
+<urn:newnal.com:google:calendar:9eb57a33-199a-4a7b-8d2b-13213d376b35> cal:dtend "".
+
+<urn:newnal.com:google:calendar:a380599d-ce97-4831-a746-0a7b9476de95>
+cal:summary "node스터디 발표(v8)".
+<urn:newnal.com:google:calendar:a5902fbf-fdfe-49ec-903b-298f6706b6e8>
+cal:location "".
+<urn:newnal.com:google:calendar:a763c425-5756-4506-badf-4179e152d1a0>
+cal:status "CONFIRMED".
+<urn:newnal.com:google:calendar:b078a46f-8f6a-4ca5-9200-4e430c652a5a>
+a cal:Event; cal:dtstamp "2023-12-13T01:21:14Z"^^xsd:dateTime.
+<urn:newnal.com:google:calendar:b0b8260a-e8e0-4f6d-8b53-5aaf486c886a>
+a cal:Event; cal:dtstart "2022-03-30T01:30:00Z"^^xsd:dateTime.
+<urn:newnal.com:google:calendar:b4eba193-4da6-448f-ac0c-999af57f28c0>
+    a cal:Event;
+    <http://www.w3.org/2002/12/cal/ical#dtstart;value=date>
+    "2022-05-19"^^xsd:date.
+<urn:newnal.com:google:calendar:bcf92130-eae7-47ad-a65b-2c1be97c90a9>
+cal:summary "신사스퀘어 결과발표".
+<urn:newnal.com:google:calendar:c3f92e9a-e7a8-4977-bf20-ba19f8df6813>
+cal:lastModified "2022-04-11T00:18:54Z"^^xsd:dateTime.
+<urn:newnal.com:google:calendar:cefa983a-3bef-4f79-ba9f-422d65fda8c1>
+    cal:summary
+    "펫아이 메인컨셉 공유회의".
+<urn:newnal.com:google:calendar:d0a381b2-9dec-4927-9972-0aed7979978e>
+cal:status "CONFIRMED".
+<urn:newnal.com:google:calendar:d1c5e0a2-a2f5-4fb5-b29d-f6443c1277cc>
+cal:description "".
+<urn:newnal.com:google:calendar:d1c784ef-ad10-4227-a341-b7be4414551d>
+cal:location "".
+<urn:newnal.com:google:calendar:d3f712d0-485e-4041-8b34-c43143d4f16d>
+    a cal:Event;
+    <http://www.w3.org/2002/12/cal/ical#dtend;value=date>
+    "2022-05-20"^^xsd:date.
+<urn:newnal.com:google:calendar:daa06f9b-0d32-44b1-beda-ba314a25b7aa>
+a cal:Event; cal:dtstamp "2023-12-13T01:21:14Z"^^xsd:dateTime.
+<urn:newnal.com:google:calendar:df46aef0-c7fc-45c2-8adb-d3563f28e899>
+cal:location "9A".
+<urn:newnal.com:google:calendar:e57a9372-3cfc-4f85-8568-146f3e36d6ca>
+cal:summary "Newnal Demo 방향성 논의".
+<urn:newnal.com:google:calendar:e67dc9a6-68e8-414a-b532-415a0a296af8>
+a cal:Event; cal:dtstart "2022-03-17T09:30:00Z"^^xsd:dateTime.
+<urn:newnal.com:google:calendar:f2083000-d8e0-4b71-8114-2ad4c0a05591>
+cal:location "".
+<urn:newnal.com:google:calendar:f3e84d7d-cb22-4b95-8245-25d020c941e9>
+cal:description "".
+<urn:newnal.com:google:calendar:f592b9e4-6514-4f9e-8638-e97578a50bc9>
+a cal:Event; cal:dtend "2023-11-28T06:30:00Z"^^xsd:dateTime.
+<urn:newnal.com:google:calendar:fb308511-d68b-4473-8af0-118daeb50b7f>
+a cal:Event; cal:dtstamp "2023-12-13T01:21:14Z"^^xsd:dateTime.
+<urn:newnal.com:google:calendar:fbb3c424-c42f-4697-9c39-8982ac21bb32>
+cal:status "CONFIRMED".

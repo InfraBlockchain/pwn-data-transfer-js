@@ -37,19 +37,22 @@ class PwnDataInput {
     let vcType = '';
     switch (type) {
       case 'ical':
-        vcType = 'icalEvent';
+        vcType = 'newn:icalEvent';
         break;
       case 'uber-trip':
-        vcType = 'uberTripData';
+        vcType = 'newn:uberTripData';
         break;
       case 'youtube-watch':
-        vcType = 'youtubeWatchHistory';
+        vcType = 'newn:youtubeWatchHistory';
         break;
     }
     const vc = new VerifiableCredential(id);
     vc.addContext('https://www.w3.org/2018/credentials/v1');
     vc.addType('VerifiableCredential');
-    vc.addContext(jsonld['@context']);
+    vc.addContext({
+      ...jsonld['@context'],
+      newn: 'https://newnal.com/ontology/',
+    });
     vc.addType(vcType);
     vc.addSubject(jsonld['@graph']);
 

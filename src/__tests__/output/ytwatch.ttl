@@ -1,0 +1,36 @@
+@prefix schema: <http://schema.org/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<urn:newnal.com:google:youtube:watch:9077d4d5-520f-4d96-b21f-5178aa728018>
+    a schema:VideoObject;
+    schema:creator
+            [
+                schema:name "";
+                schema:url
+                "https://www.youtube.com/channel/UCxuKWtKls-DLeCa127SbEFA"
+            ].
+<urn:newnal.com:google:youtube:watch:a02756be-97c0-4d44-8600-9f73b95f0fc0>
+    a schema:VideoObject;
+    schema:creator
+            [
+                schema:name "에스오디 SOD";
+                schema:url
+                "https://www.youtube.com/channel/UCSPMRoAphbObUYeDaX367Fg"
+            ];
+    schema:embedUrl "https://www.youtube.com/watch?v=xDcjmA4XM98";
+    schema:endTime "2023-10-26T23:18:32.000Z"^^xsd:dateTime;
+    schema:name
+        "과학자들 미쳤네; 기름도 전기도 없이 달릴 수 있는 신의 엔진 등장".
+<urn:newnal.com:google:youtube:watch:e8818035-cade-4c8f-bfe9-f51074251c70>
+    a schema:VideoObject;
+    schema:creator
+            [
+                schema:name
+                "할렐루야교회 영아부";
+                schema:url
+                "https://www.youtube.com/channel/UCxuKWtKls-DLeCa127SbEFA"
+            ];
+    schema:embedUrl "https://www.youtube.com/watch?v=smD2CZPGqN4";
+    schema:endTime "2023-09-16T08:43:56.000Z"^^xsd:dateTime;
+    schema:name
+        "찬양 율동 모음 Ver. 5( 71곡, 2시간 연속)".
