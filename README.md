@@ -33,7 +33,3 @@ const signedVC = await PwnDataInput.IssueCredential(vcId, 'ical', JSON.parse(ica
 
 
 
-## Environment variable 
-
-- INFRADID_SEED : infra did seed (required)
-- PWN_INPUT_URL: PWN API URL
