@@ -6,12 +6,6 @@ type convertType = 'ical' | 'youtube-watch' | 'uber-trip';
 class PwnDataInput {
   static didSet: DIDSet;
 
-  static test(): string {
-    console.log('test');
-
-    return 'test';
-  }
-
   static async convertRDF(
     data: string,
     type: convertType,
@@ -24,12 +18,10 @@ class PwnDataInput {
         return await UberTripConverter.convert(data, format);
       case 'youtube-watch':
         return await YoutubeWatchConverter.convert(data, format);
-      default:
-        return '';
     }
   }
 
-  static async getDIDSet(seed?: HexString): Promise<any> {
+  static async initDIDSet(seed?: HexString): Promise<any> {
     if (!this.didSet) {
       this.didSet = await InfraSS58.createNewSS58DIDSet('space', CRYPTO_INFO.ED25519_2018, seed);
     }

@@ -20,10 +20,12 @@ const replacements = {
   'process.env.NODE_ENV': nodeEnv
 }
 
-const plugins = ['dev-expression', ['transform-define', replacements]]
+const plugins = ["@babel/plugin-syntax-top-level-await", 'dev-expression', ['transform-define', replacements],]
 
 //default babel config
-const config = { plugins }
+const config = {
+  plugins,
+}
 
 //babel config for Jest tests
 const jestConfig = {

@@ -1,6 +1,6 @@
 {
   "name": "pwn-data-input",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "PWN Data Input JS Library",
   "type": "module",
   "source": "src/index.ts",
@@ -29,10 +29,11 @@
     "build:dev": "NODE_ENV=development microbundle --define process.env.NODE_ENV=development --tsconfig ./tsconfig.json --generateTypes false --format modern --output dist/dev/index.js",
     "build": "rm -rf ./dist && yarn build:dev && yarn build:prod",
     "gen:docs": "rm -rf ./docs/api && typedoc --options typedoc.cjs",
-    "example": "yarn build:dev && ts-node example",
-    "example:sig": "yarn build:dev && ts-node example/sig.ts",
-    "example:convert": "yarn build:dev && ts-node example/convert.ts",
-    "example:did": "yarn build:dev && ts-node example/did.ts"
+    "example": "NODE_ENV=development yarn build:dev && ts-node example",
+    "example:sig": "NODE_ENV=development yarn build:dev && ts-node example/sig.ts",
+    "example:convert": "NODE_ENV=development yarn build:dev && ts-node example/convert.ts",
+    "example:did": "NODE_ENV=development yarn build:dev && ts-node example/did.ts",
+    "example:did2": "NODE_ENV=production yarn build:prod && ts-node example/did.ts"
   },
   "repository": {
     "type": "git",
@@ -46,6 +47,7 @@
   "homepage": "https://github.com/InfraBlockchain/pwn-data-input-js#readme",
   "devDependencies": {
     "@babel/core": "^7.23.6",
+    "@babel/plugin-syntax-top-level-await": "^7.14.5",
     "@babel/preset-env": "^7.23.6",
     "@babel/preset-typescript": "^7.23.3",
     "@jest/types": "^29.6.3",

@@ -4,7 +4,6 @@ import PwnDataInput from '../dist/dev/index.esm.js';
 
 const __filename = path.basename(import.meta.url);
 const runDirect = process.argv.pop()?.includes(__filename);
-console.log('arg', process.argv.pop(), import.meta.url, __filename, runDirect);
 
 const sampleFolder = 'src/__tests__/sample';
 
