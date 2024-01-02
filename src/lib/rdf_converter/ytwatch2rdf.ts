@@ -58,13 +58,14 @@ class YoutubeWatchConverter {
 
   private static addElementToGraph(outerCell: Element, index: number): void {
     if (this.rdfGraph) {
-      const eventUri = Util.getUrn('google', 'youtube:watch');
-      // this.rdfGraph.add(eventUri, rdf.ns('type'), wd.ns('Q63412991'));
-      this.rdfGraph.add(eventUri, rdf.ns('type'), schema.ns('VideoObject'));
-
       const videoLink = outerCell.querySelector('a[href^="https://www.youtube.com/watch"]');
       const channelLink = outerCell.querySelector('a[href^="https://www.youtube.com/channel"]');
       const dateElement = this.findDateElement(outerCell);
+
+      const eventDate = dateElement ? this.formatDateToRDF(dateElement.trim()) : '';
+      const eventUri = Util.getUrn('google', 'youtube:watch', eventDate);
+      // this.rdfGraph.add(eventUri, rdf.ns('type'), wd.ns('Q63412991'));
+      this.rdfGraph.add(eventUri, rdf.ns('type'), schema.ns('VideoObject'));
 
       if (videoLink) {
         const videoTitle = videoLink.textContent?.trim();

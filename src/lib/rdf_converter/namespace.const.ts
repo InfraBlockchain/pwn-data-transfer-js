@@ -71,9 +71,9 @@ export const wd: NamespaceItem = {
 // };
 
 // newnal
-const NEWNAL_NAME = 'newn';
-const NEWNAL_URL = 'https://newnal.com/ontology/';
-export const newnal: NamespaceItem = {
-  ns: RDF.Namespace(NEWNAL_URL),
-  setPrefix: (graph: RDF.Store) => graph.setPrefixForURI(NEWNAL_NAME, NEWNAL_URL),
-};
+// const NEWNAL_NAME = 'newn';
+// const NEWNAL_URL = 'https://newnal.com/ontology/';
+// export const newnal: NamespaceItem = {
+//   ns: RDF.Namespace(NEWNAL_URL),
+//   setPrefix: (graph: RDF.Store) => graph.setPrefixForURI(NEWNAL_NAME, NEWNAL_URL),
+// };

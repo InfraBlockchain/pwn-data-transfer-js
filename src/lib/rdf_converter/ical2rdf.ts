@@ -43,36 +43,36 @@ class IcalConverter {
     return key.toUpperCase().includes('DT');
   }
 
-  private static addEventToGraph(event: Record<string, string>): void {
+  private static addEventToGraph(event: Record<string, string>, eventDate: string): void {
     if (this.rdfGraph) {
       for (const [key, value] of Object.entries(event)) {
         const upperKey = key.toUpperCase();
-        const eventUri = Util.getUrn('google', 'calendar');
+        const eventId = Util.getUrn('google', 'calendar', eventDate);
         if (this.isDatetimeKey(upperKey)) {
           try {
             const dtParsed = IcalConverter.parseICalDateTime(value);
 
-            this.rdfGraph.add(eventUri, rdf.ns('type'), ical.ns('Event'));
+            this.rdfGraph.add(eventId, rdf.ns('type'), ical.ns('Event'));
 
             if (upperKey.includes('DATE')) {
-              this.rdfGraph.add(eventUri, ical.ns(key.toLowerCase()), RDF.literal(dtParsed, xsd.ns('date')));
+              this.rdfGraph.add(eventId, ical.ns(key.toLowerCase()), RDF.literal(dtParsed, xsd.ns('date')));
             } else {
-              this.rdfGraph.add(eventUri, ical.ns(key.toLowerCase()), RDF.literal(dtParsed, xsd.ns('dateTime')));
+              this.rdfGraph.add(eventId, ical.ns(key.toLowerCase()), RDF.literal(dtParsed, xsd.ns('dateTime')));
             }
           } catch (error) {
             console.error(`Failed to parse ${key} value '${value}': ${error}`);
-            this.rdfGraph.add(eventUri, ical.ns(key.toLowerCase()), RDF.literal(''));
+            this.rdfGraph.add(eventId, ical.ns(key.toLowerCase()), RDF.literal(''));
           }
         } else if (upperKey === parseKeys.lastModified.key) {
           this.rdfGraph.add(
-            eventUri,
+            eventId,
             parseKeys.lastModified.uri,
             RDF.literal(IcalConverter.parseICalDateTime(value), xsd.ns('dateTime')),
           );
         } else {
           Object.entries(parseKeys).forEach(([_, el]) => {
             if (upperKey === el.key) {
-              this.rdfGraph?.add(eventUri, el.uri, RDF.literal(value));
+              this.rdfGraph?.add(eventId, el.uri, RDF.literal(value));
             }
           });
         }
@@ -115,7 +115,8 @@ class IcalConverter {
         currentEvent = {};
       } else if (line.startsWith('END:VEVENT')) {
         if (currentEvent) {
-          this.addEventToGraph(currentEvent);
+          const eventDate = IcalConverter.parseICalDateTime(currentEvent['CREATED']);
+          this.addEventToGraph(currentEvent, eventDate);
           currentEvent = null;
         }
       } else if (currentEvent && line.includes(':')) {

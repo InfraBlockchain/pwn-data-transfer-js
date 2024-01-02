@@ -2,6 +2,8 @@
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
     {
+      "schema": "http://schema.org/",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
       "newn": "https://newnal.com/ontology/"
     }
   ],
@@ -11,156 +13,310 @@
   ],
   "credentialSubject": [
     {
-      "@id": "urn:newnal.com:uber:trip:06a85423-16f2-4215-8c62-dcdd0fed2a42",
-      "@type": [
-        "newn:StandardTaxi",
-        "newn:Trip"
-      ],
-      "newn:beginTripTime": "1970-01-01 00:00:00 +0000 UTC",
-      "newn:distanceMiles": "0.00",
-      "newn:dropoffTime": "1970-01-01 00:00:00 +0000 UTC",
-      "newn:fareAmount": "0",
-      "newn:fareCurrency": "KRW",
-      "newn:requestTime": "2022-01-20 00:13:17 +0000 UTC",
-      "newn:tripOrderStatus": "CANCELED"
+      "@id": "urn:newnal.com:uber:trip:1418914486000",
+      "@type": "schema:Reservation",
+      "schema:bookingTime": {
+        "@value": "2014-12-18T14:54:46.000Z",
+        "@type": "xsd:dateTime"
+      },
+      "schema:broker": "Uber",
+      "schema:reservationFor": {
+        "@type": "schema:TravelAction",
+        "schema:additionalType": "UNFULFILLED",
+        "schema:distance": "0.00 miles",
+        "schema:endTime": {
+          "@value": "1970-01-01T00:00:00.000Z",
+          "@type": "xsd:dateTime"
+        },
+        "schema:startTime": {
+          "@value": "1970-01-01T00:00:00.000Z",
+          "@type": "xsd:dateTime"
+        }
+      },
+      "schema:totalPrice": "0"
     },
     {
-      "@id": "urn:newnal.com:uber:trip:28d9cc8f-8e13-4a37-a85c-06c798300181",
-      "@type": "newn:Trip",
-      "newn:beginTripTime": "1970-01-01 00:00:00 +0000 UTC",
-      "newn:distanceMiles": "0.00",
-      "newn:dropoffTime": "1970-01-01 00:00:00 +0000 UTC",
-      "newn:fareAmount": "0",
-      "newn:requestTime": "2014-12-18 15:05:11 +0000 UTC",
-      "newn:tripOrderStatus": "UNFULFILLED"
+      "@id": "urn:newnal.com:uber:trip:1418914847000",
+      "@type": "schema:Reservation",
+      "schema:bookingTime": {
+        "@value": "2014-12-18T15:00:47.000Z",
+        "@type": "xsd:dateTime"
+      },
+      "schema:broker": "Uber",
+      "schema:reservationFor": {
+        "@type": "schema:TravelAction",
+        "schema:additionalType": "UNFULFILLED",
+        "schema:distance": "0.00 miles",
+        "schema:endTime": {
+          "@value": "1970-01-01T00:00:00.000Z",
+          "@type": "xsd:dateTime"
+        },
+        "schema:startTime": {
+          "@value": "1970-01-01T00:00:00.000Z",
+          "@type": "xsd:dateTime"
+        }
+      },
+      "schema:totalPrice": "0"
     },
     {
-      "@id": "urn:newnal.com:uber:trip:50c313e8-4d90-4819-8024-139752f29a83",
-      "@type": [
-        "newn:Trip",
-        "newn:UberGreen"
-      ],
-      "newn:beginTripAddress": "2855 Stevens Creek Blvd, Santa Clara, CA 95050, US",
-      "newn:beginTripLat": "37.32348",
-      "newn:beginTripLng": "-121.94611",
-      "newn:beginTripTime": "2023-09-24 02:09:50 +0000 UTC",
-      "newn:distanceMiles": "12.14",
-      "newn:dropoffAddress": "800 Moffett Blvd, Mountain View, CA 94043, US",
-      "newn:dropoffLat": "37.4073",
-      "newn:dropoffLng": "-122.06779",
-      "newn:dropoffTime": "2023-09-24 02:25:31 +0000 UTC",
-      "newn:fareAmount": "27.45",
-      "newn:fareCurrency": "USD",
-      "newn:requestTime": "2023-09-24 02:05:32 +0000 UTC",
-      "newn:tripOrderStatus": "COMPLETED"
+      "@id": "urn:newnal.com:uber:trip:1418914855000",
+      "@type": "schema:Reservation",
+      "schema:bookingTime": {
+        "@value": "2014-12-18T15:00:55.000Z",
+        "@type": "xsd:dateTime"
+      },
+      "schema:broker": "Uber",
+      "schema:reservationFor": {
+        "@type": "schema:TravelAction",
+        "schema:additionalType": "UNFULFILLED",
+        "schema:distance": "0.00 miles",
+        "schema:endTime": {
+          "@value": "1970-01-01T00:00:00.000Z",
+          "@type": "xsd:dateTime"
+        },
+        "schema:startTime": {
+          "@value": "1970-01-01T00:00:00.000Z",
+          "@type": "xsd:dateTime"
+        }
+      },
+      "schema:totalPrice": "0"
     },
     {
-      "@id": "urn:newnal.com:uber:trip:5fc8b5ee-9fca-4b9c-8bcd-3ec7f15487b4",
-      "@type": "newn:Trip",
-      "newn:beginTripTime": "1970-01-01 00:00:00 +0000 UTC",
-      "newn:distanceMiles": "0.00",
-      "newn:dropoffTime": "1970-01-01 00:00:00 +0000 UTC",
-      "newn:fareAmount": "0",
-      "newn:requestTime": "2014-12-18 15:00:55 +0000 UTC",
-      "newn:tripOrderStatus": "UNFULFILLED"
+      "@id": "urn:newnal.com:uber:trip:1418915111000",
+      "@type": "schema:Reservation",
+      "schema:bookingTime": {
+        "@value": "2014-12-18T15:05:11.000Z",
+        "@type": "xsd:dateTime"
+      },
+      "schema:broker": "Uber",
+      "schema:reservationFor": {
+        "@type": "schema:TravelAction",
+        "schema:additionalType": "UNFULFILLED",
+        "schema:distance": "0.00 miles",
+        "schema:endTime": {
+          "@value": "1970-01-01T00:00:00.000Z",
+          "@type": "xsd:dateTime"
+        },
+        "schema:startTime": {
+          "@value": "1970-01-01T00:00:00.000Z",
+          "@type": "xsd:dateTime"
+        }
+      },
+      "schema:totalPrice": "0"
     },
     {
-      "@id": "urn:newnal.com:uber:trip:751bef47-3179-4963-b658-c2aaba5c48f7",
-      "@type": "newn:Trip",
-      "newn:beginTripTime": "1970-01-01 00:00:00 +0000 UTC",
-      "newn:distanceMiles": "0.00",
-      "newn:dropoffTime": "1970-01-01 00:00:00 +0000 UTC",
-      "newn:fareAmount": "0",
-      "newn:requestTime": "2014-12-18 14:54:46 +0000 UTC",
-      "newn:tripOrderStatus": "UNFULFILLED"
+      "@id": "urn:newnal.com:uber:trip:1639814006000",
+      "@type": "schema:Reservation",
+      "schema:bookingTime": {
+        "@value": "2021-12-18T07:53:26.000Z",
+        "@type": "xsd:dateTime"
+      },
+      "schema:broker": "Uber",
+      "schema:priceCurrency": "KRW",
+      "schema:reservationFor": {
+        "@type": "schema:TravelAction",
+        "schema:additionalType": "CANCELED",
+        "schema:distance": "0.00 miles",
+        "schema:endTime": {
+          "@value": "1970-01-01T00:00:00.000Z",
+          "@type": "xsd:dateTime"
+        },
+        "schema:object": "Standard Taxi",
+        "schema:startTime": {
+          "@value": "1970-01-01T00:00:00.000Z",
+          "@type": "xsd:dateTime"
+        }
+      },
+      "schema:totalPrice": "0"
     },
     {
-      "@id": "urn:newnal.com:uber:trip:7811226c-7ad8-44d0-a90a-eb6a70aa051a",
-      "@type": [
-        "newn:StandardTaxi",
-        "newn:Trip"
-      ],
-      "newn:beginTripAddress": "시립브라운스톤어린이집, 경기도 하남시 풍산동 미사강변동로 47",
-      "newn:beginTripLat": "37.559353",
-      "newn:beginTripLng": "127.194664",
-      "newn:beginTripTime": "2022-01-18 00:09:30 +0000 UTC",
-      "newn:distanceMiles": "7.28",
-      "newn:dropoffAddress": "화이트글라스 주차장, 서울특별시 송파구 문정동 법원로 128",
-      "newn:dropoffLat": "37.48619",
-      "newn:dropoffLng": "127.11981",
-      "newn:dropoffTime": "2022-01-18 00:38:06 +0000 UTC",
-      "newn:fareAmount": "12000",
-      "newn:fareCurrency": "KRW",
-      "newn:requestTime": "2022-01-18 00:06:08 +0000 UTC",
-      "newn:tripOrderStatus": "COMPLETED"
+      "@id": "urn:newnal.com:uber:trip:1642464368000",
+      "@type": "schema:Reservation",
+      "schema:bookingTime": {
+        "@value": "2022-01-18T00:06:08.000Z",
+        "@type": "xsd:dateTime"
+      },
+      "schema:broker": "Uber",
+      "schema:priceCurrency": "KRW",
+      "schema:reservationFor": {
+        "@type": "schema:TravelAction",
+        "schema:additionalType": "COMPLETED",
+        "schema:distance": "7.28 miles",
+        "schema:endTime": {
+          "@value": "2022-01-18T00:38:06.000Z",
+          "@type": "xsd:dateTime"
+        },
+        "schema:fromLocation": {
+          "@type": "schema:Place",
+          "schema:address": "시립브라운스톤어린이집, 경기도 하남시 풍산동 미사강변동로 47",
+          "schema:geo": {
+            "@type": "schema:GeoCoordinates",
+            "schema:latitude": "37.559353",
+            "schema:longitude": "127.194664"
+          }
+        },
+        "schema:object": "Standard Taxi",
+        "schema:startTime": {
+          "@value": "2022-01-18T00:09:30.000Z",
+          "@type": "xsd:dateTime"
+        },
+        "schema:toLocation": {
+          "@type": "schema:Place",
+          "schema:address": "화이트글라스 주차장, 서울특별시 송파구 문정동 법원로 128",
+          "schema:geo": {
+            "@type": "schema:GeoCoordinates",
+            "schema:latitude": "37.48619",
+            "schema:longitude": "127.11981"
+          }
+        }
+      },
+      "schema:totalPrice": "12000"
     },
     {
-      "@id": "urn:newnal.com:uber:trip:c71e26ff-77c3-489e-9376-baced13d5211",
-      "@type": [
-        "newn:StandardTaxi",
-        "newn:Trip"
-      ],
-      "newn:beginTripTime": "1970-01-01 00:00:00 +0000 UTC",
-      "newn:distanceMiles": "0.00",
-      "newn:dropoffTime": "1970-01-01 00:00:00 +0000 UTC",
-      "newn:fareAmount": "0",
-      "newn:fareCurrency": "KRW",
-      "newn:requestTime": "2021-12-18 07:53:26 +0000 UTC",
-      "newn:tripOrderStatus": "CANCELED"
+      "@id": "urn:newnal.com:uber:trip:1642637597000",
+      "@type": "schema:Reservation",
+      "schema:bookingTime": {
+        "@value": "2022-01-20T00:13:17.000Z",
+        "@type": "xsd:dateTime"
+      },
+      "schema:broker": "Uber",
+      "schema:priceCurrency": "KRW",
+      "schema:reservationFor": {
+        "@type": "schema:TravelAction",
+        "schema:additionalType": "CANCELED",
+        "schema:distance": "0.00 miles",
+        "schema:endTime": {
+          "@value": "1970-01-01T00:00:00.000Z",
+          "@type": "xsd:dateTime"
+        },
+        "schema:object": "Standard Taxi",
+        "schema:startTime": {
+          "@value": "1970-01-01T00:00:00.000Z",
+          "@type": "xsd:dateTime"
+        }
+      },
+      "schema:totalPrice": "0"
     },
     {
-      "@id": "urn:newnal.com:uber:trip:cdfe2ac9-adc3-439c-acae-f4c71261c087",
-      "@type": [
-        "newn:StandardTaxi",
-        "newn:Trip"
-      ],
-      "newn:beginTripTime": "1970-01-01 00:00:00 +0000 UTC",
-      "newn:distanceMiles": "0.00",
-      "newn:dropoffTime": "1970-01-01 00:00:00 +0000 UTC",
-      "newn:fareAmount": "0",
-      "newn:fareCurrency": "KRW",
-      "newn:requestTime": "2022-01-20 00:16:46 +0000 UTC",
-      "newn:tripOrderStatus": "CANCELED"
+      "@id": "urn:newnal.com:uber:trip:1642637806000",
+      "@type": "schema:Reservation",
+      "schema:bookingTime": {
+        "@value": "2022-01-20T00:16:46.000Z",
+        "@type": "xsd:dateTime"
+      },
+      "schema:broker": "Uber",
+      "schema:priceCurrency": "KRW",
+      "schema:reservationFor": {
+        "@type": "schema:TravelAction",
+        "schema:additionalType": "CANCELED",
+        "schema:distance": "0.00 miles",
+        "schema:endTime": {
+          "@value": "1970-01-01T00:00:00.000Z",
+          "@type": "xsd:dateTime"
+        },
+        "schema:object": "Standard Taxi",
+        "schema:startTime": {
+          "@value": "1970-01-01T00:00:00.000Z",
+          "@type": "xsd:dateTime"
+        }
+      },
+      "schema:totalPrice": "0"
     },
     {
-      "@id": "urn:newnal.com:uber:trip:ee0959aa-585a-409f-9c0d-01c0e150168f",
-      "@type": [
-        "newn:Trip",
-        "newn:UberX"
-      ],
-      "newn:beginTripAddress": "800 Moffett Blvd, Mountain View, CA 94043, US",
-      "newn:beginTripLat": "37.40724",
-      "newn:beginTripLng": "-122.06763",
-      "newn:beginTripTime": "2023-09-23 18:39:30 +0000 UTC",
-      "newn:distanceMiles": "14.12",
-      "newn:dropoffAddress": "2855 Stevens Creek Blvd, Santa Clara, CA 95050, US",
-      "newn:dropoffLat": "37.3265",
-      "newn:dropoffLng": "-121.94465",
-      "newn:dropoffTime": "2023-09-23 18:55:55 +0000 UTC",
-      "newn:fareAmount": "27.91",
-      "newn:fareCurrency": "USD",
-      "newn:requestTime": "2023-09-23 18:29:39 +0000 UTC",
-      "newn:tripOrderStatus": "COMPLETED"
+      "@id": "urn:newnal.com:uber:trip:1695493779000",
+      "@type": "schema:Reservation",
+      "schema:bookingTime": {
+        "@value": "2023-09-23T18:29:39.000Z",
+        "@type": "xsd:dateTime"
+      },
+      "schema:broker": "Uber",
+      "schema:priceCurrency": "USD",
+      "schema:reservationFor": {
+        "@type": "schema:TravelAction",
+        "schema:additionalType": "COMPLETED",
+        "schema:distance": "14.12 miles",
+        "schema:endTime": {
+          "@value": "2023-09-23T18:55:55.000Z",
+          "@type": "xsd:dateTime"
+        },
+        "schema:fromLocation": {
+          "@type": "schema:Place",
+          "schema:address": "800 Moffett Blvd, Mountain View, CA 94043, US",
+          "schema:geo": {
+            "@type": "schema:GeoCoordinates",
+            "schema:latitude": "37.40724",
+            "schema:longitude": "-122.06763"
+          }
+        },
+        "schema:object": "UberX",
+        "schema:startTime": {
+          "@value": "2023-09-23T18:39:30.000Z",
+          "@type": "xsd:dateTime"
+        },
+        "schema:toLocation": {
+          "@type": "schema:Place",
+          "schema:address": "2855 Stevens Creek Blvd, Santa Clara, CA 95050, US",
+          "schema:geo": {
+            "@type": "schema:GeoCoordinates",
+            "schema:latitude": "37.3265",
+            "schema:longitude": "-121.94465"
+          }
+        }
+      },
+      "schema:totalPrice": "27.91"
     },
     {
-      "@id": "urn:newnal.com:uber:trip:ef34a936-f3c6-40df-b352-40f6a9b0be37",
-      "@type": "newn:Trip",
-      "newn:beginTripTime": "1970-01-01 00:00:00 +0000 UTC",
-      "newn:distanceMiles": "0.00",
-      "newn:dropoffTime": "1970-01-01 00:00:00 +0000 UTC",
-      "newn:fareAmount": "0",
-      "newn:requestTime": "2014-12-18 15:00:47 +0000 UTC",
-      "newn:tripOrderStatus": "UNFULFILLED"
+      "@id": "urn:newnal.com:uber:trip:1695521132000",
+      "@type": "schema:Reservation",
+      "schema:bookingTime": {
+        "@value": "2023-09-24T02:05:32.000Z",
+        "@type": "xsd:dateTime"
+      },
+      "schema:broker": "Uber",
+      "schema:priceCurrency": "USD",
+      "schema:reservationFor": {
+        "@type": "schema:TravelAction",
+        "schema:additionalType": "COMPLETED",
+        "schema:distance": "12.14 miles",
+        "schema:endTime": {
+          "@value": "2023-09-24T02:25:31.000Z",
+          "@type": "xsd:dateTime"
+        },
+        "schema:fromLocation": {
+          "@type": "schema:Place",
+          "schema:address": "2855 Stevens Creek Blvd, Santa Clara, CA 95050, US",
+          "schema:geo": {
+            "@type": "schema:GeoCoordinates",
+            "schema:latitude": "37.32348",
+            "schema:longitude": "-121.94611"
+          }
+        },
+        "schema:object": "Uber Green",
+        "schema:startTime": {
+          "@value": "2023-09-24T02:09:50.000Z",
+          "@type": "xsd:dateTime"
+        },
+        "schema:toLocation": {
+          "@type": "schema:Place",
+          "schema:address": "800 Moffett Blvd, Mountain View, CA 94043, US",
+          "schema:geo": {
+            "@type": "schema:GeoCoordinates",
+            "schema:latitude": "37.4073",
+            "schema:longitude": "-122.06779"
+          }
+        }
+      },
+      "schema:totalPrice": "27.45"
     }
   ],
   "issuer": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF",
   "proof": {
     "type": "Ed25519Signature2018",
-    "created": "2023-12-28T11:23:18Z",
+    "created": "2024-01-02T03:28:28Z",
     "verificationMethod": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF#keys-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "z3azn6dE3F5te8YuWqaFgyziujvraQ3yaeVNYpkKe65gY6U24GGfimGptpMGLWMkRZfgrfyCtpRpNJnaS26qknwcF"
+    "proofValue": "z4eakJmShF7Y5xws1v9xQ6HYpC2ntb9o1ZMS4ghKUC4JE7WnZ3VrzZUEDhMtN39Bds4RKdzqAUNPjr1mqQxiwaAV7"
   },
   "id": "did:infra:sample",
-  "issuanceDate": "2023-12-28T11:23:18.871Z"
+  "issuanceDate": "2024-01-02T03:28:28.341Z"
 }

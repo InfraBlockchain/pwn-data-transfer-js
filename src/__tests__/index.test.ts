@@ -67,7 +67,7 @@ describe('Module Test', () => {
 
   describe('Util', () => {
     test('getUrn', async () => {
-      const urn = Util.getUrn('test', 'testevent');
+      const urn = Util.getUrn('test', 'testevent', '');
       expect(urn.value.startsWith('urn:newnal.com:test:testevent')).toBeTruthy();
     });
   });
@@ -132,7 +132,7 @@ describe('Module Test', () => {
       test('to ttl', async () => {
         const res = await UberTripConverter.convert(sampleUberTripData, 'text/turtle');
         expect(res).toBeDefined();
-        expect(res.includes('@prefix newn: <https://newnal.com/ontology/>.')).toBeTruthy();
+        expect(res.includes('@prefix schema: <http://schema.org/>.')).toBeTruthy();
         fs.writeFileSync(path.join(outputFolderPath, 'uber.ttl'), res, {
           encoding: 'utf-8',
         });
