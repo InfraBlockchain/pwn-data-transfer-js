@@ -13,7 +13,7 @@
   ],
   "credentialSubject": [
     {
-      "@id": "urn:newnal.com:google:calendar:1647045424000",
+      "@id": "urn:newnal.com:google:calendar:32303232-2d30-432d-b132-5430303a3337",
       "@type": "cal:Event",
       "cal:description": "",
       "cal:dtend": "",
@@ -34,7 +34,7 @@
       "cal:summary": "YT 저녁식사"
     },
     {
-      "@id": "urn:newnal.com:google:calendar:1647396438000",
+      "@id": "urn:newnal.com:google:calendar:32303232-2d30-432d-b136-5430323a3037",
       "@type": "cal:Event",
       "cal:description": "",
       "cal:dtend": {
@@ -58,7 +58,7 @@
       "cal:summary": "node스터디 발표(v8)"
     },
     {
-      "@id": "urn:newnal.com:google:calendar:1648447711000",
+      "@id": "urn:newnal.com:google:calendar:32303232-2d30-432d-b238-5430363a3038",
       "@type": "cal:Event",
       "cal:description": "",
       "cal:dtend": {
@@ -82,7 +82,7 @@
       "cal:summary": "펫아이 메인컨셉 공유회의"
     },
     {
-      "@id": "urn:newnal.com:google:calendar:1652661363000",
+      "@id": "urn:newnal.com:google:calendar:32303232-2d30-452d-b136-5430303a3336",
       "@type": "cal:Event",
       "cal:description": "",
       "http://www.w3.org/2002/12/cal/ical#dtend;value=date": {
@@ -106,7 +106,7 @@
       "cal:summary": "신사스퀘어 결과발표"
     },
     {
-      "@id": "urn:newnal.com:google:calendar:1701146688000",
+      "@id": "urn:newnal.com:google:calendar:32303233-2d31-412d-b238-5430343a3434",
       "@type": "cal:Event",
       "cal:description": "-\n:~:~:~:~:~:~:~:~::~:~::-\\nJoin with Google Meet: https://meet.google.com/pp\np-ffqg-sxt\\nOr dial: (US) +1 413-338-4533 PIN: 802331784#\\nMore phone numbe\nrs: https://tel.meet/ppp-ffqg-sxt?pin=5006000140015&hs=7\\n\\nLearn more abou\nt Meet at: https://support.google.com/a/users/answer/9282720\\n\\nPlease do n\not edit this section.\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\n~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-",
       "cal:dtend": {
@@ -133,11 +133,11 @@
   "issuer": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF",
   "proof": {
     "type": "Ed25519Signature2018",
-    "created": "2024-01-02T03:28:28Z",
+    "created": "2024-01-02T04:33:20Z",
     "verificationMethod": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF#keys-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "z3va6r5xruzzhSJ82cy8fzfzgpQzkQxMTAM2QS3CQLXvc2UQ2FtCDEqB9Gcdiu3JxiYBnhp7j5hGBdxXJYjg4Hw2j"
+    "proofValue": "z4LZwNp5SaQHZTgvG6PVKxT8mwknVvoZXnHSqQUKhDxVLQR57jCKRkhgaCSHvNedaZzqAziHVvCaqWV2crazmW4ga"
   },
   "id": "did:infra:sample",
-  "issuanceDate": "2024-01-02T03:28:28.148Z"
+  "issuanceDate": "2024-01-02T04:33:20.842Z"
 }

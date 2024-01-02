@@ -13,7 +13,7 @@
   ],
   "credentialSubject": [
     {
-      "@id": "urn:newnal.com:google:youtube:watch:1694853836000",
+      "@id": "urn:newnal.com:google:youtube:watch:32303233-2d30-492d-b136-5430383a3433",
       "@type": "schema:VideoObject",
       "schema:creator": {
         "schema:name": "할렐루야교회 영아부",
@@ -27,7 +27,7 @@
       "schema:name": "찬양 율동 모음 Ver. 5( 71곡, 2시간 연속)"
     },
     {
-      "@id": "urn:newnal.com:google:youtube:watch:1698362312000",
+      "@id": "urn:newnal.com:google:youtube:watch:32303233-2d31-402d-b236-5432333a3138",
       "@type": "schema:VideoObject",
       "schema:creator": {
         "schema:name": "에스오디 SOD",
@@ -41,7 +41,7 @@
       "schema:name": "과학자들 미쳤네; 기름도 전기도 없이 달릴 수 있는 신의 엔진 등장"
     },
     {
-      "@id": "urn:newnal.com:google:youtube:watch:1704166108273",
+      "@id": "urn:newnal.com:google:youtube:watch:3d3d676f-6f67-4c65-ab5f-796f75747562",
       "@type": "schema:VideoObject",
       "schema:creator": {
         "schema:name": "",
@@ -52,11 +52,11 @@
   "issuer": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF",
   "proof": {
     "type": "Ed25519Signature2018",
-    "created": "2024-01-02T03:28:28Z",
+    "created": "2024-01-02T04:33:20Z",
     "verificationMethod": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF#keys-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "zYBixp7jriaKXvCviTuAyv1D9Ks7Wnv78zgPDhNDtLniiY5nUpM1vuBSdavAAgNvsScZwUBgHAVRi1HwSYFmssGA"
+    "proofValue": "z61QtAUb14M5CwKz8U7eWs7vughLNHNiziUEukuppRPdNQQChFCSN6K9FGBZWzJC958fYF5F9tUaHEBKRLqTpq5dc"
   },
   "id": "did:infra:sample",
-  "issuanceDate": "2024-01-02T03:28:28.277Z"
+  "issuanceDate": "2024-01-02T04:33:20.973Z"
 }

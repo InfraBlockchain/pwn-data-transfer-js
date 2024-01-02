@@ -13,7 +13,7 @@
   ],
   "credentialSubject": [
     {
-      "@id": "urn:newnal.com:uber:trip:1418914486000",
+      "@id": "urn:newnal.com:uber:trip:32303134-2d31-422d-b138-2031343a3534",
       "@type": "schema:Reservation",
       "schema:bookingTime": {
         "@value": "2014-12-18T14:54:46.000Z",
@@ -36,12 +36,18 @@
       "schema:totalPrice": "0"
     },
     {
-      "@id": "urn:newnal.com:uber:trip:1418914847000",
+      "@id": "urn:newnal.com:uber:trip:32303134-2d31-422d-b138-2031353a3030",
       "@type": "schema:Reservation",
-      "schema:bookingTime": {
-        "@value": "2014-12-18T15:00:47.000Z",
-        "@type": "xsd:dateTime"
-      },
+      "schema:bookingTime": [
+        {
+          "@value": "2014-12-18T15:00:47.000Z",
+          "@type": "xsd:dateTime"
+        },
+        {
+          "@value": "2014-12-18T15:00:55.000Z",
+          "@type": "xsd:dateTime"
+        }
+      ],
       "schema:broker": "Uber",
       "schema:reservationFor": {
         "@type": "schema:TravelAction",
@@ -59,30 +65,7 @@
       "schema:totalPrice": "0"
     },
     {
-      "@id": "urn:newnal.com:uber:trip:1418914855000",
-      "@type": "schema:Reservation",
-      "schema:bookingTime": {
-        "@value": "2014-12-18T15:00:55.000Z",
-        "@type": "xsd:dateTime"
-      },
-      "schema:broker": "Uber",
-      "schema:reservationFor": {
-        "@type": "schema:TravelAction",
-        "schema:additionalType": "UNFULFILLED",
-        "schema:distance": "0.00 miles",
-        "schema:endTime": {
-          "@value": "1970-01-01T00:00:00.000Z",
-          "@type": "xsd:dateTime"
-        },
-        "schema:startTime": {
-          "@value": "1970-01-01T00:00:00.000Z",
-          "@type": "xsd:dateTime"
-        }
-      },
-      "schema:totalPrice": "0"
-    },
-    {
-      "@id": "urn:newnal.com:uber:trip:1418915111000",
+      "@id": "urn:newnal.com:uber:trip:32303134-2d31-422d-b138-2031353a3035",
       "@type": "schema:Reservation",
       "schema:bookingTime": {
         "@value": "2014-12-18T15:05:11.000Z",
@@ -105,7 +88,7 @@
       "schema:totalPrice": "0"
     },
     {
-      "@id": "urn:newnal.com:uber:trip:1639814006000",
+      "@id": "urn:newnal.com:uber:trip:32303231-2d31-422d-b138-2030373a3533",
       "@type": "schema:Reservation",
       "schema:bookingTime": {
         "@value": "2021-12-18T07:53:26.000Z",
@@ -130,7 +113,7 @@
       "schema:totalPrice": "0"
     },
     {
-      "@id": "urn:newnal.com:uber:trip:1642464368000",
+      "@id": "urn:newnal.com:uber:trip:32303232-2d30-412d-b138-2030303a3036",
       "@type": "schema:Reservation",
       "schema:bookingTime": {
         "@value": "2022-01-18T00:06:08.000Z",
@@ -173,7 +156,7 @@
       "schema:totalPrice": "12000"
     },
     {
-      "@id": "urn:newnal.com:uber:trip:1642637597000",
+      "@id": "urn:newnal.com:uber:trip:32303232-2d30-412d-b230-2030303a3133",
       "@type": "schema:Reservation",
       "schema:bookingTime": {
         "@value": "2022-01-20T00:13:17.000Z",
@@ -198,7 +181,7 @@
       "schema:totalPrice": "0"
     },
     {
-      "@id": "urn:newnal.com:uber:trip:1642637806000",
+      "@id": "urn:newnal.com:uber:trip:32303232-2d30-412d-b230-2030303a3136",
       "@type": "schema:Reservation",
       "schema:bookingTime": {
         "@value": "2022-01-20T00:16:46.000Z",
@@ -223,7 +206,7 @@
       "schema:totalPrice": "0"
     },
     {
-      "@id": "urn:newnal.com:uber:trip:1695493779000",
+      "@id": "urn:newnal.com:uber:trip:32303233-2d30-492d-b233-2031383a3239",
       "@type": "schema:Reservation",
       "schema:bookingTime": {
         "@value": "2023-09-23T18:29:39.000Z",
@@ -266,7 +249,7 @@
       "schema:totalPrice": "27.91"
     },
     {
-      "@id": "urn:newnal.com:uber:trip:1695521132000",
+      "@id": "urn:newnal.com:uber:trip:32303233-2d30-492d-b234-2030323a3035",
       "@type": "schema:Reservation",
       "schema:bookingTime": {
         "@value": "2023-09-24T02:05:32.000Z",
@@ -312,11 +295,11 @@
   "issuer": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF",
   "proof": {
     "type": "Ed25519Signature2018",
-    "created": "2024-01-02T03:28:28Z",
+    "created": "2024-01-02T04:33:21Z",
     "verificationMethod": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF#keys-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "z4eakJmShF7Y5xws1v9xQ6HYpC2ntb9o1ZMS4ghKUC4JE7WnZ3VrzZUEDhMtN39Bds4RKdzqAUNPjr1mqQxiwaAV7"
+    "proofValue": "z4zijCTY4NHXjYmD5NvDyzVguD9etKZujobz34gr5VMuvU3jmww2oDTyWQRpoNYb4h6SZQPPWoAwBVdDAf4HqCYAj"
   },
   "id": "did:infra:sample",
-  "issuanceDate": "2024-01-02T03:28:28.341Z"
+  "issuanceDate": "2024-01-02T04:33:21.048Z"
 }

@@ -1,7 +1,7 @@
 @prefix schema: <http://schema.org/>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
-<urn:newnal.com:uber:trip:1418914486000>
+<urn:newnal.com:uber:trip:32303134-2d31-422d-b138-2031343a3534>
     a schema:Reservation;
     schema:bookingTime "2014-12-18T14:54:46.000Z"^^xsd:dateTime;
     schema:broker "Uber";
@@ -14,9 +14,11 @@
                 schema:startTime "1970-01-01T00:00:00.000Z"^^xsd:dateTime
             ];
     schema:totalPrice "0".
-<urn:newnal.com:uber:trip:1418914847000>
+<urn:newnal.com:uber:trip:32303134-2d31-422d-b138-2031353a3030>
     a schema:Reservation;
-    schema:bookingTime "2014-12-18T15:00:47.000Z"^^xsd:dateTime;
+    schema:bookingTime
+        "2014-12-18T15:00:47.000Z"^^xsd:dateTime,
+        "2014-12-18T15:00:55.000Z"^^xsd:dateTime;
     schema:broker "Uber";
     schema:reservationFor
             [
@@ -27,20 +29,7 @@
                 schema:startTime "1970-01-01T00:00:00.000Z"^^xsd:dateTime
             ];
     schema:totalPrice "0".
-<urn:newnal.com:uber:trip:1418914855000>
-    a schema:Reservation;
-    schema:bookingTime "2014-12-18T15:00:55.000Z"^^xsd:dateTime;
-    schema:broker "Uber";
-    schema:reservationFor
-            [
-                a schema:TravelAction;
-                schema:additionalType "UNFULFILLED";
-                schema:distance "0.00 miles";
-                schema:endTime "1970-01-01T00:00:00.000Z"^^xsd:dateTime;
-                schema:startTime "1970-01-01T00:00:00.000Z"^^xsd:dateTime
-            ];
-    schema:totalPrice "0".
-<urn:newnal.com:uber:trip:1418915111000>
+<urn:newnal.com:uber:trip:32303134-2d31-422d-b138-2031353a3035>
     a schema:Reservation;
     schema:bookingTime "2014-12-18T15:05:11.000Z"^^xsd:dateTime;
     schema:broker "Uber";
@@ -53,7 +42,7 @@
                 schema:startTime "1970-01-01T00:00:00.000Z"^^xsd:dateTime
             ];
     schema:totalPrice "0".
-<urn:newnal.com:uber:trip:1639814006000>
+<urn:newnal.com:uber:trip:32303231-2d31-422d-b138-2030373a3533>
     a schema:Reservation;
     schema:bookingTime "2021-12-18T07:53:26.000Z"^^xsd:dateTime;
     schema:broker "Uber";
@@ -68,7 +57,7 @@
                 schema:startTime "1970-01-01T00:00:00.000Z"^^xsd:dateTime
             ];
     schema:totalPrice "0".
-<urn:newnal.com:uber:trip:1642464368000>
+<urn:newnal.com:uber:trip:32303232-2d30-412d-b138-2030303a3036>
     a schema:Reservation;
     schema:bookingTime "2022-01-18T00:06:08.000Z"^^xsd:dateTime;
     schema:broker "Uber";
@@ -107,7 +96,7 @@
                         ]
             ];
     schema:totalPrice "12000".
-<urn:newnal.com:uber:trip:1642637597000>
+<urn:newnal.com:uber:trip:32303232-2d30-412d-b230-2030303a3133>
     a schema:Reservation;
     schema:bookingTime "2022-01-20T00:13:17.000Z"^^xsd:dateTime;
     schema:broker "Uber";
@@ -122,7 +111,7 @@
                 schema:startTime "1970-01-01T00:00:00.000Z"^^xsd:dateTime
             ];
     schema:totalPrice "0".
-<urn:newnal.com:uber:trip:1642637806000>
+<urn:newnal.com:uber:trip:32303232-2d30-412d-b230-2030303a3136>
     a schema:Reservation;
     schema:bookingTime "2022-01-20T00:16:46.000Z"^^xsd:dateTime;
     schema:broker "Uber";
@@ -137,7 +126,7 @@
                 schema:startTime "1970-01-01T00:00:00.000Z"^^xsd:dateTime
             ];
     schema:totalPrice "0".
-<urn:newnal.com:uber:trip:1695493779000>
+<urn:newnal.com:uber:trip:32303233-2d30-492d-b233-2031383a3239>
     a schema:Reservation;
     schema:bookingTime "2023-09-23T18:29:39.000Z"^^xsd:dateTime;
     schema:broker "Uber";
@@ -176,7 +165,7 @@
                         ]
             ];
     schema:totalPrice "27.91".
-<urn:newnal.com:uber:trip:1695521132000>
+<urn:newnal.com:uber:trip:32303233-2d30-492d-b234-2030323a3035>
     a schema:Reservation;
     schema:bookingTime "2023-09-24T02:05:32.000Z"^^xsd:dateTime;
     schema:broker "Uber";

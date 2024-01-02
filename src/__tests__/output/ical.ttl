@@ -1,7 +1,7 @@
 @prefix cal: <http://www.w3.org/2002/12/cal/ical#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
-<urn:newnal.com:google:calendar:1647045424000>
+<urn:newnal.com:google:calendar:32303232-2d30-432d-b132-5430303a3337>
     a cal:Event;
     cal:description "";
     cal:dtend "";
@@ -11,7 +11,7 @@
     cal:location "";
     cal:status "CONFIRMED";
     cal:summary "YT 저녁식사".
-<urn:newnal.com:google:calendar:1647396438000>
+<urn:newnal.com:google:calendar:32303232-2d30-432d-b136-5430323a3037>
     a cal:Event;
     cal:description "";
     cal:dtend "2022-04-11T01:00:00Z"^^xsd:dateTime;
@@ -21,7 +21,7 @@
     cal:location "";
     cal:status "CONFIRMED";
     cal:summary "node스터디 발표(v8)".
-<urn:newnal.com:google:calendar:1648447711000>
+<urn:newnal.com:google:calendar:32303232-2d30-432d-b238-5430363a3038>
     a cal:Event;
     cal:description "";
     cal:dtend "2022-03-30T02:30:00Z"^^xsd:dateTime;
@@ -32,7 +32,7 @@
     cal:status "CONFIRMED";
     cal:summary
     "펫아이 메인컨셉 공유회의".
-<urn:newnal.com:google:calendar:1652661363000>
+<urn:newnal.com:google:calendar:32303232-2d30-452d-b136-5430303a3336>
     a cal:Event;
     cal:description "";
     <http://www.w3.org/2002/12/cal/ical#dtend;value=date>
@@ -44,7 +44,7 @@
     cal:location "";
     cal:status "CONFIRMED";
     cal:summary "신사스퀘어 결과발표".
-<urn:newnal.com:google:calendar:1701146688000>
+<urn:newnal.com:google:calendar:32303233-2d31-412d-b238-5430343a3434>
     a cal:Event;
     cal:description
         """-
