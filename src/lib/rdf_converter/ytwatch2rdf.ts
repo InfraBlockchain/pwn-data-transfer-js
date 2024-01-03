@@ -1,9 +1,9 @@
 import * as RDF from 'rdflib';
 import { JSDOM } from 'jsdom';
 import { ContentType } from 'rdflib/lib/types';
-import { ConvertError } from './error';
+import { ConvertError } from '../error';
 import { schema, wd, xsd, rdf } from './namespace.const';
-import Util from './util';
+import Util from '../util';
 
 class YoutubeWatchConverter {
   private static rdfGraph: RDF.Store | null = null;
@@ -64,14 +64,11 @@ class YoutubeWatchConverter {
 
       const eventDate = dateElement ? this.formatDateToRDF(dateElement.trim()) : '';
       const eventUri = Util.getUrn('google', 'youtube:watch', eventDate);
-      // this.rdfGraph.add(eventUri, rdf.ns('type'), wd.ns('Q63412991'));
       this.rdfGraph.add(eventUri, rdf.ns('type'), schema.ns('VideoObject'));
 
       if (videoLink) {
         const videoTitle = videoLink.textContent?.trim();
         const videoURL = videoLink.getAttribute('href');
-        // this.rdfGraph.add(eventUri, wd.ns('P1476'), RDF.literal(this.cleanUpText(videoTitle)));
-        // this.rdfGraph.add(eventUri, wd.ns('Q110874299'), RDF.literal(this.cleanUpText(videoURL)));
         this.rdfGraph.add(eventUri, schema.ns('name'), RDF.literal(this.cleanUpText(videoTitle)));
         this.rdfGraph.add(eventUri, schema.ns('embedUrl'), RDF.literal(this.cleanUpText(videoURL)));
       }
@@ -81,8 +78,6 @@ class YoutubeWatchConverter {
         const channelURL = channelLink.getAttribute('href');
         this.rdfGraph.add(eventUri, schema.ns('creator'), RDF.blankNode(`Channel_${index}`));
 
-        // this.rdfGraph.add(eventUri, wd.ns('Q17558136'), RDF.literal(this.cleanUpText(channelName)));
-        // this.rdfGraph.add(eventUri, wd.ns('Q35907496'), RDF.literal(this.cleanUpText(channelURL)));
         this.rdfGraph.add(
           RDF.blankNode(`Channel_${index}`),
           schema.ns('name'),

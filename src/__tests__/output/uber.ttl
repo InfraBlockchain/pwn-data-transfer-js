@@ -4,7 +4,6 @@
 <urn:newnal.com:uber:trip:32303134-2d31-422d-b138-2031343a3534>
     a schema:Reservation;
     schema:bookingTime "2014-12-18T14:54:46.000Z"^^xsd:dateTime;
-    schema:broker "Uber";
     schema:reservationFor
             [
                 a schema:TravelAction;
@@ -19,7 +18,6 @@
     schema:bookingTime
         "2014-12-18T15:00:47.000Z"^^xsd:dateTime,
         "2014-12-18T15:00:55.000Z"^^xsd:dateTime;
-    schema:broker "Uber";
     schema:reservationFor
             [
                 a schema:TravelAction;
@@ -32,7 +30,6 @@
 <urn:newnal.com:uber:trip:32303134-2d31-422d-b138-2031353a3035>
     a schema:Reservation;
     schema:bookingTime "2014-12-18T15:05:11.000Z"^^xsd:dateTime;
-    schema:broker "Uber";
     schema:reservationFor
             [
                 a schema:TravelAction;
@@ -45,7 +42,6 @@
 <urn:newnal.com:uber:trip:32303231-2d31-422d-b138-2030373a3533>
     a schema:Reservation;
     schema:bookingTime "2021-12-18T07:53:26.000Z"^^xsd:dateTime;
-    schema:broker "Uber";
     schema:priceCurrency "KRW";
     schema:reservationFor
             [
@@ -60,7 +56,6 @@
 <urn:newnal.com:uber:trip:32303232-2d30-412d-b138-2030303a3036>
     a schema:Reservation;
     schema:bookingTime "2022-01-18T00:06:08.000Z"^^xsd:dateTime;
-    schema:broker "Uber";
     schema:priceCurrency "KRW";
     schema:reservationFor
             [
@@ -99,7 +94,6 @@
 <urn:newnal.com:uber:trip:32303232-2d30-412d-b230-2030303a3133>
     a schema:Reservation;
     schema:bookingTime "2022-01-20T00:13:17.000Z"^^xsd:dateTime;
-    schema:broker "Uber";
     schema:priceCurrency "KRW";
     schema:reservationFor
             [
@@ -114,7 +108,6 @@
 <urn:newnal.com:uber:trip:32303232-2d30-412d-b230-2030303a3136>
     a schema:Reservation;
     schema:bookingTime "2022-01-20T00:16:46.000Z"^^xsd:dateTime;
-    schema:broker "Uber";
     schema:priceCurrency "KRW";
     schema:reservationFor
             [
@@ -129,7 +122,6 @@
 <urn:newnal.com:uber:trip:32303233-2d30-492d-b233-2031383a3239>
     a schema:Reservation;
     schema:bookingTime "2023-09-23T18:29:39.000Z"^^xsd:dateTime;
-    schema:broker "Uber";
     schema:priceCurrency "USD";
     schema:reservationFor
             [
@@ -168,7 +160,6 @@
 <urn:newnal.com:uber:trip:32303233-2d30-492d-b234-2030323a3035>
     a schema:Reservation;
     schema:bookingTime "2023-09-24T02:05:32.000Z"^^xsd:dateTime;
-    schema:broker "Uber";
     schema:priceCurrency "USD";
     schema:reservationFor
             [

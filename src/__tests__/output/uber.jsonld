@@ -11,7 +11,6 @@
         "@value": "2014-12-18T14:54:46.000Z",
         "@type": "xsd:dateTime"
       },
-      "schema:broker": "Uber",
       "schema:reservationFor": {
         "@type": "schema:TravelAction",
         "schema:additionalType": "UNFULFILLED",
@@ -40,7 +39,6 @@
           "@type": "xsd:dateTime"
         }
       ],
-      "schema:broker": "Uber",
       "schema:reservationFor": {
         "@type": "schema:TravelAction",
         "schema:additionalType": "UNFULFILLED",
@@ -63,7 +61,6 @@
         "@value": "2014-12-18T15:05:11.000Z",
         "@type": "xsd:dateTime"
       },
-      "schema:broker": "Uber",
       "schema:reservationFor": {
         "@type": "schema:TravelAction",
         "schema:additionalType": "UNFULFILLED",
@@ -86,7 +83,6 @@
         "@value": "2021-12-18T07:53:26.000Z",
         "@type": "xsd:dateTime"
       },
-      "schema:broker": "Uber",
       "schema:priceCurrency": "KRW",
       "schema:reservationFor": {
         "@type": "schema:TravelAction",
@@ -111,7 +107,6 @@
         "@value": "2022-01-18T00:06:08.000Z",
         "@type": "xsd:dateTime"
       },
-      "schema:broker": "Uber",
       "schema:priceCurrency": "KRW",
       "schema:reservationFor": {
         "@type": "schema:TravelAction",
@@ -154,7 +149,6 @@
         "@value": "2022-01-20T00:13:17.000Z",
         "@type": "xsd:dateTime"
       },
-      "schema:broker": "Uber",
       "schema:priceCurrency": "KRW",
       "schema:reservationFor": {
         "@type": "schema:TravelAction",
@@ -179,7 +173,6 @@
         "@value": "2022-01-20T00:16:46.000Z",
         "@type": "xsd:dateTime"
       },
-      "schema:broker": "Uber",
       "schema:priceCurrency": "KRW",
       "schema:reservationFor": {
         "@type": "schema:TravelAction",
@@ -204,7 +197,6 @@
         "@value": "2023-09-23T18:29:39.000Z",
         "@type": "xsd:dateTime"
       },
-      "schema:broker": "Uber",
       "schema:priceCurrency": "USD",
       "schema:reservationFor": {
         "@type": "schema:TravelAction",
@@ -247,7 +239,6 @@
         "@value": "2023-09-24T02:05:32.000Z",
         "@type": "xsd:dateTime"
       },
-      "schema:broker": "Uber",
       "schema:priceCurrency": "USD",
       "schema:reservationFor": {
         "@type": "schema:TravelAction",

@@ -1,1 +1,1 @@
-const tmp = '';
+export const tmp = '';

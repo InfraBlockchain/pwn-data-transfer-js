@@ -1,6 +1,14 @@
 @prefix schema: <http://schema.org/>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
+<urn:newnal.com:google:youtube:watch:2e676f6f-676c-452e-b96f-75747562653a>
+    a schema:VideoObject;
+    schema:creator
+            [
+                schema:name "";
+                schema:url
+                "https://www.youtube.com/channel/UCxuKWtKls-DLeCa127SbEFA"
+            ].
 <urn:newnal.com:google:youtube:watch:32303233-2d30-492d-b136-5430383a3433>
     a schema:VideoObject;
     schema:creator
@@ -26,11 +34,3 @@
     schema:endTime "2023-10-26T23:18:32.000Z"^^xsd:dateTime;
     schema:name
         "과학자들 미쳤네; 기름도 전기도 없이 달릴 수 있는 신의 엔진 등장".
-<urn:newnal.com:google:youtube:watch:3d3d676f-6f67-4c65-ab5f-796f75747562>
-    a schema:VideoObject;
-    schema:creator
-            [
-                schema:name "";
-                schema:url
-                "https://www.youtube.com/channel/UCxuKWtKls-DLeCa127SbEFA"
-            ].

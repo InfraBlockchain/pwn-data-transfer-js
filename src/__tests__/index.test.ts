@@ -4,6 +4,7 @@ import fs from 'fs';
 import { IcalConverter, UberTripConverter, YoutubeWatchConverter, Util, ConvertError } from '@src/lib/rdf_converter';
 import PwnDataInput from '@src/index';
 import { DIDSet } from 'infra-did-js';
+import { NoDIDSetError } from '@src/lib/error';
 
 const outputFolderPath = 'src/__tests__/output';
 const sampleFolderPath = 'src/__tests__/sample';
@@ -30,6 +31,13 @@ describe('Module Test', () => {
       expect(await PwnDataInput.convertRDF(sampleYtWatchData, 'youtube-watch')).toBeDefined();
       expect(await PwnDataInput.convertRDF(sampleUberTripData, 'uber-trip')).toBeDefined();
     });
+    test('error: sign before init DID', async () => {
+      const icalJsonld = await PwnDataInput.convertRDF(sampleIcsData, 'ical', 'application/ld+json');
+      await expect(
+        async () => await PwnDataInput.IssueCredential('did:infra:sample', 'ical', JSON.parse(icalJsonld)),
+      ).rejects.toThrow(new NoDIDSetError());
+    });
+
     test('did test', async () => {
       const didSet: DIDSet = await PwnDataInput.initDIDSet(seed);
       expect(didSet.seed).toEqual(seed);

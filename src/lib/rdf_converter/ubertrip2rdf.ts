@@ -1,11 +1,11 @@
 import * as RDF from 'rdflib';
 import csv from 'csv-parser';
 import { ContentType } from 'rdflib/lib/types';
-import { ConvertError } from './error';
+import { ConvertError } from '../error';
 import { schema, xsd, rdf } from './namespace.const';
 
 import { Readable } from 'stream';
-import Util from './util';
+import Util from '../util';
 
 const direction = {
   from: 'Begin Trip',
@@ -53,7 +53,6 @@ class UberTripConverter {
         const tripleId = Util.getUrn('uber', 'trip', row['Request Time'] as string);
 
         this.rdfGraph.add(tripleId, rdf.ns('type'), schema.ns('Reservation'));
-        this.rdfGraph.add(tripleId, schema.ns('broker'), 'Uber');
 
         const ReservationProps = {
           'Fare Amount': schema.ns('totalPrice'),

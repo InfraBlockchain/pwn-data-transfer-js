@@ -1,8 +1,8 @@
 import * as RDF from 'rdflib';
 import { ContentType } from 'rdflib/lib/types';
-import { ConvertError } from './error';
+import { ConvertError } from '../error';
 import { ical, xsd, rdf } from './namespace.const';
-import Util from './util';
+import Util from '../util';
 
 const parseKeys = {
   location: { key: 'LOCATION', uri: ical.ns('location') },

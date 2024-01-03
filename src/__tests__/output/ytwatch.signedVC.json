@@ -13,6 +13,14 @@
   ],
   "credentialSubject": [
     {
+      "@id": "urn:newnal.com:google:youtube:watch:2e676f6f-676c-452e-b96f-75747562653a",
+      "@type": "schema:VideoObject",
+      "schema:creator": {
+        "schema:name": "",
+        "schema:url": "https://www.youtube.com/channel/UCxuKWtKls-DLeCa127SbEFA"
+      }
+    },
+    {
       "@id": "urn:newnal.com:google:youtube:watch:32303233-2d30-492d-b136-5430383a3433",
       "@type": "schema:VideoObject",
       "schema:creator": {
@@ -39,24 +47,16 @@
         "@type": "xsd:dateTime"
       },
       "schema:name": "과학자들 미쳤네; 기름도 전기도 없이 달릴 수 있는 신의 엔진 등장"
-    },
-    {
-      "@id": "urn:newnal.com:google:youtube:watch:3d3d676f-6f67-4c65-ab5f-796f75747562",
-      "@type": "schema:VideoObject",
-      "schema:creator": {
-        "schema:name": "",
-        "schema:url": "https://www.youtube.com/channel/UCxuKWtKls-DLeCa127SbEFA"
-      }
     }
   ],
   "issuer": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF",
   "proof": {
     "type": "Ed25519Signature2018",
-    "created": "2024-01-02T04:33:20Z",
+    "created": "2024-01-02T06:47:44Z",
     "verificationMethod": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF#keys-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "z61QtAUb14M5CwKz8U7eWs7vughLNHNiziUEukuppRPdNQQChFCSN6K9FGBZWzJC958fYF5F9tUaHEBKRLqTpq5dc"
+    "proofValue": "z5yYeGkjrCvsgiZYAgrDET8p9THtz7HBS3mGJJMB3ab4gf4BKdA8eAmKNcpA7Q12LFvbHfUfS36cRZ9nVUe2SS3gG"
   },
   "id": "did:infra:sample",
-  "issuanceDate": "2024-01-02T04:33:20.973Z"
+  "issuanceDate": "2024-01-02T06:47:44.296Z"
 }
