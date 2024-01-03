@@ -19,7 +19,7 @@ const sampleUberTripData = fs.readFileSync(path.join(sampleFolderPath, 'uber_tri
   encoding: 'utf-8',
 });
 const seed = '0x8c9971953c5c82a51e3ab0ec9a16ced7054585081483e2489241b5b059f5f3cf';
-
+const holderDID = 'did:infra:space:holder12345';
 describe('Module Test', () => {
   describe('Core Test', () => {
     beforeAll(() => {
@@ -34,7 +34,7 @@ describe('Module Test', () => {
     test('error: sign before init DID', async () => {
       const icalJsonld = await PwnDataInput.convertRDF(sampleIcsData, 'ical', 'application/ld+json');
       await expect(
-        async () => await PwnDataInput.IssueCredential('did:infra:sample', 'ical', JSON.parse(icalJsonld)),
+        async () => await PwnDataInput.IssueCredential('did:infra:sample', holderDID, 'ical', JSON.parse(icalJsonld)),
       ).rejects.toThrow(new NoDIDSetError());
     });
 
@@ -44,7 +44,12 @@ describe('Module Test', () => {
     });
     test('issue Credential', async () => {
       const icalJsonld = await PwnDataInput.convertRDF(sampleIcsData, 'ical', 'application/ld+json');
-      const icalSignedVC = await PwnDataInput.IssueCredential('did:infra:sample', 'ical', JSON.parse(icalJsonld));
+      const icalSignedVC = await PwnDataInput.IssueCredential(
+        'did:infra:sample',
+        holderDID,
+        'ical',
+        JSON.parse(icalJsonld),
+      );
       fs.writeFileSync(path.join(outputFolderPath, 'ical.signedVC.json'), JSON.stringify(icalSignedVC, null, 2), {
         encoding: 'utf-8',
       });
@@ -53,6 +58,7 @@ describe('Module Test', () => {
       const ytWatchJsonld = await PwnDataInput.convertRDF(sampleYtWatchData, 'youtube-watch', 'application/ld+json');
       const ytWatchSignedVC = await PwnDataInput.IssueCredential(
         'did:infra:sample',
+        holderDID,
         'youtube-watch',
         JSON.parse(ytWatchJsonld),
       );
@@ -64,6 +70,7 @@ describe('Module Test', () => {
       const uberTripJsonld = await PwnDataInput.convertRDF(sampleUberTripData, 'uber-trip', 'application/ld+json');
       const uberTripSignedVC = await PwnDataInput.IssueCredential(
         'did:infra:sample',
+        holderDID,
         'uber-trip',
         JSON.parse(uberTripJsonld),
       );
@@ -86,7 +93,7 @@ describe('Module Test', () => {
       test('empty data-> ConvertError', async () => {
         await expect(async () => await IcalConverter.convert('')).rejects.toThrow(new ConvertError());
       });
-      test('ical to jsonld', async () => {
+      test('to jsonld', async () => {
         const res = await IcalConverter.convert(sampleIcsData, 'application/ld+json');
         expect(res).toBeDefined();
         expect(JSON.stringify(res)).toBeTruthy();
@@ -94,7 +101,7 @@ describe('Module Test', () => {
           encoding: 'utf-8',
         });
       });
-      test('ical to ttl', async () => {
+      test('to ttl', async () => {
         const res = await IcalConverter.convert(sampleIcsData, 'text/turtle');
         expect(res).toBeDefined();
         expect(res.includes('@prefix cal: <http://www.w3.org/2002/12/cal/ical#>.')).toBeTruthy();

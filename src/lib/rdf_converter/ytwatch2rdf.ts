@@ -2,7 +2,7 @@ import * as RDF from 'rdflib';
 import { JSDOM } from 'jsdom';
 import { ContentType } from 'rdflib/lib/types';
 import { ConvertError } from '../error';
-import { schema, wd, xsd, rdf } from './namespace.const';
+import { schema, xsd, rdf } from './namespace.const';
 import Util from '../util';
 
 class YoutubeWatchConverter {
@@ -10,10 +10,8 @@ class YoutubeWatchConverter {
 
   private static init(): void {
     this.rdfGraph = new RDF.IndexedFormula();
-    wd.setPrefix(this.rdfGraph);
     schema.setPrefix(this.rdfGraph);
     xsd.setPrefix(this.rdfGraph);
-    rdf.setPrefix(this.rdfGraph);
   }
 
   private static cleanUpText(text?: string | null): string {
@@ -28,17 +26,22 @@ class YoutubeWatchConverter {
     const formattedDate = dateString.replace(
       /(\d{4})\. (\d{1,2})\. (\d{1,2})\. (오전|오후|am|pm|AM|PM) (\d{1,2}:\d{1,2}:\d{1,2}) KST/,
       (_match, year, month, day, ampm, time) => {
-        const hours = ['오후', 'PM', 'pm'].includes(ampm)
-          ? parseInt(time.split(':')[0], 10) + 12
-          : parseInt(time.split(':')[0], 10);
+        const hours =
+          ['오후', 'PM', 'pm'].includes(ampm) && parseInt(time.split(':')[0], 10) !== 12
+            ? parseInt(time.split(':')[0], 10) + 12
+            : parseInt(time.split(':')[0], 10);
 
         return `${year}-${month}-${day} ${hours}:${time.split(':')[1]}:${time.split(':')[2]}`;
       },
     );
 
     const date = new Date(formattedDate);
-
-    return date.toISOString();
+    try {
+      return date.toISOString();
+    } catch (e) {
+      console.log(dateString, formattedDate, date);
+      throw e;
+    }
   }
 
   private static findDateElement(outerCell: Element): string | null {
@@ -63,36 +66,32 @@ class YoutubeWatchConverter {
       const dateElement = this.findDateElement(outerCell);
 
       const eventDate = dateElement ? this.formatDateToRDF(dateElement.trim()) : '';
-      const eventUri = Util.getUrn('google', 'youtube:watch', eventDate);
-      this.rdfGraph.add(eventUri, rdf.ns('type'), schema.ns('VideoObject'));
+      const eventId = Util.getUrn('google', 'youtube:watch', eventDate);
+      this.rdfGraph.add(eventId, rdf.ns('type'), schema.ns('WatchAction'));
+
+      const videoObjectNode = RDF.blankNode(`${eventId}_VideoObject`);
+      this.rdfGraph.add(eventId, schema.ns('object'), videoObjectNode);
+      this.rdfGraph.add(videoObjectNode, rdf.ns('type'), schema.ns('VideoObject'));
 
       if (videoLink) {
         const videoTitle = videoLink.textContent?.trim();
         const videoURL = videoLink.getAttribute('href');
-        this.rdfGraph.add(eventUri, schema.ns('name'), RDF.literal(this.cleanUpText(videoTitle)));
-        this.rdfGraph.add(eventUri, schema.ns('embedUrl'), RDF.literal(this.cleanUpText(videoURL)));
+        this.rdfGraph.add(videoObjectNode, schema.ns('name'), RDF.literal(this.cleanUpText(videoTitle)));
+        this.rdfGraph.add(videoObjectNode, schema.ns('embedUrl'), RDF.literal(this.cleanUpText(videoURL)));
       }
 
       if (channelLink) {
         const channelName = channelLink.textContent?.trim();
         const channelURL = channelLink.getAttribute('href');
-        this.rdfGraph.add(eventUri, schema.ns('creator'), RDF.blankNode(`Channel_${index}`));
-
-        this.rdfGraph.add(
-          RDF.blankNode(`Channel_${index}`),
-          schema.ns('name'),
-          RDF.literal(this.cleanUpText(channelName)),
-        );
-        this.rdfGraph.add(
-          RDF.blankNode(`Channel_${index}`),
-          schema.ns('url'),
-          RDF.literal(this.cleanUpText(channelURL)),
-        );
+        const channelNode = RDF.blankNode(`Channel_${index}`);
+        this.rdfGraph.add(videoObjectNode, schema.ns('creator'), channelNode);
+        this.rdfGraph.add(channelNode, schema.ns('name'), RDF.literal(this.cleanUpText(channelName)));
+        this.rdfGraph.add(channelNode, schema.ns('url'), RDF.literal(this.cleanUpText(channelURL)));
       }
 
       if (dateElement) {
         const date = this.formatDateToRDF(dateElement.trim());
-        this.rdfGraph.add(eventUri, schema.ns('endTime'), RDF.literal(date, xsd.ns('dateTime')));
+        this.rdfGraph.add(eventId, schema.ns('startTime'), RDF.literal(date, xsd.ns('dateTime')));
       }
     }
   }
@@ -119,6 +118,7 @@ class YoutubeWatchConverter {
       if (this.rdfGraph) {
         this.convertToRdf(htmlData);
         res = RDF.serialize(null, this.rdfGraph, null, format);
+        this.rdfGraph = null;
       }
 
       if (res) {

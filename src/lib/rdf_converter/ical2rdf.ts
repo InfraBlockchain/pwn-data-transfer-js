@@ -143,6 +143,7 @@ class IcalConverter {
       if (this.rdfGraph) {
         this.convertToRdf(icalData);
         res = RDF.serialize(null, this.rdfGraph, null, format);
+        this.rdfGraph = null;
       }
 
       if (res) {

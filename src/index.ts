@@ -16,7 +16,7 @@ class PwnDataInput {
 
   /**
    * convert RDF format from target data
-   * @param target - contert target data
+   * @param target - target data
    * @param type - convert type
    * @param format - RDF format(mime type)
    * @returns RDF format data
@@ -49,13 +49,15 @@ class PwnDataInput {
 
   /**
    * JSON-LD signature:: Issue verifiable credential
-   * @param id - vc ID
+   * @param vcId - vc ID
+   * @param holderDID - issued target(holder) did
    * @param type - RDF type
    * @param jsonld - RDF(JSON-LD) Data
    * @returns signed(issued) verifiable credential
    */
   static async IssueCredential(
-    id: string,
+    vcId: string,
+    holderDID: string,
     type: convertType,
     jsonld: Record<string, unknown>,
   ): Promise<VerifiableCredential> {
@@ -74,15 +76,16 @@ class PwnDataInput {
         vcType = 'newn:youtubeWatchHistory';
         break;
     }
-    const vc = new VerifiableCredential(id);
+    const vc = new VerifiableCredential(vcId);
     vc.addContext('https://www.w3.org/2018/credentials/v1');
     vc.addType('VerifiableCredential');
+
     vc.addContext({
       ...(jsonld['@context'] as Record<string, unknown>),
       newn: 'https://newnal.com/ontology/',
     });
     vc.addType(vcType);
-    vc.addSubject(jsonld['@graph']);
+    vc.addSubject({ 'newn:holder': holderDID, 'newn:data': jsonld['@graph'] });
 
     const signed = await vc.sign({
       id: `${this.didSet.did}#keys-1`,

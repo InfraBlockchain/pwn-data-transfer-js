@@ -6,7 +6,7 @@ export class ConvertError extends Error {
 }
 
 export class NoDIDSetError extends Error {
-  constructor(msg: string = 'Didset is not initialized.') {
+  constructor(msg: string = 'Did set is not initialized.') {
     super(msg);
     this.name = 'NoDIDSetError';
   }

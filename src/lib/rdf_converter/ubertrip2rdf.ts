@@ -138,6 +138,8 @@ class UberTripConverter {
           .on('end', () => {
             if (this.rdfGraph) {
               const res = RDF.serialize(null, this.rdfGraph, null, format);
+              this.rdfGraph = null;
+
               if (res) {
                 resolve(res.replace(/\\u([\d\w]{4})/gi, (_, grp) => String.fromCharCode(parseInt(grp, 16))));
               }

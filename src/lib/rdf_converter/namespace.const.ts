@@ -55,12 +55,12 @@ export const schema: NamespaceItem = {
 };
 
 // wd
-const WD_NAME = 'wd';
-const WD_URL = 'http://www.wikidata.org/entity/';
-export const wd: NamespaceItem = {
-  ns: RDF.Namespace(WD_URL),
-  setPrefix: (graph: RDF.Store) => graph.setPrefixForURI(WD_NAME, WD_URL),
-};
+// const WD_NAME = 'wd';
+// const WD_URL = 'http://www.wikidata.org/entity/';
+// export const wd: NamespaceItem = {
+//   ns: RDF.Namespace(WD_URL),
+//   setPrefix: (graph: RDF.Store) => graph.setPrefixForURI(WD_NAME, WD_URL),
+// };
 
 // foaf
 // const FOAF_NAME = 'foaf';
