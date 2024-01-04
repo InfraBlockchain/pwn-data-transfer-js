@@ -17,7 +17,7 @@ const sampleUberTrip = fs.readFileSync(path.join(sampleFolder, 'uber_trips_data.
   encoding: 'utf-8',
 });
 
-async function main(): Promise<boolean> {
+async function main() {
   const ical = await PwnDataInput.convertRDF(sampleIcs, 'ical');
   const yt = await PwnDataInput.convertRDF(sampleYtWatch, 'youtube-watch');
   const uber = await PwnDataInput.convertRDF(sampleUberTrip, 'uber-trip');
@@ -31,7 +31,3 @@ async function main(): Promise<boolean> {
   return !!ical && !!yt && !!uber;
 }
 export default main;
-
-if (runDirect) {
-  main();
-}

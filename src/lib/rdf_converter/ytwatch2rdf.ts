@@ -13,6 +13,7 @@ class YoutubeWatchConverter {
 
     schema.setPrefix(this.rdfGraph);
     xsd.setPrefix(this.rdfGraph);
+    rdf.setPrefix(this.rdfGraph);
   }
 
   private static cleanUpText(text?: string | null): string {
@@ -25,7 +26,7 @@ class YoutubeWatchConverter {
 
   private static formatDateToRDF(dateString: string): string {
     const formattedDate = dateString.replace(
-      /(\d{4})\. (\d{1,2})\. (\d{1,2})\. (오전|오후|am|pm|AM|PM) (\d{1,2}:\d{1,2}:\d{1,2}) KST/,
+      /(\d{4})\. (\d{1,2})\. (\d{1,2})\. (오전|오후|am|pm|AM|PM) (\d{1,2}:\d{1,2}:\d{1,2}) .{3}/,
       (_match, year, month, day, ampm, time) => {
         const hours =
           ['오후', 'PM', 'pm'].includes(ampm) && parseInt(time.split(':')[0], 10) !== 12
@@ -80,7 +81,7 @@ class YoutubeWatchConverter {
       if (channelLink) {
         const channelName = channelLink.textContent?.trim();
         const channelURL = channelLink.getAttribute('href');
-        const channelNode = RDF.blankNode(`Channel_${index}`);
+        const channelNode = RDF.blankNode(`youtube_channel_${index}`);
         this.rdfGraph.add(videoObjectNode, schema.ns('creator'), channelNode);
         this.rdfGraph.add(channelNode, schema.ns('name'), RDF.literal(this.cleanUpText(channelName)));
         this.rdfGraph.add(channelNode, schema.ns('url'), RDF.literal(this.cleanUpText(channelURL)));

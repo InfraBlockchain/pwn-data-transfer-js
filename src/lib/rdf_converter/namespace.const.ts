@@ -41,7 +41,7 @@ export const xsd: NamespaceItem = {
 // ical
 const ICAL_NAME = 'ical';
 const ICAL_URL = 'http://www.w3.org/2002/12/cal/ical#';
-export const ical: NamespaceItem = {
+export const cal: NamespaceItem = {
   ns: RDF.Namespace(ICAL_URL),
   setPrefix: (graph: RDF.Store) => graph.setPrefixForURI(ICAL_NAME, ICAL_URL),
 };

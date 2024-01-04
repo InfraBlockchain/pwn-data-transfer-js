@@ -5,19 +5,17 @@ import PwnDataInput from '../dist/dev/index.esm.js';
 const __filename = path.basename(import.meta.url);
 const runDirect = process.argv.pop()?.includes(__filename);
 
-const sampleFolder = 'src/__tests__/sample';
-const sampleIcs = fs.readFileSync(path.join(sampleFolder, 'calendar.ics'), {
-  encoding: 'utf-8',
-});
+const outputFolderPath = 'src/__tests__/output';
 
-async function main(): Promise<boolean> {
+const sampleIcs = fs.readFileSync(path.join(outputFolderPath, 'ical.jsonld'), { encoding: 'utf-8' });
+
+async function main() {
   await PwnDataInput.initDIDSet('0x8c9971953c5c82a51e3ab0ec9a16ced7054585081483e2489241b5b059f5f3cf');
-  const rdf = await PwnDataInput.convertRDF(sampleIcs, 'ical');
   const signedVc = await PwnDataInput.IssueCredential(
     'did:infra:example:1114',
     'did:infra:space:holder12345',
     'ical',
-    JSON.parse(rdf),
+    JSON.parse(sampleIcs),
   );
   if (runDirect) {
     console.log(signedVc);

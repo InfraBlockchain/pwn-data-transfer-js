@@ -15,16 +15,17 @@ const uberTripData = fs.readFileSync(path.join(sampleFolderPath, 'uber_trips_dat
 const seed = '0x8c9971953c5c82a51e3ab0ec9a16ced7054585081483e2489241b5b059f5f3cf';
 const holderDID = 'did:infra:space:holder12345';
 class ProtectedTest extends PwnDataInput {
-  constructor() {
-    super();
-  }
-
   static async testGetHasher(hashAlg: string): Promise<Hasher> {
     return await this.getHasher(hashAlg);
   }
 }
 
 describe('Module Test', () => {
+  beforeAll(async () => {
+    fs.rmSync(outputFolderPath, { recursive: true, force: true });
+    fs.promises.mkdir(outputFolderPath, { recursive: true });
+  });
+
   describe('Util', () => {
     test('getUrn', () => {
       expect(Util.getUrn('test', 'test-event', '').value.startsWith('urn:newnal.com:test:test-event')).toBeTruthy();
@@ -40,15 +41,15 @@ describe('Module Test', () => {
       test('to jsonld', async () => {
         const res = await IcalConverter.convert(icsData, 'application/ld+json');
         expect(res).toBeDefined();
-        expect(JSON.stringify(res)).toBeTruthy();
         fs.writeFileSync(path.join(outputFolderPath, 'ical.jsonld'), res, { encoding: 'utf-8' });
+        expect(JSON.stringify(res)).toBeTruthy();
       });
 
       test('to ttl', async () => {
         const res = await IcalConverter.convert(icsData, 'text/turtle');
         expect(res).toBeDefined();
-        expect(res.includes('@prefix cal: <http://www.w3.org/2002/12/cal/ical#>.')).toBeTruthy();
         fs.writeFileSync(path.join(outputFolderPath, 'ical.ttl'), res, { encoding: 'utf-8' });
+        expect(res.includes('@prefix cal: <http://www.w3.org/2002/12/cal/ical#>.')).toBeTruthy();
       });
     });
 
@@ -103,11 +104,6 @@ describe('Module Test', () => {
     let icalSdjwt: string;
     let uberTripSdjwt: string;
     let ytWatchSdjwt: string;
-
-    beforeAll(async () => {
-      fs.rmSync(outputFolderPath, { recursive: true, force: true });
-      fs.promises.mkdir(outputFolderPath, { recursive: true });
-    });
 
     test('convert RDF', async () => {
       icalJsonld = JSON.parse(await PwnDataInput.convertRDF(icsData, 'ical'));

@@ -29,11 +29,11 @@
     "build:dev": "NODE_ENV=development microbundle --define process.env.NODE_ENV=development --tsconfig ./tsconfig.json --generateTypes false --format modern --output dist/dev/index.js",
     "build": "rm -rf ./dist && yarn build:dev && yarn build:prod",
     "gen:docs": "rm -rf ./docs/api && typedoc --options typedoc.cjs",
-    "example": "NODE_ENV=development yarn build:dev && ts-node example",
-    "example:sig": "NODE_ENV=development yarn build:dev && ts-node example/sig.ts",
-    "example:convert": "NODE_ENV=development yarn build:dev && ts-node example/convert.ts",
-    "example:did": "NODE_ENV=development yarn build:dev && ts-node example/did.ts",
-    "example:did2": "NODE_ENV=production yarn build:prod && ts-node example/did.ts"
+    "example": "NODE_ENV=development yarn build:dev && node example",
+    "example:convert": "NODE_ENV=development yarn build:dev && node example/convert.js",
+    "example:did": "NODE_ENV=development yarn build:dev && node example/did.js",
+    "example:sig": "NODE_ENV=development yarn build:dev && node example/sig.js",
+    "example:sd-jwt": "NODE_ENV=development yarn build:dev && node example/sd-jwt.js"
   },
   "repository": {
     "type": "git",

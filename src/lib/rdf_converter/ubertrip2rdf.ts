@@ -16,7 +16,7 @@ class UberTripConverter {
   private static rdfGraph: RDF.Store | null = null;
 
   private static init(): void {
-    this.rdfGraph = new RDF.IndexedFormula();
+    this.rdfGraph = RDF.graph();
     schema.setPrefix(this.rdfGraph);
     xsd.setPrefix(this.rdfGraph);
     rdf.setPrefix(this.rdfGraph);

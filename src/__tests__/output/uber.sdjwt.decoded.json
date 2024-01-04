@@ -295,13 +295,13 @@
     "issuer": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF",
     "proof": {
       "type": "Ed25519Signature2018",
-      "created": "2024-01-04T05:34:48Z",
+      "created": "2024-01-04T07:04:23Z",
       "verificationMethod": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF#keys-1",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z2THamhewrDgi1QfXBMb432VvQgmENkdfm3c7tfmWEJ7eMFVcf39VYvtsZr7jRTNTgUF1EqBK8Dum97jrPTYfeKGM"
+      "proofValue": "z2W5rmAWxJEaY6pwaRWQtbdxAYzYGkct3Kk8SyfgaQA7bHJm3spiHxB1NjmWLbvdcNxWtVNyYCeaXS7B7Ys1nJ8eu"
     },
     "id": "did:infra:sample",
-    "issuanceDate": "2024-01-04T05:34:48.938Z",
+    "issuanceDate": "2024-01-04T07:04:23.583Z",
     "_sd_alg": "sha-256"
   },
   "disclosures": [],
