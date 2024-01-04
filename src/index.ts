@@ -27,6 +27,9 @@ export type convertType = 'ical' | 'youtube-watch' | 'uber-trip';
  * PWNDataInput lib
  */
 class PwnDataInput {
+  /**
+   * infra ss58 did set. for issuer did, set by initDIDSet
+   */
   static didSet: DIDSet;
 
   /**
@@ -34,7 +37,7 @@ class PwnDataInput {
    * @param target - target data
    * @param type - convert type
    * @param format - RDF format(mime type). default 'application/ld+json'
-   * @returns RDF format data
+   * @returns - RDF format data
    */
   static async convertRDF(
     target: string,
@@ -68,7 +71,7 @@ class PwnDataInput {
    * @param holderDID - issued target(holder) did
    * @param type - RDF type
    * @param jsonld - RDF(JSON-LD) Data
-   * @returns signed(issued) verifiable credential
+   * @returns - signed(issued) verifiable credential
    */
   static async IssueCredential(
     vcId: string,
@@ -147,6 +150,11 @@ class PwnDataInput {
     throw new Error('hash alg must be sha-256');
   };
 
+  /**
+   * verify SD-JWT
+   * @param issuerSignedSdjwt - SD-JWT string
+   * @returns - true/false
+   */
   static async verifySdJwt(issuerSignedSdjwt: string): Promise<boolean> {
     try {
       const decodedSDJWT = decodeSDJWT(issuerSignedSdjwt);
@@ -164,6 +172,12 @@ class PwnDataInput {
     }
   }
 
+  /**
+   * issue json to SD-JWT
+   * @param payload - target json payload
+   * @param opt - set header alg(EdDSA, ES256...) and hash alg(sha-256). but hash alg currently supports only sha-256
+   * @returns - SD-JWT string
+   */
   static async issueSdJwt(
     payload: Record<string, unknown>,
     opt: { headerAlg?: string; hashAlg?: string } = { headerAlg: 'EdDSA', hashAlg: 'sha-256' },
@@ -187,5 +201,3 @@ class PwnDataInput {
 }
 
 export default PwnDataInput;
-
-export type SdJwtHeader = { alg: string; kid: string };
