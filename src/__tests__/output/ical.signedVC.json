@@ -136,11 +136,11 @@
   "issuer": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF",
   "proof": {
     "type": "Ed25519Signature2018",
-    "created": "2024-01-03T08:43:07Z",
+    "created": "2024-01-04T03:13:33Z",
     "verificationMethod": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF#keys-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "z2Zz1w3rcSNUpMAfavEiDsxkHpFk9Aa12Tsf5Net7sB5RRnoii8Z1CLGSoQ7p9Uvj9PqMpZGp7joAfcG4pcTqNpCi"
+    "proofValue": "z4cZt4hzLo7Kx3Y2eK6gqRhWCEULPVVXnCJ4Fmx5mRYgdtKjpNgvuW1FdvLGuRkdRf8YuobferBbTUdGmCbLnJo3"
   },
   "id": "did:infra:sample",
-  "issuanceDate": "2024-01-03T08:43:07.608Z"
+  "issuanceDate": "2024-01-04T03:13:33.578Z"
 }

@@ -9,7 +9,8 @@ class YoutubeWatchConverter {
   private static rdfGraph: RDF.Store | null = null;
 
   private static init(): void {
-    this.rdfGraph = new RDF.IndexedFormula();
+    this.rdfGraph = RDF.graph();
+
     schema.setPrefix(this.rdfGraph);
     xsd.setPrefix(this.rdfGraph);
   }
@@ -36,12 +37,8 @@ class YoutubeWatchConverter {
     );
 
     const date = new Date(formattedDate);
-    try {
-      return date.toISOString();
-    } catch (e) {
-      console.log(dateString, formattedDate, date);
-      throw e;
-    }
+
+    return date.toISOString();
   }
 
   private static findDateElement(outerCell: Element): string | null {

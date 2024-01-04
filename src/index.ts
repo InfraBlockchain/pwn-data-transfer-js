@@ -1,8 +1,23 @@
 import { IcalConverter, UberTripConverter, YoutubeWatchConverter } from '@src/lib/rdf_converter';
-import { InfraSS58, DIDSet, VerifiableCredential, CRYPTO_INFO, HexString } from 'infra-did-js';
+import {
+  InfraSS58,
+  DIDSet,
+  VerifiableCredential,
+  CRYPTO_INFO,
+  HexString,
+  hasher,
+  issueSDJWT,
+  KeyringPair,
+  CryptoHelper,
+  base64encode,
+  verifySDJWT,
+  Hasher,
+  decodeSDJWT,
+} from 'infra-did-js';
 import { ContentType } from 'rdflib/lib/types';
 import { NoDIDSetError } from './lib/error';
-
+import { JWTHeaderParameters, JWTPayload, SignJWT, importJWK, jwtVerify } from 'jose';
+import crypto, { BinaryLike } from 'crypto';
 /**
  * convert target type
  */
@@ -18,7 +33,7 @@ class PwnDataInput {
    * convert RDF format from target data
    * @param target - target data
    * @param type - convert type
-   * @param format - RDF format(mime type)
+   * @param format - RDF format(mime type). default 'application/ld+json'
    * @returns RDF format data
    */
   static async convertRDF(
@@ -87,15 +102,90 @@ class PwnDataInput {
     vc.addType(vcType);
     vc.addSubject({ 'newn:holder': holderDID, 'newn:data': jsonld['@graph'] });
 
-    const signed = await vc.sign({
+    const signed = await vc.sign(this.getKeyDoc());
+
+    return signed;
+  }
+
+  protected static getKeyDoc(): { id: string; controller: string; type: string; keypair: KeyringPair } {
+    return {
       id: `${this.didSet.did}#keys-1`,
       controller: this.didSet.did,
       type: this.didSet.cryptoInfo.KEY_NAME,
       keypair: this.didSet.keyPair,
-    });
+    };
+  }
 
-    return signed;
+  protected static signer = async (header: JWTHeaderParameters, payload: JWTPayload): Promise<string> => {
+    const issuerPrivateKey = CryptoHelper.jwk2KeyObject(this.didSet.keyPairJWK.privateJwk, 'private');
+    const signature = await new SignJWT(payload).setProtectedHeader(header).sign(issuerPrivateKey);
+
+    return signature.split('.').pop() as string;
+  };
+
+  protected static getVerifier(alg: string) {
+    return async (jwt: string | Uint8Array) => {
+      const issuerPublickey = await importJWK(this.didSet.keyPairJWK.publicJwk, alg);
+
+      return !!jwtVerify(jwt, issuerPublickey);
+    };
+  }
+
+  protected static getHasher = (hashAlg: string): Promise<Hasher> => {
+    let hasher: Hasher | null = null;
+    // Default Hasher = Hasher for SHA-256
+    if (!hashAlg || hashAlg.toLowerCase() === 'sha-256') {
+      hasher = (data: BinaryLike) => {
+        const digest = crypto.createHash('sha256').update(data).digest();
+
+        return base64encode(digest);
+      };
+    }
+    if (hasher) {
+      return Promise.resolve(hasher);
+    }
+    throw new Error('hash alg must be sha-256');
+  };
+
+  static async verifySdJwt(issuerSignedSdjwt: string): Promise<boolean> {
+    try {
+      const decodedSDJWT = decodeSDJWT(issuerSignedSdjwt);
+      const header = decodedSDJWT.header as JWTHeaderParameters;
+      const verifier = this.getVerifier(header.alg);
+
+      const opts = {};
+      await verifySDJWT(issuerSignedSdjwt, verifier, this.getHasher, opts);
+
+      return true;
+    } catch (e) {
+      console.error(`verifySdJwt:: ${e}`);
+
+      return false;
+    }
+  }
+
+  static async issueSdJwt(
+    payload: Record<string, unknown>,
+    opt: { headerAlg?: string; hashAlg?: string } = { headerAlg: 'EdDSA', hashAlg: 'sha-256' },
+  ): Promise<string> {
+    return await issueSDJWT(
+      {
+        alg: opt.headerAlg || 'EdDSA',
+        kid: this.getKeyDoc().id,
+      },
+      payload,
+      { _sd: [] },
+      {
+        hash: {
+          alg: opt.hashAlg || 'sha-256',
+          callback: hasher,
+        },
+        signer: this.signer,
+      },
+    );
   }
 }
 
 export default PwnDataInput;
+
+export type SdJwtHeader = { alg: string; kid: string };

@@ -64,11 +64,11 @@
   "issuer": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF",
   "proof": {
     "type": "Ed25519Signature2018",
-    "created": "2024-01-03T08:43:07Z",
+    "created": "2024-01-04T03:13:33Z",
     "verificationMethod": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF#keys-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "zQpRdeEgLQrVKmzqhn5hjpoJnbAxnJULHVbK86HnCKNqUpfQbRSocEkTpr2gcQViQN4Dss7wyveSoHiKvUqQLiex"
+    "proofValue": "zdpDDfKp9tSr8uQEbqMP3YJQe8zPRSvYuWSPskxszQ2Y88t9omEgrW2pvWyQRmThChp4sQVuuSXAjNEGCtpFZyMe"
   },
   "id": "did:infra:sample",
-  "issuanceDate": "2024-01-03T08:43:07.665Z"
+  "issuanceDate": "2024-01-04T03:13:33.613Z"
 }

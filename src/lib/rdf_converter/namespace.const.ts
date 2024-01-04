@@ -47,8 +47,8 @@ export const ical: NamespaceItem = {
 };
 
 // schema
-const SCHEMA_NAME = 'schema';
-const SCHEMA_URL = 'http://schema.org/';
+export const SCHEMA_NAME = 'schema';
+export const SCHEMA_URL = 'http://schema.org/';
 export const schema: NamespaceItem = {
   ns: RDF.Namespace(SCHEMA_URL),
   setPrefix: (graph: RDF.Store) => graph.setPrefixForURI(SCHEMA_NAME, SCHEMA_URL),

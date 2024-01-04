@@ -52,7 +52,7 @@ module.exports = {
     ],
     '@typescript-eslint/no-non-null-assertion': [2],
     '@typescript-eslint/no-explicit-any': ['warn', { ignoreRestArgs: true }],
-    '@typescript-eslint/member-delimiter-style': ['error'],
+    // '@typescript-eslint/member-delimiter-style': ['error'],
   },
   overrides: [
     {
