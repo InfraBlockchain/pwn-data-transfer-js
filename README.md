@@ -9,8 +9,8 @@
   - Uber trip data(.csv)
 - Create infra ss58 DID Set: for issue(sign) VC / SD-JWT
 - Issue VC: issue the JSON-LD to signed VC 
-  - separation by period(day, month, quarter, semi-annual, yearly)
-- Issue SD-JWT: issue the signed VC (or JSON of any kind) as SD-JWT.
+  - separation by period(day, month, quarter, semi-annual, yearly) (v0.2.0)
+- Issue SD-JWT: issue the signed VC (or JSON of any kind) as SD-JWT. (v0.1.2)
 
 
 ## Support Formats(updated at 23.12.28)
@@ -59,7 +59,11 @@ const issuedSdjwt = await PwnDataInput.issueSdJwt(signedVC);
 const decodedSdJwt = decodeSDJWT(issuedSdjwt);
 ```
 
-> See `/example`, `src/__tests__`  folders for more information
+
+## More Information
+> See `/example`, `src/__tests__`  folders
+
+> [Docs](https://infrablockchain.github.io/pwn-data-input-js/)
 
 
 

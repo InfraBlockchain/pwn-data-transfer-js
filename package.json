@@ -1,6 +1,6 @@
 {
   "name": "pwn-data-input",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "PWN Data Input JS Library",
   "type": "module",
   "source": "src/index.ts",
