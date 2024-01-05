@@ -1,0 +1,141 @@
+{
+  "header": {
+    "typ": "sd+jwt",
+    "alg": "EdDSA",
+    "kid": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF#keys-1"
+  },
+  "unverifiedInputSdJwt": {
+    "@context": [
+      "https://www.w3.org/2018/credentials/v1",
+      {
+        "schema": "http://schema.org/",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "newn": "https://newnal.com/ontology/"
+      }
+    ],
+    "type": [
+      "VerifiableCredential",
+      "newn:uberTripData"
+    ],
+    "credentialSubject": {
+      "newn:holder": "did:infra:space:holder12345",
+      "newn:data": [
+        {
+          "@id": "urn:newnal.com:uber:trip:32303134-2d31-422d-b138-2031343a3534",
+          "@type": "schema:Reservation",
+          "schema:bookingTime": {
+            "@value": "2014-12-18T14:54:46.000Z",
+            "@type": "xsd:dateTime"
+          },
+          "schema:reservationFor": {},
+          "schema:totalPrice": "0"
+        },
+        {
+          "@id": "urn:newnal.com:uber:trip:32303134-2d31-422d-b138-2031353a3030",
+          "@type": "schema:Reservation",
+          "schema:bookingTime": [
+            {
+              "@value": "2014-12-18T15:00:47.000Z",
+              "@type": "xsd:dateTime"
+            },
+            {
+              "@value": "2014-12-18T15:00:55.000Z",
+              "@type": "xsd:dateTime"
+            }
+          ],
+          "schema:reservationFor": {},
+          "schema:totalPrice": "0"
+        },
+        {
+          "@id": "urn:newnal.com:uber:trip:32303134-2d31-422d-b138-2031353a3035",
+          "@type": "schema:Reservation",
+          "schema:bookingTime": {
+            "@value": "2014-12-18T15:05:11.000Z",
+            "@type": "xsd:dateTime"
+          },
+          "schema:reservationFor": {},
+          "schema:totalPrice": "0"
+        },
+        {
+          "@id": "urn:newnal.com:uber:trip:32303231-2d31-422d-b138-2030373a3533",
+          "@type": "schema:Reservation",
+          "schema:bookingTime": {
+            "@value": "2021-12-18T07:53:26.000Z",
+            "@type": "xsd:dateTime"
+          },
+          "schema:priceCurrency": "KRW",
+          "schema:reservationFor": {},
+          "schema:totalPrice": "0"
+        },
+        {
+          "@id": "urn:newnal.com:uber:trip:32303232-2d30-412d-b138-2030303a3036",
+          "@type": "schema:Reservation",
+          "schema:bookingTime": {
+            "@value": "2022-01-18T00:06:08.000Z",
+            "@type": "xsd:dateTime"
+          },
+          "schema:priceCurrency": "KRW",
+          "schema:reservationFor": {},
+          "schema:totalPrice": "12000"
+        },
+        {
+          "@id": "urn:newnal.com:uber:trip:32303232-2d30-412d-b230-2030303a3133",
+          "@type": "schema:Reservation",
+          "schema:bookingTime": {
+            "@value": "2022-01-20T00:13:17.000Z",
+            "@type": "xsd:dateTime"
+          },
+          "schema:priceCurrency": "KRW",
+          "schema:reservationFor": {},
+          "schema:totalPrice": "0"
+        },
+        {
+          "@id": "urn:newnal.com:uber:trip:32303232-2d30-412d-b230-2030303a3136",
+          "@type": "schema:Reservation",
+          "schema:bookingTime": {
+            "@value": "2022-01-20T00:16:46.000Z",
+            "@type": "xsd:dateTime"
+          },
+          "schema:priceCurrency": "KRW",
+          "schema:reservationFor": {},
+          "schema:totalPrice": "0"
+        },
+        {
+          "@id": "urn:newnal.com:uber:trip:32303233-2d30-492d-b233-2031383a3239",
+          "@type": "schema:Reservation",
+          "schema:bookingTime": {
+            "@value": "2023-09-23T18:29:39.000Z",
+            "@type": "xsd:dateTime"
+          },
+          "schema:priceCurrency": "USD",
+          "schema:reservationFor": {},
+          "schema:totalPrice": "27.91"
+        },
+        {
+          "@id": "urn:newnal.com:uber:trip:32303233-2d30-492d-b234-2030323a3035",
+          "@type": "schema:Reservation",
+          "schema:bookingTime": {
+            "@value": "2023-09-24T02:05:32.000Z",
+            "@type": "xsd:dateTime"
+          },
+          "schema:priceCurrency": "USD",
+          "schema:reservationFor": {},
+          "schema:totalPrice": "27.45"
+        }
+      ]
+    },
+    "issuer": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF",
+    "proof": {
+      "type": "Ed25519Signature2018",
+      "created": "2024-01-05T07:20:24Z",
+      "verificationMethod": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF#keys-1",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z1e98D29RAjusN6KhW67u26Q8ecuW9HWLh4tPSuNoHFX4rR63gBvid7VA9jPuZntTaApoXC2z2CtZede4ooygkag"
+    },
+    "id": "did:infra:sample",
+    "issuanceDate": "2024-01-05T07:20:24.188Z",
+    "_sd_alg": "sha-256"
+  },
+  "disclosures": [],
+  "keyBindingJWT": ""
+}

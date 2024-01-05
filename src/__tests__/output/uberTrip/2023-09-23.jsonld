@@ -1,0 +1,15 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@id": "urn:newnal.com:uber:trip:32303233-2d30-492d-b233-2031383a3239",
+  "@type": "schema:Reservation",
+  "schema:bookingTime": {
+    "@value": "2023-09-23T18:29:39.000Z",
+    "@type": "xsd:dateTime"
+  },
+  "schema:priceCurrency": "USD",
+  "schema:reservationFor": {},
+  "schema:totalPrice": "27.91"
+}

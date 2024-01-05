@@ -7,8 +7,8 @@ export interface NamespaceItem {
 }
 
 // rdf
-const RDF_NAME = 'rdf';
-const RDF_URL = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#';
+const RDF_NAME = `rdf`;
+const RDF_URL = `http://www.w3.org/1999/02/22-rdf-syntax-ns#`;
 export const rdf: NamespaceItem = {
   ns: RDF.Namespace(RDF_URL),
   setPrefix: (graph: RDF.Store) => graph.setPrefixForURI(RDF_NAME, RDF_URL),
@@ -31,24 +31,24 @@ export const rdf: NamespaceItem = {
 // };
 
 // xsd
-const XSD_NAME = 'xsd';
-const XSD_URL = 'http://www.w3.org/2001/XMLSchema#';
+const XSD_NAME = `xsd`;
+const XSD_URL = `http://www.w3.org/2001/XMLSchema#`;
 export const xsd: NamespaceItem = {
   ns: RDF.Namespace(XSD_URL),
   setPrefix: (graph: RDF.Store) => graph.setPrefixForURI(XSD_NAME, XSD_URL),
 };
 
 // ical
-const ICAL_NAME = 'ical';
-const ICAL_URL = 'http://www.w3.org/2002/12/cal/ical#';
+const ICAL_NAME = `ical`;
+const ICAL_URL = `http://www.w3.org/2002/12/cal/ical#`;
 export const cal: NamespaceItem = {
   ns: RDF.Namespace(ICAL_URL),
   setPrefix: (graph: RDF.Store) => graph.setPrefixForURI(ICAL_NAME, ICAL_URL),
 };
 
 // schema
-export const SCHEMA_NAME = 'schema';
-export const SCHEMA_URL = 'http://schema.org/';
+export const SCHEMA_NAME = `schema`;
+export const SCHEMA_URL = `http://schema.org/`;
 export const schema: NamespaceItem = {
   ns: RDF.Namespace(SCHEMA_URL),
   setPrefix: (graph: RDF.Store) => graph.setPrefixForURI(SCHEMA_NAME, SCHEMA_URL),

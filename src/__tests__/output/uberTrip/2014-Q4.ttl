@@ -1,0 +1,20 @@
+@prefix schema: <http://schema.org/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<urn:newnal.com:uber:trip:32303134-2d31-422d-b138-2031343a3534>
+    a schema:Reservation;
+    schema:bookingTime "2014-12-18T14:54:46.000Z"^^xsd:dateTime;
+    schema:reservationFor [];
+    schema:totalPrice "0".
+<urn:newnal.com:uber:trip:32303134-2d31-422d-b138-2031353a3030>
+    a schema:Reservation;
+    schema:bookingTime
+        "2014-12-18T15:00:47.000Z"^^xsd:dateTime,
+        "2014-12-18T15:00:55.000Z"^^xsd:dateTime;
+    schema:reservationFor [];
+    schema:totalPrice "0".
+<urn:newnal.com:uber:trip:32303134-2d31-422d-b138-2031353a3035>
+    a schema:Reservation;
+    schema:bookingTime "2014-12-18T15:05:11.000Z"^^xsd:dateTime;
+    schema:reservationFor [];
+    schema:totalPrice "0".

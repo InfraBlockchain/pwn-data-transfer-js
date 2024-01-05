@@ -1,0 +1,20 @@
+@prefix cal: <http://www.w3.org/2002/12/cal/ical#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<urn:newnal.com:google:calendar:32303233-2d31-412d-b238-5430343a3434>
+    a cal:Event;
+    cal:description
+        """-
+:~:~:~:~:~:~:~:~::~:~::-\\nJoin with Google Meet: https://meet.google.com/pp
+p-ffqg-sxt\\nOr dial: (US) +1 413-338-4533 PIN: 802331784#\\nMore phone numbe
+rs: https://tel.meet/ppp-ffqg-sxt?pin=5006000140015&hs=7\\n\\nLearn more abou
+t Meet at: https://support.google.com/a/users/answer/9282720\\n\\nPlease do n
+ot edit this section.\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:
+~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-""";
+    cal:dtend "2023-11-28T06:30:00Z"^^xsd:dateTime;
+    cal:dtstamp "2023-12-13T01:21:14Z"^^xsd:dateTime;
+    cal:dtstart "2023-11-28T05:30:00Z"^^xsd:dateTime;
+    cal:lastModified "2023-11-28T05:03:57Z"^^xsd:dateTime;
+    cal:location "9A";
+    cal:status "CONFIRMED";
+    cal:summary "Newnal Demo 방향성 논의".

@@ -1,0 +1,53 @@
+{
+  "@context": {
+    "cal": "http://www.w3.org/2002/12/cal/ical#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "urn:newnal.com:google:calendar:32303232-2d30-432d-b132-5430303a3337",
+      "@type": "cal:Event",
+      "cal:description": "",
+      "cal:dtend": "",
+      "cal:dtstamp": {
+        "@value": "2023-12-13T01:21:14Z",
+        "@type": "xsd:dateTime"
+      },
+      "cal:dtstart": {
+        "@value": "2022-03-17T09:30:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "cal:lastModified": {
+        "@value": "2022-03-12T00:37:04Z",
+        "@type": "xsd:dateTime"
+      },
+      "cal:location": "",
+      "cal:status": "CONFIRMED",
+      "cal:summary": "YT 저녁식사"
+    },
+    {
+      "@id": "urn:newnal.com:google:calendar:32303232-2d30-432d-b238-5430363a3038",
+      "@type": "cal:Event",
+      "cal:description": "",
+      "cal:dtend": {
+        "@value": "2022-03-30T02:30:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "cal:dtstamp": {
+        "@value": "2023-12-13T01:21:14Z",
+        "@type": "xsd:dateTime"
+      },
+      "cal:dtstart": {
+        "@value": "2022-03-30T01:30:00Z",
+        "@type": "xsd:dateTime"
+      },
+      "cal:lastModified": {
+        "@value": "2022-03-30T01:22:42Z",
+        "@type": "xsd:dateTime"
+      },
+      "cal:location": "",
+      "cal:status": "CONFIRMED",
+      "cal:summary": "펫아이 메인컨셉 공유회의"
+    }
+  ]
+}

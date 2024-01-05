@@ -22,6 +22,7 @@ module.exports = {
     __BUILD_DATE__: 'jest-build-date',
     __COMMIT_SHA__: 'jest-commit-sha',
   },
+  coverageDirectory: '../coverage',
   collectCoverageFrom: [
     '<rootDir>/**',
     '!<rootDir>/types.ts',

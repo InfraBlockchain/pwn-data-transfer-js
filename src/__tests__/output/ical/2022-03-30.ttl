@@ -1,0 +1,14 @@
+@prefix cal: <http://www.w3.org/2002/12/cal/ical#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<urn:newnal.com:google:calendar:32303232-2d30-432d-b238-5430363a3038>
+    a cal:Event;
+    cal:description "";
+    cal:dtend "2022-03-30T02:30:00Z"^^xsd:dateTime;
+    cal:dtstamp "2023-12-13T01:21:14Z"^^xsd:dateTime;
+    cal:dtstart "2022-03-30T01:30:00Z"^^xsd:dateTime;
+    cal:lastModified "2022-03-30T01:22:42Z"^^xsd:dateTime;
+    cal:location "";
+    cal:status "CONFIRMED";
+    cal:summary
+    "펫아이 메인컨셉 공유회의".

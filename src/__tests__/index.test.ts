@@ -1,100 +1,75 @@
 import path from 'path';
 import fs from 'fs';
 
-import { IcalConverter, UberTripConverter, YoutubeWatchConverter, Util, ConvertError } from '@src/lib/rdf_converter';
+import { IcalConverter, UberTripConverter, YoutubeWatchConverter, Util } from '@src/lib/rdf_converter';
 import PwnDataInput from '@src/index';
 import { NoDIDSetError } from '@src/lib/error';
-import { Hasher, VerifiableCredential, decodeSDJWT } from 'infra-did-js';
+import { HexString, VerifiableCredential, decodeSDJWT } from 'infra-did-js';
+import { TestHelper } from './test.module';
+import { Converter } from '@src/lib/rdf_converter/converter.interface';
 
-const outputFolderPath = 'src/__tests__/output';
-const sampleFolderPath = 'src/__tests__/sample';
-
-const icsData = fs.readFileSync(path.join(sampleFolderPath, 'calendar.ics'), { encoding: 'utf-8' });
-const ytWatchData = fs.readFileSync(path.join(sampleFolderPath, 'yt_watch.html'), { encoding: 'utf-8' });
-const uberTripData = fs.readFileSync(path.join(sampleFolderPath, 'uber_trips_data.csv'), { encoding: 'utf-8' });
-const seed = '0x8c9971953c5c82a51e3ab0ec9a16ced7054585081483e2489241b5b059f5f3cf';
-const holderDID = 'did:infra:space:holder12345';
-class ProtectedTest extends PwnDataInput {
-  static async testGetHasher(hashAlg: string): Promise<Hasher> {
-    return await this.getHasher(hashAlg);
-  }
-}
-
-describe('Module Test', () => {
+describe(`Module Test`, () => {
   beforeAll(async () => {
-    fs.rmSync(outputFolderPath, { recursive: true, force: true });
-    fs.promises.mkdir(outputFolderPath, { recursive: true });
+    fs.rmSync(TestHelper.CONST.OUTPUT_PATH, { recursive: true, force: true });
   });
 
-  describe('Util', () => {
-    test('getUrn', () => {
-      expect(Util.getUrn('test', 'test-event', '').value.startsWith('urn:newnal.com:test:test-event')).toBeTruthy();
+  describe(`Util`, () => {
+    test(`standalone getUrn`, () => {
+      expect(Util.getUrn(`test`, `test-event`, ``).value.startsWith(`urn:newnal.com:test:test-event`)).toBeTruthy();
     });
-  });
-
-  describe('RDF Converters', () => {
-    describe('Lib:ical Converter', () => {
-      test('error: empty data', async () => {
-        await expect(async () => await IcalConverter.convert('')).rejects.toThrow(new ConvertError());
-      });
-
-      test('to jsonld', async () => {
-        const res = await IcalConverter.convert(icsData, 'application/ld+json');
-        expect(res).toBeDefined();
-        fs.writeFileSync(path.join(outputFolderPath, 'ical.jsonld'), res, { encoding: 'utf-8' });
-        expect(JSON.stringify(res)).toBeTruthy();
-      });
-
-      test('to ttl', async () => {
-        const res = await IcalConverter.convert(icsData, 'text/turtle');
-        expect(res).toBeDefined();
-        fs.writeFileSync(path.join(outputFolderPath, 'ical.ttl'), res, { encoding: 'utf-8' });
-        expect(res.includes('@prefix cal: <http://www.w3.org/2002/12/cal/ical#>.')).toBeTruthy();
-      });
-    });
-
-    describe('Lib:youtube watch history Converter', () => {
-      test('error:empty data', async () => {
-        await expect(async () => await YoutubeWatchConverter.convert('')).rejects.toThrow(new ConvertError());
-      });
-
-      test('to jsonld', async () => {
-        const res = await YoutubeWatchConverter.convert(ytWatchData, 'application/ld+json');
-        expect(res).toBeDefined();
-        expect(JSON.stringify(res)).toBeTruthy();
-        fs.writeFileSync(path.join(outputFolderPath, 'ytwatch.jsonld'), res, { encoding: 'utf-8' });
-      });
-
-      test('to ttl', async () => {
-        const res = await YoutubeWatchConverter.convert(ytWatchData, 'text/turtle');
-        expect(res).toBeDefined();
-        expect(res.includes('@prefix schema: <http://schema.org/>.')).toBeTruthy();
-        fs.writeFileSync(path.join(outputFolderPath, 'ytwatch.ttl'), res, { encoding: 'utf-8' });
-      });
-    });
-
-    describe('Lib:Uber trip csv data Converter', () => {
-      test('empty data -> ConvertError', async () => {
-        await expect(async () => await UberTripConverter.convert('')).rejects.toThrow(new ConvertError());
-      });
-
-      test('to jsonld', async () => {
-        const res = await UberTripConverter.convert(uberTripData, 'application/ld+json');
-        expect(res).toBeDefined();
-        expect(JSON.stringify(res)).toBeTruthy();
-        fs.writeFileSync(path.join(outputFolderPath, 'uber.jsonld'), res, { encoding: 'utf-8' });
-      });
-
-      test('to ttl', async () => {
-        const res = await UberTripConverter.convert(uberTripData, 'text/turtle');
-        expect(res).toBeDefined();
-        expect(res.includes('@prefix schema: <http://schema.org/>.')).toBeTruthy();
-        fs.writeFileSync(path.join(outputFolderPath, 'uber.ttl'), res, { encoding: 'utf-8' });
-      });
+    test(`standalone Converter`, async () => {
+      await expect(async () => await Converter.convert(``)).rejects.toThrow();
     });
   });
 
-  describe('Core Test', () => {
+  describe(`RDF Converters`, () => {
+    describe(`Lib:ical Converter`, () => {
+      const prefix = `ical`;
+      const rawData = TestHelper.CONST.ICS_SAMPLE;
+      const tester = TestHelper.rdfConverterTester(IcalConverter, rawData, prefix);
+      beforeAll(async () => {
+        await fs.promises.mkdir(path.join(TestHelper.CONST.OUTPUT_PATH, prefix), { recursive: true });
+      });
+      // eslint-disable-next-line jest/expect-expect
+      test(`error:empty data`, tester.emptyTest);
+      // eslint-disable-next-line jest/expect-expect
+      test(`jsonld`, tester.jsonTest);
+      // eslint-disable-next-line jest/expect-expect
+      test(`to ttl`, tester.ttlTest);
+    });
+
+    describe(`Lib:youtube watch history Converter`, () => {
+      const prefix = `ytWatch/`;
+      const rawData = TestHelper.CONST.YT_WATCH_SAMPLE;
+      const tester = TestHelper.rdfConverterTester(YoutubeWatchConverter, rawData, prefix);
+      beforeAll(async () => {
+        await fs.promises.mkdir(path.join(TestHelper.CONST.OUTPUT_PATH, prefix), { recursive: true });
+      });
+      // eslint-disable-next-line jest/expect-expect
+      test(`error:empty data`, tester.emptyTest);
+      // eslint-disable-next-line jest/expect-expect
+      test(`jsonld`, tester.jsonTest);
+      // eslint-disable-next-line jest/expect-expect
+      test(`to ttl`, tester.ttlTest);
+    });
+
+    describe(`Lib:Uber trip csv data Converter`, () => {
+      const prefix = `uberTrip/`;
+      const rawData = TestHelper.CONST.UBER_TRIP_SAMPLE;
+      const tester = TestHelper.rdfConverterTester(UberTripConverter, rawData, prefix);
+      beforeAll(async () => {
+        await fs.promises.mkdir(path.join(TestHelper.CONST.OUTPUT_PATH, prefix), { recursive: true });
+      });
+      // eslint-disable-next-line jest/expect-expect
+      test(`error:empty data`, tester.emptyTest);
+      // eslint-disable-next-line jest/expect-expect
+      test(`jsonld`, tester.jsonTest);
+      // eslint-disable-next-line jest/expect-expect
+      test(`to ttl`, tester.ttlTest);
+    });
+  });
+
+  describe(`Core Test`, () => {
     let icalJsonld: Record<string, unknown>;
     let ytWatchJsonld: Record<string, unknown>;
     let uberTripJsonld: Record<string, unknown>;
@@ -105,106 +80,139 @@ describe('Module Test', () => {
     let uberTripSdjwt: string;
     let ytWatchSdjwt: string;
 
-    test('convert RDF', async () => {
-      icalJsonld = JSON.parse(await PwnDataInput.convertRDF(icsData, 'ical'));
-      ytWatchJsonld = JSON.parse(await PwnDataInput.convertRDF(ytWatchData, 'youtube-watch'));
-      uberTripJsonld = JSON.parse(await PwnDataInput.convertRDF(uberTripData, 'uber-trip'));
-
+    test(`convert RDF`, async () => {
+      const icalRdfs = await PwnDataInput.convertRDF(TestHelper.CONST.ICS_SAMPLE, `ical`);
+      icalJsonld = JSON.parse(icalRdfs.serializes[`all`]);
       expect(icalJsonld).toBeDefined();
+
+      const ytWatchRdfs = await PwnDataInput.convertRDF(TestHelper.CONST.YT_WATCH_SAMPLE, `youtube-watch`);
+      ytWatchJsonld = JSON.parse(ytWatchRdfs.serializes[`all`]);
       expect(ytWatchJsonld).toBeDefined();
+
+      const uberTripRdfs = await PwnDataInput.convertRDF(TestHelper.CONST.UBER_TRIP_SAMPLE, `uber-trip`);
+      uberTripJsonld = JSON.parse(uberTripRdfs.serializes[`all`]);
       expect(uberTripJsonld).toBeDefined();
     });
 
-    test('error: sign before init DID', async () => {
+    test(`error: sign before init DID`, async () => {
       await expect(
-        async () => await PwnDataInput.IssueCredential('did:infra:sample', holderDID, 'ical', icalJsonld),
+        async () =>
+          await PwnDataInput.IssueCredential(`did:infra:sample`, TestHelper.CONST.HOLDER_DID, `ical`, icalJsonld),
       ).rejects.toThrow(new NoDIDSetError());
     });
 
-    test('did test', async () => {
-      await PwnDataInput.initDIDSet(seed);
-      expect(PwnDataInput.didSet.seed).toEqual(seed);
+    test(`did test`, async () => {
+      await PwnDataInput.initDIDSet(TestHelper.CONST.SEED as HexString);
+      expect(PwnDataInput.didSet.seed).toEqual(TestHelper.CONST.SEED);
     });
 
-    test('issue Credential', async () => {
-      icalSignedVC = await PwnDataInput.IssueCredential('did:infra:sample', holderDID, 'ical', icalJsonld);
+    test(`issue Credential`, async () => {
+      icalSignedVC = await PwnDataInput.IssueCredential(
+        `did:infra:sample`,
+        TestHelper.CONST.HOLDER_DID,
+        `ical`,
+        icalJsonld,
+      );
+      fs.writeFileSync(
+        path.join(TestHelper.CONST.OUTPUT_PATH, `ical.signedVC.json`),
+        JSON.stringify(icalSignedVC, null, 2),
+        {
+          encoding: `utf-8`,
+        },
+      );
       expect(icalSignedVC.proof).toBeDefined();
-      fs.writeFileSync(path.join(outputFolderPath, 'ical.signedVC.json'), JSON.stringify(icalSignedVC, null, 2), {
-        encoding: 'utf-8',
-      });
 
       ytWatchSignedVC = await PwnDataInput.IssueCredential(
-        'did:infra:sample',
-        holderDID,
-        'youtube-watch',
+        `did:infra:sample`,
+        TestHelper.CONST.HOLDER_DID,
+        `youtube-watch`,
         ytWatchJsonld,
       );
+      fs.writeFileSync(
+        path.join(TestHelper.CONST.OUTPUT_PATH, `ytWatch.signedVC.json`),
+        JSON.stringify(ytWatchSignedVC, null, 2),
+        {
+          encoding: `utf-8`,
+        },
+      );
       expect(ytWatchSignedVC.proof).toBeDefined();
-      fs.writeFileSync(path.join(outputFolderPath, 'ytwatch.signedVC.json'), JSON.stringify(ytWatchSignedVC, null, 2), {
-        encoding: 'utf-8',
-      });
 
-      uberTripSignedVC = await PwnDataInput.IssueCredential('did:infra:sample', holderDID, 'uber-trip', uberTripJsonld);
+      uberTripSignedVC = await PwnDataInput.IssueCredential(
+        `did:infra:sample`,
+        TestHelper.CONST.HOLDER_DID,
+        `uber-trip`,
+        uberTripJsonld,
+      );
+      fs.writeFileSync(
+        path.join(TestHelper.CONST.OUTPUT_PATH, `uberTrip.signedVC.json`),
+        JSON.stringify(uberTripSignedVC, null, 2),
+        {
+          encoding: `utf-8`,
+        },
+      );
       expect(uberTripSignedVC.proof).toBeDefined();
-      fs.writeFileSync(path.join(outputFolderPath, 'uber.signedVC.json'), JSON.stringify(uberTripSignedVC, null, 2), {
-        encoding: 'utf-8',
-      });
     });
 
-    test('issue SDJWT', async () => {
+    test(`issue SDJWT`, async () => {
       icalSdjwt = await PwnDataInput.issueSdJwt(icalSignedVC.toJSON());
+      fs.writeFileSync(path.join(TestHelper.CONST.OUTPUT_PATH, `ical.sdjwt.txt`), icalSdjwt, {
+        encoding: `utf-8`,
+      });
       expect(icalSdjwt).toBeDefined();
-      fs.writeFileSync(path.join(outputFolderPath, 'ical.sdjwt.txt'), icalSdjwt, { encoding: 'utf-8' });
       const icalDecodedSDJWT = decodeSDJWT(icalSdjwt);
-      expect(icalDecodedSDJWT).toBeDefined();
       fs.writeFileSync(
-        path.join(outputFolderPath, 'ical.sdjwt.decoded.json'),
+        path.join(TestHelper.CONST.OUTPUT_PATH, `ical.sdjwt.decoded.json`),
         JSON.stringify(icalDecodedSDJWT, null, 2),
-        { encoding: 'utf-8' },
+        { encoding: `utf-8` },
       );
+      expect(icalDecodedSDJWT).toBeDefined();
 
       ytWatchSdjwt = await PwnDataInput.issueSdJwt(ytWatchSignedVC.toJSON());
+      fs.writeFileSync(path.join(TestHelper.CONST.OUTPUT_PATH, `ytWatch.sdjwt.txt`), ytWatchSdjwt, {
+        encoding: `utf-8`,
+      });
       expect(ytWatchSdjwt).toBeDefined();
-      fs.writeFileSync(path.join(outputFolderPath, 'ytwatch.sdjwt.txt'), ytWatchSdjwt, { encoding: 'utf-8' });
       const ytWatchDecodedSDJWT = decodeSDJWT(ytWatchSdjwt);
-      expect(ytWatchDecodedSDJWT).toBeDefined();
       fs.writeFileSync(
-        path.join(outputFolderPath, 'ytwatch.sdjwt.decoded.json'),
+        path.join(TestHelper.CONST.OUTPUT_PATH, `ytWatch.sdjwt.decoded.json`),
         JSON.stringify(ytWatchDecodedSDJWT, null, 2),
-        { encoding: 'utf-8' },
+        { encoding: `utf-8` },
       );
+      expect(ytWatchDecodedSDJWT).toBeDefined();
 
       uberTripSdjwt = await PwnDataInput.issueSdJwt(uberTripSignedVC.toJSON());
+      fs.writeFileSync(path.join(TestHelper.CONST.OUTPUT_PATH, `uberTrip.sdjwt.txt`), uberTripSdjwt, {
+        encoding: `utf-8`,
+      });
       expect(uberTripSdjwt).toBeDefined();
-      fs.writeFileSync(path.join(outputFolderPath, 'uber.sdjwt.txt'), uberTripSdjwt, { encoding: 'utf-8' });
       const uberTripDecodedSDJWT = decodeSDJWT(uberTripSdjwt);
-      expect(uberTripDecodedSDJWT).toBeDefined();
       fs.writeFileSync(
-        path.join(outputFolderPath, 'uber.sdjwt.decoded.json'),
+        path.join(TestHelper.CONST.OUTPUT_PATH, `uberTrip.sdjwt.decoded.json`),
         JSON.stringify(uberTripDecodedSDJWT, null, 2),
-        { encoding: 'utf-8' },
+        { encoding: `utf-8` },
       );
+      expect(uberTripDecodedSDJWT).toBeDefined();
     });
 
-    test('error: issue SDJWT', async () => {
+    test(`error: issue SDJWT`, async () => {
       await expect(
-        async () => await PwnDataInput.issueSdJwt(icalSignedVC.toJSON(), { headerAlg: 'ES256' }),
+        async () => await PwnDataInput.issueSdJwt(icalSignedVC.toJSON(), { headerAlg: `ES256` }),
       ).rejects.toThrow();
     });
 
-    test('verify SDJWT', async () => {
-      expect(await PwnDataInput.verifySdJwt('asdf')).toBeFalsy();
+    test(`verify SDJWT`, async () => {
+      expect(await PwnDataInput.verifySdJwt(`asdf`)).toBeFalsy();
       expect(await PwnDataInput.verifySdJwt(icalSdjwt)).toBeTruthy();
     });
 
-    test('error: verify SDJWT(not supported hash alg)', async () => {
-      const issuerSignedSdjwt_512 = await PwnDataInput.issueSdJwt(icalSignedVC.toJSON(), { hashAlg: 'sha-512' });
+    test(`error: verify SDJWT(not supported hash alg)`, async () => {
+      const issuerSignedSdjwt_512 = await PwnDataInput.issueSdJwt(icalSignedVC.toJSON(), { hashAlg: `sha-512` });
       expect(await PwnDataInput.verifySdJwt(issuerSignedSdjwt_512)).toBeFalsy();
     });
 
-    test('getHasher standalone', async () => {
-      const hasher = await ProtectedTest.testGetHasher('sha-256');
-      expect(hasher('asdf')).toBeDefined();
+    test(`getHasher standalone`, async () => {
+      const hasher = await TestHelper.testGetHasher(`sha-256`);
+      expect(hasher(`asdf`)).toBeDefined();
     });
   });
 });

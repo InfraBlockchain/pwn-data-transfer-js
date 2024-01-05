@@ -9,6 +9,7 @@
   - Uber trip data(.csv)
 - Create infra ss58 DID Set: for issue(sign) VC / SD-JWT
 - Issue VC: issue the JSON-LD to signed VC 
+  - separation by period(day, month, quarter, semi-annual, yearly)
 - Issue SD-JWT: issue the signed VC (or JSON of any kind) as SD-JWT.
 
 
@@ -23,7 +24,6 @@
 
 ## Working in progress
 - Input VC data into PWN (API)
-- Issuing VC separation by period(day,month,quarter,Semi-annual, yearly)
 
 
 
@@ -39,10 +39,11 @@ const didSet = await PwnDataInput.initDIDSet(seed);
 
 ### Convert data to RDF(JSON-LD)
 ```ts
+import { PeriodUnit } from './lib/interface';
 // convert ical data to jsonld
 // data:string data from calendar(.ics), youtube watch history(.html), uber trip data(.csv)
 const data = fs.readFileSync(path.join('path/to/target', 'calendar.ics'), { encoding: 'utf-8'});
-const icalJsonld = await PwnDataInput.convertRDF(data, 'ical', 'application/ld+json');
+const icalJsonld = await PwnDataInput.convertRDF(data, 'ical', PeriodUnit.all, 'application/ld+json');
 ```
 
 ### jsonld-signature (issue VC)

@@ -1,0 +1,13 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@id": "urn:newnal.com:google:youtube:watch:32303233-2d30-492d-b136-5430383a3433",
+  "@type": "schema:WatchAction",
+  "schema:object": {},
+  "schema:startTime": {
+    "@value": "2023-09-16T08:43:56.000Z",
+    "@type": "xsd:dateTime"
+  }
+}

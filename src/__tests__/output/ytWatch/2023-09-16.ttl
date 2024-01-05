@@ -1,0 +1,7 @@
+@prefix schema: <http://schema.org/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<urn:newnal.com:google:youtube:watch:32303233-2d30-492d-b136-5430383a3433>
+    a schema:WatchAction;
+    schema:object [];
+    schema:startTime "2023-09-16T08:43:56.000Z"^^xsd:dateTime.

@@ -1,0 +1,30 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "urn:newnal.com:uber:trip:32303232-2d30-412d-b230-2030303a3133",
+      "@type": "schema:Reservation",
+      "schema:bookingTime": {
+        "@value": "2022-01-20T00:13:17.000Z",
+        "@type": "xsd:dateTime"
+      },
+      "schema:priceCurrency": "KRW",
+      "schema:reservationFor": {},
+      "schema:totalPrice": "0"
+    },
+    {
+      "@id": "urn:newnal.com:uber:trip:32303232-2d30-412d-b230-2030303a3136",
+      "@type": "schema:Reservation",
+      "schema:bookingTime": {
+        "@value": "2022-01-20T00:16:46.000Z",
+        "@type": "xsd:dateTime"
+      },
+      "schema:priceCurrency": "KRW",
+      "schema:reservationFor": {},
+      "schema:totalPrice": "0"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+@prefix schema: <http://schema.org/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<urn:newnal.com:uber:trip:32303233-2d30-492d-b234-2030323a3035>
+    a schema:Reservation;
+    schema:bookingTime "2023-09-24T02:05:32.000Z"^^xsd:dateTime;
+    schema:priceCurrency "USD";
+    schema:reservationFor [];
+    schema:totalPrice "27.45".

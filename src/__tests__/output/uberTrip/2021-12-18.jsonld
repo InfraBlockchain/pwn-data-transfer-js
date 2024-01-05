@@ -1,0 +1,15 @@
+{
+  "@context": {
+    "schema": "http://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@id": "urn:newnal.com:uber:trip:32303231-2d31-422d-b138-2030373a3533",
+  "@type": "schema:Reservation",
+  "schema:bookingTime": {
+    "@value": "2021-12-18T07:53:26.000Z",
+    "@type": "xsd:dateTime"
+  },
+  "schema:priceCurrency": "KRW",
+  "schema:reservationFor": {},
+  "schema:totalPrice": "0"
+}

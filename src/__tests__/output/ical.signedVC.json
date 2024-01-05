@@ -87,7 +87,7 @@
         "@id": "urn:newnal.com:google:calendar:32303232-2d30-452d-b136-5430303a3336",
         "@type": "cal:Event",
         "cal:description": "",
-        "http://www.w3.org/2002/12/cal/ical#dtend;value=date": {
+        "cal:dtend": {
           "@value": "2022-05-20",
           "@type": "xsd:date"
         },
@@ -95,7 +95,7 @@
           "@value": "2023-12-13T01:21:14Z",
           "@type": "xsd:dateTime"
         },
-        "http://www.w3.org/2002/12/cal/ical#dtstart;value=date": {
+        "cal:dtstart": {
           "@value": "2022-05-19",
           "@type": "xsd:date"
         },
@@ -136,11 +136,11 @@
   "issuer": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF",
   "proof": {
     "type": "Ed25519Signature2018",
-    "created": "2024-01-04T07:04:23Z",
+    "created": "2024-01-05T07:20:24Z",
     "verificationMethod": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF#keys-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "z4E45zALEPWJ5fFHQDdyeVEdHRNWt4eCSLTmDyXzBw5xKNcHUhtchFs7bX5Y1NYxQpCezQR2LJf324SZ7i2R6qLpj"
+    "proofValue": "zF9AdR51VouPHvfTGJ2Trrcn8wbFKUBWJWTSyoPNx1ULDWuVq7n7F5b6K7uDJgnpUCLEEppGvVK6oatVyQ8Gc3dE"
   },
   "id": "did:infra:sample",
-  "issuanceDate": "2024-01-04T07:04:23.519Z"
+  "issuanceDate": "2024-01-05T07:20:24.171Z"
 }

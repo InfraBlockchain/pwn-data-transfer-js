@@ -1,0 +1,13 @@
+@prefix cal: <http://www.w3.org/2002/12/cal/ical#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<urn:newnal.com:google:calendar:32303232-2d30-432d-b136-5430323a3037>
+    a cal:Event;
+    cal:description "";
+    cal:dtend "2022-04-11T01:00:00Z"^^xsd:dateTime;
+    cal:dtstamp "2023-12-13T01:21:14Z"^^xsd:dateTime;
+    cal:dtstart "2022-04-11T00:00:00Z"^^xsd:dateTime;
+    cal:lastModified "2022-04-11T00:18:54Z"^^xsd:dateTime;
+    cal:location "";
+    cal:status "CONFIRMED";
+    cal:summary "node스터디 발표(v8)".

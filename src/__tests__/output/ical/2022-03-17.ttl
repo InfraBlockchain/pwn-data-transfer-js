@@ -1,0 +1,13 @@
+@prefix cal: <http://www.w3.org/2002/12/cal/ical#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<urn:newnal.com:google:calendar:32303232-2d30-432d-b132-5430303a3337>
+    a cal:Event;
+    cal:description "";
+    cal:dtend "";
+    cal:dtstamp "2023-12-13T01:21:14Z"^^xsd:dateTime;
+    cal:dtstart "2022-03-17T09:30:00Z"^^xsd:dateTime;
+    cal:lastModified "2022-03-12T00:37:04Z"^^xsd:dateTime;
+    cal:location "";
+    cal:status "CONFIRMED";
+    cal:summary "YT 저녁식사".

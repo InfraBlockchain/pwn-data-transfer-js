@@ -1,0 +1,28 @@
+{
+  "@context": {
+    "cal": "http://www.w3.org/2002/12/cal/ical#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@id": "urn:newnal.com:google:calendar:32303233-2d31-412d-b238-5430343a3434",
+  "@type": "cal:Event",
+  "cal:description": "-\n:~:~:~:~:~:~:~:~::~:~::-\\nJoin with Google Meet: https://meet.google.com/pp\np-ffqg-sxt\\nOr dial: (US) +1 413-338-4533 PIN: 802331784#\\nMore phone numbe\nrs: https://tel.meet/ppp-ffqg-sxt?pin=5006000140015&hs=7\\n\\nLearn more abou\nt Meet at: https://support.google.com/a/users/answer/9282720\\n\\nPlease do n\not edit this section.\\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:\n~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-",
+  "cal:dtend": {
+    "@value": "2023-11-28T06:30:00Z",
+    "@type": "xsd:dateTime"
+  },
+  "cal:dtstamp": {
+    "@value": "2023-12-13T01:21:14Z",
+    "@type": "xsd:dateTime"
+  },
+  "cal:dtstart": {
+    "@value": "2023-11-28T05:30:00Z",
+    "@type": "xsd:dateTime"
+  },
+  "cal:lastModified": {
+    "@value": "2023-11-28T05:03:57Z",
+    "@type": "xsd:dateTime"
+  },
+  "cal:location": "9A",
+  "cal:status": "CONFIRMED",
+  "cal:summary": "Newnal Demo 방향성 논의"
+}
