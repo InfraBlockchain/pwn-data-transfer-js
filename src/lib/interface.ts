@@ -1,5 +1,3 @@
-type NestedKeys<T> = T[keyof T];
-
 /**
  * convert target type
  */
@@ -8,7 +6,7 @@ export const ConvertType = {
   youtubeWatch: `youtube-watch`,
   uberTrip: `uber-trip`,
 } as const;
-export type ConvertType = NestedKeys<typeof ConvertType>;
+export type ConvertType = (typeof ConvertType)[keyof typeof ConvertType];
 
 /**
  * period unit
@@ -21,8 +19,7 @@ export const PeriodUnit = {
   semiAnnual: `semi-annual`,
   yearly: `yearly`,
 } as const;
-export type PeriodUnit = NestedKeys<typeof PeriodUnit>;
-
+export type PeriodUnit = (typeof PeriodUnit)[keyof typeof PeriodUnit];
 /**
  * convert return type. period and serialized data
  */
