@@ -4,14 +4,27 @@ import did from './did.js';
 import sdJwt from './sd-jwt.js';
 
 async function main() {
+  let exit = true;
+  let res = false;
   console.log(`run did example: `);
-  console.log(await did());
+  res = await did();
+  exit &&= res;
+  console.log(res);
   console.log(`run convert example: `);
-  console.log(await convert());
+  res = await convert();
+  exit &&= res;
+  console.log(res);
   console.log(`run sig example: `);
-  console.log(await sig());
+  res = await sig();
+  exit &&= res;
+  console.log(res);
   console.log(`run sd-jwt example: `);
-  console.log(await sdJwt());
+  res = await sdJwt();
+  exit &&= res;
+
+  if (!exit) {
+    throw new Error(`Example Failed`);
+  }
 }
 
 main();

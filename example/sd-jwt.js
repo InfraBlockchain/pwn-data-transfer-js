@@ -18,6 +18,7 @@ async function main() {
   if (runDirect) {
     console.log(icalSdjwt);
     console.log(icalDecodedSDJWT);
+    console.log(!!icalDecodedSDJWT.unverifiedInputSdJwt[`credentialSubject`][`newn:data`]);
   }
 
   return !!icalDecodedSDJWT.unverifiedInputSdJwt[`credentialSubject`][`newn:data`];

@@ -1,0 +1,23 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+
+yarn lint
+yarn build 
+
+cover=$(yarn test | grep "All files" | cut -d "|" -f2 | tr -d " ")
+ver=$(grep -o "\"version\": \"[^\"]*" package.json | grep -o "[^\"]*$")
+
+if [ $cover -ge 90 ] ;then ccolor="green"
+elif [ $cover -ge 80 ];then ccolor="yellow"
+elif [ $cover -ge 60 ];then ccolor="orange"
+else ccolor="red"
+fi 
+
+sed "s/{{version}}/$ver/" README.template.md | 
+sed "s/{{cover}}/$cover%/" | 
+sed "s/{{ccolor}}/$ccolor/" > README.md
+
+
+yarn example
+git add . 

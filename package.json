@@ -33,7 +33,8 @@
     "example:convert": "NODE_ENV=development yarn build:dev && node example/convert.js",
     "example:did": "NODE_ENV=development yarn build:dev && node example/did.js",
     "example:sig": "NODE_ENV=development yarn build:dev && node example/sig.js",
-    "example:sd-jwt": "NODE_ENV=development yarn build:dev && node example/sd-jwt.js"
+    "example:sd-jwt": "NODE_ENV=development yarn build:dev && node example/sd-jwt.js",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -68,6 +69,7 @@
     "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-tsdoc": "^0.2.17",
+    "husky": "^8.0.3",
     "jest-mock-console": "^2.0.0",
     "jest-watch-typeahead": "^2.2.2",
     "microbundle": "^0.15.1",
