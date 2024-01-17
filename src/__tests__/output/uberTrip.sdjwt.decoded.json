@@ -10,7 +10,8 @@
       {
         "schema": "http://schema.org/",
         "xsd": "http://www.w3.org/2001/XMLSchema#",
-        "newn": "https://newnal.com/ontology/"
+        "newn": "https://newnal.com/ontology/",
+        "cred": "https://www.w3.org/2018/credentials#"
       }
     ],
     "type": [
@@ -18,7 +19,7 @@
       "newn:uberTripData"
     ],
     "credentialSubject": {
-      "newn:holder": "did:infra:space:holder12345",
+      "cred:holder": "did:infra:space:holder12345",
       "newn:data": [
         {
           "@id": "urn:newnal.com:uber:trip:32303134-2d31-422d-b138-2031343a3534",
@@ -127,13 +128,13 @@
     "issuer": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF",
     "proof": {
       "type": "Ed25519Signature2018",
-      "created": "2024-01-08T05:28:50Z",
+      "created": "2024-01-17T05:29:43Z",
       "verificationMethod": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF#keys-1",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zeEz84vvqTfg7kyRk5hiCvsTd22S7EoxCzV1Ngk6Q658z38gU41q8gVfmLLkbg56QkCHoHmjMvNaJdPuaoLfH8rm"
+      "proofValue": "z3J6dgEoaWkR1RCcEnzUTsWgSJkpMPwsHT4NXZYsksXgWHVoHKokxTBTRkMHKmSCAjcv9CnpWxrbUCDSsJTbnbq9U"
     },
     "id": "did:infra:sample",
-    "issuanceDate": "2024-01-08T05:28:50.352Z",
+    "issuanceDate": "2024-01-17T05:29:43.876Z",
     "_sd_alg": "sha-256"
   },
   "disclosures": [],

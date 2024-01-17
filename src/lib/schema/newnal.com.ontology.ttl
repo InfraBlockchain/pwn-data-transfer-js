@@ -1,0 +1,3 @@
+PREFIX newn: <https://newnal.com/ontology/>
+
+newn:data a "vc 데이터들. 내용추가 필요.".

@@ -4,7 +4,8 @@
     {
       "cal": "http://www.w3.org/2002/12/cal/ical#",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
-      "newn": "https://newnal.com/ontology/"
+      "newn": "https://newnal.com/ontology/",
+      "cred": "https://www.w3.org/2018/credentials#"
     }
   ],
   "type": [
@@ -12,7 +13,7 @@
     "newn:icalEvent"
   ],
   "credentialSubject": {
-    "newn:holder": "did:infra:space:holder12345",
+    "cred:holder": "did:infra:space:holder12345",
     "newn:data": [
       {
         "@id": "urn:newnal.com:google:calendar:32303232-2d30-432d-b132-5430303a3337",
@@ -136,11 +137,11 @@
   "issuer": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF",
   "proof": {
     "type": "Ed25519Signature2018",
-    "created": "2024-01-08T05:28:50Z",
+    "created": "2024-01-17T05:29:43Z",
     "verificationMethod": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF#keys-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "z5hgZZG9Ak3oAQzMg3s5q3DH46TcZZUwkgyFiaj75kj7nZBcSW1t2SiFKx6PQVYEUp91HFjHF16ufit5rLgtQTze8"
+    "proofValue": "z3ddREdnkoKKYWcKvspvyHPXZwLiuizQ35e4pAC28vLQWDF64twarDMhwCveFm6ZQngS1nbm2nhRSR8hnr7yFLoHH"
   },
   "id": "did:infra:sample",
-  "issuanceDate": "2024-01-08T05:28:50.332Z"
+  "issuanceDate": "2024-01-17T05:29:43.856Z"
 }

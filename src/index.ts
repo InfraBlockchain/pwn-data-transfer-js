@@ -99,13 +99,13 @@ class PwnDataInput {
     const vc = new VerifiableCredential(vcId);
     vc.addContext(`https://www.w3.org/2018/credentials/v1`);
     vc.addType(`VerifiableCredential`);
-
     vc.addContext({
       ...(jsonld[`@context`] as Record<string, unknown>),
       newn: `https://newnal.com/ontology/`,
+      cred: `https://www.w3.org/2018/credentials#`,
     });
     vc.addType(vcType);
-    vc.addSubject({ 'newn:holder': holderDID, 'newn:data': jsonld[`@graph`] });
+    vc.addSubject({ 'cred:holder': holderDID, 'newn:data': jsonld[`@graph`] });
 
     const signed = await vc.sign(this.getKeyDoc());
 

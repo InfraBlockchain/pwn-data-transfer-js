@@ -4,7 +4,8 @@
     {
       "schema": "http://schema.org/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
-      "newn": "https://newnal.com/ontology/"
+      "newn": "https://newnal.com/ontology/",
+      "cred": "https://www.w3.org/2018/credentials#"
     }
   ],
   "type": [
@@ -12,7 +13,7 @@
     "newn:youtubeWatchHistory"
   ],
   "credentialSubject": {
-    "newn:holder": "did:infra:space:holder12345",
+    "cred:holder": "did:infra:space:holder12345",
     "newn:data": [
       {
         "@id": "urn:newnal.com:google:youtube:watch:32303233-2d30-492d-b136-5430383a3433",
@@ -37,11 +38,11 @@
   "issuer": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF",
   "proof": {
     "type": "Ed25519Signature2018",
-    "created": "2024-01-08T05:28:50Z",
+    "created": "2024-01-17T05:29:43Z",
     "verificationMethod": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF#keys-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "z3uVCppU1cWcepcfyezXoqPD6nSFy2tNmQNLSMTcXHHYx62214GFSkeTa2cwZsxGeze6KJ98bnespXSSofor53WwG"
+    "proofValue": "zFZr3WLySVWjHT1cn2dYJC1WTodXgkFViyXM42QnTSu9mCHCCEg17feZ9Rnw7DVehfVKGzw9GUPPwP3R4usu2ZsL"
   },
   "id": "did:infra:sample",
-  "issuanceDate": "2024-01-08T05:28:50.350Z"
+  "issuanceDate": "2024-01-17T05:29:43.872Z"
 }
