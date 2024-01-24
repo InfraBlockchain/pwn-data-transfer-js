@@ -128,13 +128,13 @@
     "issuer": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF",
     "proof": {
       "type": "Ed25519Signature2018",
-      "created": "2024-01-24T00:09:58Z",
+      "created": "2024-01-24T00:53:40Z",
       "verificationMethod": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF#keys-1",
       "proofPurpose": "assertionMethod",
-      "proofValue": "zPwdRMBsCbxxzW4cJ5nidxWmbfq9RhrnaSAuxzmbFUwMmXq48PSArZAU5NuCwBq1eBaAwv3pJ9cGx32DZ4vhUm23"
+      "proofValue": "z3AHbi2mTzSK4eD1Uv5BxZboXkHn5MpRkU1wg81XtcF8zr6nQYTW7JEiWpsbVgXpv1bPoKZ9jgvgqoGSmsECFpp5m"
     },
     "id": "did:infra:sample",
-    "issuanceDate": "2024-01-24T00:09:58.170Z",
+    "issuanceDate": "2024-01-24T00:53:40.452Z",
     "_sd_alg": "sha-256"
   },
   "disclosures": [],

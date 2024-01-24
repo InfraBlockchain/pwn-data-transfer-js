@@ -15,7 +15,7 @@ else ccolor="red"
 fi 
 
 sed "s/{{version}}/$ver/" README.template.md | 
-sed "s/{{cover}}/$cover%/" | 
+sed "s/{{cover}}/$cover%25/" | 
 sed "s/{{ccolor}}/$ccolor/" > README.md
 
 

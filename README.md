@@ -1,5 +1,5 @@
 ![Generic badge](https://img.shields.io/badge/version-0.2.0-blue)
-![Generic badge](https://img.shields.io/badge/coverage-100%-green)
+![Generic badge](https://img.shields.io/badge/coverage-100%25-green)
 
 
 # PWN Data Transfer JS

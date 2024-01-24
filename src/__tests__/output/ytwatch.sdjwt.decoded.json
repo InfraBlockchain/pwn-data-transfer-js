@@ -44,13 +44,13 @@
     "issuer": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF",
     "proof": {
       "type": "Ed25519Signature2018",
-      "created": "2024-01-24T00:09:58Z",
+      "created": "2024-01-24T00:53:40Z",
       "verificationMethod": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF#keys-1",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z2c7LB6aDczxhHfzTBG3KK8vZupbb4neP4WWm3M5DSDDKnLs8jQuQAh4S7S3gAQhF5Y2Z7bRLzTpXeKyRhhnNPupz"
+      "proofValue": "z5ot5h5qs2PALURgKfSyQwEeFG1SEoNHoRLz8m3B6fo5QT9ZsfJVWD7oNf1rgAJXENN12pHv7mjAzkNHfyH4bheex"
     },
     "id": "did:infra:sample",
-    "issuanceDate": "2024-01-24T00:09:58.168Z",
+    "issuanceDate": "2024-01-24T00:53:40.449Z",
     "_sd_alg": "sha-256"
   },
   "disclosures": [],
