@@ -10,6 +10,37 @@
     "@type": "xsd:dateTime"
   },
   "schema:priceCurrency": "KRW",
-  "schema:reservationFor": {},
+  "schema:reservationFor": {
+    "@type": "schema:TravelAction",
+    "schema:additionalType": "COMPLETED",
+    "schema:distance": "7.28 miles",
+    "schema:endTime": {
+      "@value": "2022-01-18T00:38:06.000Z",
+      "@type": "xsd:dateTime"
+    },
+    "schema:fromLocation": {
+      "@type": "schema:Place",
+      "schema:address": "시립브라운스톤어린이집, 경기도 하남시 풍산동 미사강변동로 47",
+      "schema:geo": {
+        "@type": "schema:GeoCoordinates",
+        "schema:latitude": "37.559353",
+        "schema:longitude": "127.194664"
+      }
+    },
+    "schema:object": "Standard Taxi",
+    "schema:startTime": {
+      "@value": "2022-01-18T00:09:30.000Z",
+      "@type": "xsd:dateTime"
+    },
+    "schema:toLocation": {
+      "@type": "schema:Place",
+      "schema:address": "화이트글라스 주차장, 서울특별시 송파구 문정동 법원로 128",
+      "schema:geo": {
+        "@type": "schema:GeoCoordinates",
+        "schema:latitude": "37.48619",
+        "schema:longitude": "127.11981"
+      }
+    }
+  },
   "schema:totalPrice": "12000"
 }

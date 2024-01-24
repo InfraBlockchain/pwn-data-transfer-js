@@ -50,7 +50,7 @@ class UberTripConverter extends Converter {
   private static convertToRDF(csvData: Record<string, unknown>[]): void {
     csvData.forEach((row) => {
       if (this.rdfGraph) {
-        const tripleId = Util.getUrn(`uber`, `trip`, row[`Request Time`] as string);
+        const tripleId = Util.getUrnNamedNode(`uber`, `trip`, row[`Request Time`] as string);
 
         this.rdfGraph.add(tripleId, rdf.ns(`type`), schema.ns(`Reservation`));
 

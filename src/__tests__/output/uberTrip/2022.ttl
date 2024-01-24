@@ -5,17 +5,65 @@
     a schema:Reservation;
     schema:bookingTime "2022-01-18T00:06:08.000Z"^^xsd:dateTime;
     schema:priceCurrency "KRW";
-    schema:reservationFor [];
+    schema:reservationFor
+            [
+                a schema:TravelAction;
+                schema:additionalType "COMPLETED";
+                schema:distance "7.28 miles";
+                schema:endTime "2022-01-18T00:38:06.000Z"^^xsd:dateTime;
+                schema:fromLocation
+                        [
+                            a schema:Place;
+                            schema:address
+                                "시립브라운스톤어린이집, 경기도 하남시 풍산동 미사강변동로 47";
+                            schema:geo
+                                    [
+                                        a schema:GeoCoordinates;
+                                        schema:latitude "37.559353";
+                                        schema:longitude "127.194664"
+                                    ]
+                        ];
+                schema:object "Standard Taxi";
+                schema:startTime "2022-01-18T00:09:30.000Z"^^xsd:dateTime;
+                schema:toLocation
+                        [
+                            a schema:Place;
+                            schema:address
+                                "화이트글라스 주차장, 서울특별시 송파구 문정동 법원로 128";
+                            schema:geo
+                                    [
+                                        a schema:GeoCoordinates;
+                                        schema:latitude "37.48619";
+                                        schema:longitude "127.11981"
+                                    ]
+                        ]
+            ];
     schema:totalPrice "12000".
 <urn:newnal.com:uber:trip:32303232-2d30-412d-b230-2030303a3133>
     a schema:Reservation;
     schema:bookingTime "2022-01-20T00:13:17.000Z"^^xsd:dateTime;
     schema:priceCurrency "KRW";
-    schema:reservationFor [];
+    schema:reservationFor
+            [
+                a schema:TravelAction;
+                schema:additionalType "CANCELED";
+                schema:distance "0.00 miles";
+                schema:endTime "1970-01-01T00:00:00.000Z"^^xsd:dateTime;
+                schema:object "Standard Taxi";
+                schema:startTime "1970-01-01T00:00:00.000Z"^^xsd:dateTime
+            ];
     schema:totalPrice "0".
 <urn:newnal.com:uber:trip:32303232-2d30-412d-b230-2030303a3136>
     a schema:Reservation;
     schema:bookingTime "2022-01-20T00:16:46.000Z"^^xsd:dateTime;
     schema:priceCurrency "KRW";
-    schema:reservationFor [];
+    schema:reservationFor
+            [
+                a schema:TravelAction;
+                schema:additionalType "CANCELED";
+                schema:distance "0.00 miles";
+                schema:endTime "1970-01-01T00:00:00.000Z"^^xsd:dateTime;
+                schema:object "Standard Taxi";
+                schema:startTime "1970-01-01T00:00:00.000Z"^^xsd:dateTime
+            ];
     schema:totalPrice "0".

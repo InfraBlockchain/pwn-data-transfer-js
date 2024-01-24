@@ -64,13 +64,13 @@ class YoutubeWatchConverter extends Converter {
       const dateElement = this.findDateElement(outerCell);
 
       const eventDate = dateElement ? this.formatDateToRDF(dateElement.trim()) : ``;
-      const eventId = Util.getUrn(`google`, `youtube:watch`, eventDate);
+      const eventId = Util.getUrnNamedNode(`google`, `youtube:watch`, eventDate);
       this.rdfGraph.add(eventId, rdf.ns(`type`), schema.ns(`WatchAction`));
 
       const videoObjectNode = RDF.blankNode(`${eventId}_VideoObject`);
-      this.rdfGraph.add(eventId, schema.ns(`object`), videoObjectNode);
+      // const videoObjectNode = RDF.namedNode(`${eventId}_VideoObject`);
       this.rdfGraph.add(videoObjectNode, rdf.ns(`type`), schema.ns(`VideoObject`));
-
+      this.rdfGraph.add(eventId, schema.ns(`object`), videoObjectNode);
       if (videoLink) {
         const videoTitle = videoLink.textContent?.trim();
         const videoURL = videoLink.getAttribute(`href`);

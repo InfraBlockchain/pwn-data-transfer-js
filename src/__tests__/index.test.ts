@@ -15,7 +15,9 @@ describe(`Module Test`, () => {
 
   describe(`Util`, () => {
     test(`standalone getUrn`, () => {
-      expect(Util.getUrn(`test`, `test-event`, ``).value.startsWith(`urn:newnal.com:test:test-event`)).toBeTruthy();
+      expect(
+        Util.getUrnNamedNode(`test`, `test-event`, ``).value.startsWith(`urn:newnal.com:test:test-event`),
+      ).toBeTruthy();
     });
     test(`standalone Converter`, async () => {
       await expect(async () => await Converter.convert(``)).rejects.toThrow();

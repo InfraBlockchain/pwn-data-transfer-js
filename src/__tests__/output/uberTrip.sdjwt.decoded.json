@@ -28,7 +28,19 @@
             "@value": "2014-12-18T14:54:46.000Z",
             "@type": "xsd:dateTime"
           },
-          "schema:reservationFor": {},
+          "schema:reservationFor": {
+            "@type": "schema:TravelAction",
+            "schema:additionalType": "UNFULFILLED",
+            "schema:distance": "0.00 miles",
+            "schema:endTime": {
+              "@value": "1970-01-01T00:00:00.000Z",
+              "@type": "xsd:dateTime"
+            },
+            "schema:startTime": {
+              "@value": "1970-01-01T00:00:00.000Z",
+              "@type": "xsd:dateTime"
+            }
+          },
           "schema:totalPrice": "0"
         },
         {
@@ -44,7 +56,19 @@
               "@type": "xsd:dateTime"
             }
           ],
-          "schema:reservationFor": {},
+          "schema:reservationFor": {
+            "@type": "schema:TravelAction",
+            "schema:additionalType": "UNFULFILLED",
+            "schema:distance": "0.00 miles",
+            "schema:endTime": {
+              "@value": "1970-01-01T00:00:00.000Z",
+              "@type": "xsd:dateTime"
+            },
+            "schema:startTime": {
+              "@value": "1970-01-01T00:00:00.000Z",
+              "@type": "xsd:dateTime"
+            }
+          },
           "schema:totalPrice": "0"
         },
         {
@@ -54,7 +78,19 @@
             "@value": "2014-12-18T15:05:11.000Z",
             "@type": "xsd:dateTime"
           },
-          "schema:reservationFor": {},
+          "schema:reservationFor": {
+            "@type": "schema:TravelAction",
+            "schema:additionalType": "UNFULFILLED",
+            "schema:distance": "0.00 miles",
+            "schema:endTime": {
+              "@value": "1970-01-01T00:00:00.000Z",
+              "@type": "xsd:dateTime"
+            },
+            "schema:startTime": {
+              "@value": "1970-01-01T00:00:00.000Z",
+              "@type": "xsd:dateTime"
+            }
+          },
           "schema:totalPrice": "0"
         },
         {
@@ -65,7 +101,20 @@
             "@type": "xsd:dateTime"
           },
           "schema:priceCurrency": "KRW",
-          "schema:reservationFor": {},
+          "schema:reservationFor": {
+            "@type": "schema:TravelAction",
+            "schema:additionalType": "CANCELED",
+            "schema:distance": "0.00 miles",
+            "schema:endTime": {
+              "@value": "1970-01-01T00:00:00.000Z",
+              "@type": "xsd:dateTime"
+            },
+            "schema:object": "Standard Taxi",
+            "schema:startTime": {
+              "@value": "1970-01-01T00:00:00.000Z",
+              "@type": "xsd:dateTime"
+            }
+          },
           "schema:totalPrice": "0"
         },
         {
@@ -76,7 +125,38 @@
             "@type": "xsd:dateTime"
           },
           "schema:priceCurrency": "KRW",
-          "schema:reservationFor": {},
+          "schema:reservationFor": {
+            "@type": "schema:TravelAction",
+            "schema:additionalType": "COMPLETED",
+            "schema:distance": "7.28 miles",
+            "schema:endTime": {
+              "@value": "2022-01-18T00:38:06.000Z",
+              "@type": "xsd:dateTime"
+            },
+            "schema:fromLocation": {
+              "@type": "schema:Place",
+              "schema:address": "시립브라운스톤어린이집, 경기도 하남시 풍산동 미사강변동로 47",
+              "schema:geo": {
+                "@type": "schema:GeoCoordinates",
+                "schema:latitude": "37.559353",
+                "schema:longitude": "127.194664"
+              }
+            },
+            "schema:object": "Standard Taxi",
+            "schema:startTime": {
+              "@value": "2022-01-18T00:09:30.000Z",
+              "@type": "xsd:dateTime"
+            },
+            "schema:toLocation": {
+              "@type": "schema:Place",
+              "schema:address": "화이트글라스 주차장, 서울특별시 송파구 문정동 법원로 128",
+              "schema:geo": {
+                "@type": "schema:GeoCoordinates",
+                "schema:latitude": "37.48619",
+                "schema:longitude": "127.11981"
+              }
+            }
+          },
           "schema:totalPrice": "12000"
         },
         {
@@ -87,7 +167,20 @@
             "@type": "xsd:dateTime"
           },
           "schema:priceCurrency": "KRW",
-          "schema:reservationFor": {},
+          "schema:reservationFor": {
+            "@type": "schema:TravelAction",
+            "schema:additionalType": "CANCELED",
+            "schema:distance": "0.00 miles",
+            "schema:endTime": {
+              "@value": "1970-01-01T00:00:00.000Z",
+              "@type": "xsd:dateTime"
+            },
+            "schema:object": "Standard Taxi",
+            "schema:startTime": {
+              "@value": "1970-01-01T00:00:00.000Z",
+              "@type": "xsd:dateTime"
+            }
+          },
           "schema:totalPrice": "0"
         },
         {
@@ -98,7 +191,20 @@
             "@type": "xsd:dateTime"
           },
           "schema:priceCurrency": "KRW",
-          "schema:reservationFor": {},
+          "schema:reservationFor": {
+            "@type": "schema:TravelAction",
+            "schema:additionalType": "CANCELED",
+            "schema:distance": "0.00 miles",
+            "schema:endTime": {
+              "@value": "1970-01-01T00:00:00.000Z",
+              "@type": "xsd:dateTime"
+            },
+            "schema:object": "Standard Taxi",
+            "schema:startTime": {
+              "@value": "1970-01-01T00:00:00.000Z",
+              "@type": "xsd:dateTime"
+            }
+          },
           "schema:totalPrice": "0"
         },
         {
@@ -109,7 +215,38 @@
             "@type": "xsd:dateTime"
           },
           "schema:priceCurrency": "USD",
-          "schema:reservationFor": {},
+          "schema:reservationFor": {
+            "@type": "schema:TravelAction",
+            "schema:additionalType": "COMPLETED",
+            "schema:distance": "14.12 miles",
+            "schema:endTime": {
+              "@value": "2023-09-23T18:55:55.000Z",
+              "@type": "xsd:dateTime"
+            },
+            "schema:fromLocation": {
+              "@type": "schema:Place",
+              "schema:address": "800 Moffett Blvd, Mountain View, CA 94043, US",
+              "schema:geo": {
+                "@type": "schema:GeoCoordinates",
+                "schema:latitude": "37.40724",
+                "schema:longitude": "-122.06763"
+              }
+            },
+            "schema:object": "UberX",
+            "schema:startTime": {
+              "@value": "2023-09-23T18:39:30.000Z",
+              "@type": "xsd:dateTime"
+            },
+            "schema:toLocation": {
+              "@type": "schema:Place",
+              "schema:address": "2855 Stevens Creek Blvd, Santa Clara, CA 95050, US",
+              "schema:geo": {
+                "@type": "schema:GeoCoordinates",
+                "schema:latitude": "37.3265",
+                "schema:longitude": "-121.94465"
+              }
+            }
+          },
           "schema:totalPrice": "27.91"
         },
         {
@@ -120,7 +257,38 @@
             "@type": "xsd:dateTime"
           },
           "schema:priceCurrency": "USD",
-          "schema:reservationFor": {},
+          "schema:reservationFor": {
+            "@type": "schema:TravelAction",
+            "schema:additionalType": "COMPLETED",
+            "schema:distance": "12.14 miles",
+            "schema:endTime": {
+              "@value": "2023-09-24T02:25:31.000Z",
+              "@type": "xsd:dateTime"
+            },
+            "schema:fromLocation": {
+              "@type": "schema:Place",
+              "schema:address": "2855 Stevens Creek Blvd, Santa Clara, CA 95050, US",
+              "schema:geo": {
+                "@type": "schema:GeoCoordinates",
+                "schema:latitude": "37.32348",
+                "schema:longitude": "-121.94611"
+              }
+            },
+            "schema:object": "Uber Green",
+            "schema:startTime": {
+              "@value": "2023-09-24T02:09:50.000Z",
+              "@type": "xsd:dateTime"
+            },
+            "schema:toLocation": {
+              "@type": "schema:Place",
+              "schema:address": "800 Moffett Blvd, Mountain View, CA 94043, US",
+              "schema:geo": {
+                "@type": "schema:GeoCoordinates",
+                "schema:latitude": "37.4073",
+                "schema:longitude": "-122.06779"
+              }
+            }
+          },
           "schema:totalPrice": "27.45"
         }
       ]
@@ -128,13 +296,13 @@
     "issuer": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF",
     "proof": {
       "type": "Ed25519Signature2018",
-      "created": "2024-01-24T00:53:40Z",
+      "created": "2024-01-24T06:40:38Z",
       "verificationMethod": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF#keys-1",
       "proofPurpose": "assertionMethod",
-      "proofValue": "z3AHbi2mTzSK4eD1Uv5BxZboXkHn5MpRkU1wg81XtcF8zr6nQYTW7JEiWpsbVgXpv1bPoKZ9jgvgqoGSmsECFpp5m"
+      "proofValue": "z5afFyevXE579z4nDpUP8gETkJA5YQ9gBEaNGdeSbt2njLTh7Tem7C2RG8dnv9boDPtuDcwRy8Urxobm6bdz6zSRv"
     },
     "id": "did:infra:sample",
-    "issuanceDate": "2024-01-24T00:53:40.452Z",
+    "issuanceDate": "2024-01-24T06:40:38.934Z",
     "_sd_alg": "sha-256"
   },
   "disclosures": [],

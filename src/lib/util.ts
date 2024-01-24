@@ -2,10 +2,10 @@ import * as RDF from 'rdflib';
 import * as uuid from 'uuid';
 import { PeriodUnit, SerializedData } from './interface';
 import { ContentType } from 'rdflib/lib/types';
-import { NamedNode } from 'rdflib/lib/tf-types';
+import { NamedNode, Quad_Subject } from 'rdflib/lib/tf-types';
 
 class Util {
-  static getUrn = (service: string, event: string, seed: string): RDF.NamedNode => {
+  static getUrnNamedNode = (service: string, event: string, seed: string): RDF.NamedNode => {
     const ids = uuid.v4({
       random: `${seed}.${service}.${event}#`.split(``).map((char) => char.charCodeAt(0)),
     });
@@ -53,17 +53,33 @@ class Util {
         if (!groupedByPeriod[key]) {
           groupedByPeriod[key] = [];
         }
-        groupedByPeriod[key] = groupedByPeriod[key].concat(
-          graph.match(subject, undefined, undefined) as RDF.Statement[],
-        );
+        const relatedTriples = graph.match(subject, null, null) as RDF.Statement[];
+        const setBlankNodes = (triples: RDF.Statement[]): void => {
+          const blankNodeTriples = triples.filter((triple) => triple.object.termType === `BlankNode`);
+          if (blankNodeTriples) {
+            blankNodeTriples.forEach((blankNodeTriple) => {
+              const additionalBlankNodeTriples = graph.match(
+                blankNodeTriple.object as Quad_Subject,
+                null,
+                null,
+              ) as RDF.Statement[];
+              groupedByPeriod[key] = groupedByPeriod[key].concat(additionalBlankNodeTriples);
+              if (additionalBlankNodeTriples.filter((triple) => triple.object.termType === `BlankNode`).length > 0) {
+                setBlankNodes(additionalBlankNodeTriples);
+              }
+            });
+          }
+        };
+        setBlankNodes(relatedTriples);
+        groupedByPeriod[key] = groupedByPeriod[key].concat(relatedTriples as RDF.Statement[]);
       }
     });
 
     for (const periodKey in groupedByPeriod) {
-      const monthGraph = new RDF.IndexedFormula();
-      groupedByPeriod[periodKey].forEach((triple) => monthGraph.add(triple));
+      const periodGraph = new RDF.IndexedFormula();
+      groupedByPeriod[periodKey].forEach((triple) => periodGraph.add(triple));
 
-      const serializedData = RDF.serialize(null, monthGraph, null, format)?.replace(/\\u([\d\w]{4})/gi, (_, grp) =>
+      const serializedData = RDF.serialize(null, periodGraph, null, format)?.replace(/\\u([\d\w]{4})/gi, (_, grp) =>
         String.fromCharCode(parseInt(grp, 16)),
       );
       if (serializedData) {

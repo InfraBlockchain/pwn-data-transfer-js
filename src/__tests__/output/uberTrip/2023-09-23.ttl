@@ -5,5 +5,37 @@
     a schema:Reservation;
     schema:bookingTime "2023-09-23T18:29:39.000Z"^^xsd:dateTime;
     schema:priceCurrency "USD";
-    schema:reservationFor [];
+    schema:reservationFor
+            [
+                a schema:TravelAction;
+                schema:additionalType "COMPLETED";
+                schema:distance "14.12 miles";
+                schema:endTime "2023-09-23T18:55:55.000Z"^^xsd:dateTime;
+                schema:fromLocation
+                        [
+                            a schema:Place;
+                            schema:address
+                            "800 Moffett Blvd, Mountain View, CA 94043, US";
+                            schema:geo
+                                    [
+                                        a schema:GeoCoordinates;
+                                        schema:latitude "37.40724";
+                                        schema:longitude "-122.06763"
+                                    ]
+                        ];
+                schema:object "UberX";
+                schema:startTime "2023-09-23T18:39:30.000Z"^^xsd:dateTime;
+                schema:toLocation
+                        [
+                            a schema:Place;
+                            schema:address
+                                "2855 Stevens Creek Blvd, Santa Clara, CA 95050, US";
+                            schema:geo
+                                    [
+                                        a schema:GeoCoordinates;
+                                        schema:latitude "37.3265";
+                                        schema:longitude "-121.94465"
+                                    ]
+                        ]
+            ];
     schema:totalPrice "27.91".

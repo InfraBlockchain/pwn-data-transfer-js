@@ -5,7 +5,15 @@
   },
   "@id": "urn:newnal.com:google:youtube:watch:32303233-2d30-492d-b136-5430383a3433",
   "@type": "schema:WatchAction",
-  "schema:object": {},
+  "schema:object": {
+    "@type": "schema:VideoObject",
+    "schema:creator": {
+      "schema:name": "할렐루야교회 영아부",
+      "schema:url": "https://www.youtube.com/channel/UCxuKWtKls-DLeCa127SbEFA"
+    },
+    "schema:embedUrl": "https://www.youtube.com/watch?v=smD2CZPGqN4",
+    "schema:name": "찬양 율동 모음 Ver. 5( 71곡, 2시간 연속)"
+  },
   "schema:startTime": {
     "@value": "2023-09-16T08:43:56.000Z",
     "@type": "xsd:dateTime"

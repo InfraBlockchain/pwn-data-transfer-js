@@ -12,7 +12,20 @@
         "@type": "xsd:dateTime"
       },
       "schema:priceCurrency": "KRW",
-      "schema:reservationFor": {},
+      "schema:reservationFor": {
+        "@type": "schema:TravelAction",
+        "schema:additionalType": "CANCELED",
+        "schema:distance": "0.00 miles",
+        "schema:endTime": {
+          "@value": "1970-01-01T00:00:00.000Z",
+          "@type": "xsd:dateTime"
+        },
+        "schema:object": "Standard Taxi",
+        "schema:startTime": {
+          "@value": "1970-01-01T00:00:00.000Z",
+          "@type": "xsd:dateTime"
+        }
+      },
       "schema:totalPrice": "0"
     },
     {
@@ -23,7 +36,20 @@
         "@type": "xsd:dateTime"
       },
       "schema:priceCurrency": "KRW",
-      "schema:reservationFor": {},
+      "schema:reservationFor": {
+        "@type": "schema:TravelAction",
+        "schema:additionalType": "CANCELED",
+        "schema:distance": "0.00 miles",
+        "schema:endTime": {
+          "@value": "1970-01-01T00:00:00.000Z",
+          "@type": "xsd:dateTime"
+        },
+        "schema:object": "Standard Taxi",
+        "schema:startTime": {
+          "@value": "1970-01-01T00:00:00.000Z",
+          "@type": "xsd:dateTime"
+        }
+      },
       "schema:totalPrice": "0"
     }
   ]

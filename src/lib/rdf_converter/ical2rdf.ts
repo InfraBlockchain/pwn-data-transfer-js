@@ -47,7 +47,7 @@ class IcalConverter extends Converter {
     if (this.rdfGraph) {
       for (const [key, value] of Object.entries(event)) {
         const upperKey = key.toUpperCase();
-        const eventId = Util.getUrn(`google`, `calendar`, eventDate);
+        const eventId = Util.getUrnNamedNode(`google`, `calendar`, eventDate);
         if (this.isDateTimeKey(upperKey)) {
           try {
             const dtParsed = IcalConverter.parseICalDateTime(value);
