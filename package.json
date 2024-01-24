@@ -1,7 +1,7 @@
 {
-  "name": "pwn-data-input",
+  "name": "pwn-data-transfer",
   "version": "0.2.0",
-  "description": "PWN Data Input JS Library",
+  "description": "PWN Data transfer Library for javascript",
   "type": "module",
   "source": "src/index.ts",
   "main": "./dist/prod/index.cjs",

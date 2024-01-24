@@ -2,7 +2,7 @@
 ![Generic badge](https://img.shields.io/badge/coverage-{{cover}}-{{ccolor}})
 
 
-# PWN Data Input Library
+# PWN Data Transfer JS
 
 
 ## Feature

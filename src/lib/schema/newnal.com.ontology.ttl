@@ -1,3 +1,6 @@
 PREFIX newn: <https://newnal.com/ontology/>
 
-newn:data a "vc 데이터들. 내용추가 필요.".
+newn:data a "vc 데이터들.".
+newn:icalEvent a "vc용 ical 이벤트".
+newn:uberTripData a "vc: 우버 트립 데이터".
+newn:youtubeWatchHistory a 'vc용 유투브 시청'.

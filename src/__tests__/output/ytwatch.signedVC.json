@@ -38,11 +38,11 @@
   "issuer": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF",
   "proof": {
     "type": "Ed25519Signature2018",
-    "created": "2024-01-17T05:29:43Z",
+    "created": "2024-01-24T00:09:58Z",
     "verificationMethod": "did:infra:space:5Cq2Za1Z4HJx5eTvxT5iFyXZLM1XTwVZSafQsEuK4ujNKJEF#keys-1",
     "proofPurpose": "assertionMethod",
-    "proofValue": "zFZr3WLySVWjHT1cn2dYJC1WTodXgkFViyXM42QnTSu9mCHCCEg17feZ9Rnw7DVehfVKGzw9GUPPwP3R4usu2ZsL"
+    "proofValue": "z2c7LB6aDczxhHfzTBG3KK8vZupbb4neP4WWm3M5DSDDKnLs8jQuQAh4S7S3gAQhF5Y2Z7bRLzTpXeKyRhhnNPupz"
   },
   "id": "did:infra:sample",
-  "issuanceDate": "2024-01-17T05:29:43.872Z"
+  "issuanceDate": "2024-01-24T00:09:58.168Z"
 }
